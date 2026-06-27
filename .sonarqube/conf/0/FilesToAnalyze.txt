@@ -1,0 +1,8 @@
+﻿C:\repos\SonarTestBadCode\SonarTestBadCode\Controllers\HomeController.cs
+C:\repos\SonarTestBadCode\SonarTestBadCode\Helpers\ValidationHelper.cs
+C:\repos\SonarTestBadCode\SonarTestBadCode\Models\UserModel.cs
+C:\repos\SonarTestBadCode\SonarTestBadCode\ProcessorClass.cs
+C:\repos\SonarTestBadCode\SonarTestBadCode\Properties\AssemblyInfo.cs
+C:\repos\SonarTestBadCode\SonarTestBadCode\Repositories\UserRepository.cs
+C:\repos\SonarTestBadCode\SonarTestBadCode\Services\DataService.cs
+C:\repos\SonarTestBadCode\SonarTestBadCode\Utilities\StringHelper.cs

@@ -1,0 +1,10 @@
+Q
+HC:\repos\SonarTestBadCode\SonarTestBadCode\Controllers\HomeController.csutf-8O
+FC:\repos\SonarTestBadCode\SonarTestBadCode\Helpers\ValidationHelper.csutf-8G
+>C:\repos\SonarTestBadCode\SonarTestBadCode\Models\UserModel.csutf-8E
+<C:\repos\SonarTestBadCode\SonarTestBadCode\ProcessorClass.csutf-8N
+EC:\repos\SonarTestBadCode\SonarTestBadCode\Properties\AssemblyInfo.csutf-8R
+IC:\repos\SonarTestBadCode\SonarTestBadCode\Repositories\UserRepository.csutf-8K
+BC:\repos\SonarTestBadCode\SonarTestBadCode\Services\DataService.csutf-8M
+DC:\repos\SonarTestBadCode\SonarTestBadCode\Utilities\StringHelper.csutf-8p
+eC:\repos\SonarTestBadCode\SonarTestBadCode\obj\Debug\.NETFramework,Version=v4.8.AssemblyAttributes.csutf-8

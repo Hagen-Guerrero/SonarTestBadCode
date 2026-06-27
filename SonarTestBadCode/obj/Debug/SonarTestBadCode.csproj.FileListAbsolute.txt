@@ -1,0 +1,6 @@
+C:\repos\SonarTestBadCode\SonarTestBadCode\bin\Debug\SonarTestBadCode.dll
+C:\repos\SonarTestBadCode\SonarTestBadCode\bin\Debug\SonarTestBadCode.pdb
+C:\repos\SonarTestBadCode\SonarTestBadCode\obj\Debug\SonarTestBadCode.csproj.AssemblyReference.cache
+C:\repos\SonarTestBadCode\SonarTestBadCode\obj\Debug\SonarTestBadCode.csproj.CoreCompileInputs.cache
+C:\repos\SonarTestBadCode\SonarTestBadCode\obj\Debug\SonarTestBadCode.dll
+C:\repos\SonarTestBadCode\SonarTestBadCode\obj\Debug\SonarTestBadCode.pdb
