@@ -65,6 +65,9 @@ jobs:
       - name: Install Python dependencies
         run: pip install requests
 
+      - name: Install Mono MSBuild (.NET Framework 4.8 on Linux)
+        run: sudo apt-get update -qq && sudo apt-get install -y mono-msbuild
+
       # -----------------------------------------------------------------------
       # Step 6: Bootstrap — wait for SonarQube, generate token, create project
       # -----------------------------------------------------------------------
