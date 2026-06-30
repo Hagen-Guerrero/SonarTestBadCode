@@ -153,8 +153,10 @@ jobs:
             /d:sonar.login="$SONARQUBE_TOKEN" \
             /d:sonar.exclusions="scripts/**,output/**"
 
-      - name: Build (.NET Framework 4.8 via Mono MSBuild)
-        run: msbuild SonarTestBadCode.sln /p:Configuration=Release
+      - name: Build (.NET Framework 4.8 via dotnet MSBuild)
+        env:
+          FrameworkPathOverride: /usr/lib/mono/4.8-api/
+        run: dotnet msbuild SonarTestBadCode.sln /p:Configuration=Release
 
       - name: SonarScanner end
         run: dotnet sonarscanner end /d:sonar.login="$SONARQUBE_TOKEN"
