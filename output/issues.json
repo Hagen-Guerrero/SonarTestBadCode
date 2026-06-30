@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-30T18:04:41.736300+00:00",
+  "fetched_at": "2026-06-30T18:09:55.850231+00:00",
   "total_fetched": 255,
   "project_keys": [
     "sonar-test-bad-code"
@@ -14,7 +14,7 @@
   "language": "cs",
   "issues": [
     {
-      "key": "AZ8ZsFEx7T-pij5TbB_K",
+      "key": "AZ8ZuSUV0ku646K0E3ee",
       "rule": "csharpsquid:S2306",
       "severity": "BLOCKER",
       "component": "sonar-test-bad-code:SonarTestBadCode/ProcessorClass.cs",
@@ -37,14 +37,14 @@
         "pitfall"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFB7T-pij5TbCAb",
+      "key": "AZ8ZuSVM0ku646K0E3fz",
       "rule": "csharpsquid:S2223",
       "severity": "CRITICAL",
       "component": "sonar-test-bad-code:SonarTestBadCode/Controllers/HomeController.cs",
@@ -67,14 +67,14 @@
         "pitfall"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFB7T-pij5TbCAd",
+      "key": "AZ8ZuSVM0ku646K0E3f1",
       "rule": "csharpsquid:S2223",
       "severity": "CRITICAL",
       "component": "sonar-test-bad-code:SonarTestBadCode/Controllers/HomeController.cs",
@@ -97,14 +97,14 @@
         "pitfall"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFB7T-pij5TbCAX",
+      "key": "AZ8ZuSVM0ku646K0E3f3",
       "rule": "csharpsquid:S2223",
       "severity": "CRITICAL",
       "component": "sonar-test-bad-code:SonarTestBadCode/Controllers/HomeController.cs",
@@ -127,14 +127,14 @@
         "pitfall"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFB7T-pij5TbCAg",
+      "key": "AZ8ZuSVM0ku646K0E3f4",
       "rule": "csharpsquid:S1186",
       "severity": "CRITICAL",
       "component": "sonar-test-bad-code:SonarTestBadCode/Controllers/HomeController.cs",
@@ -157,14 +157,14 @@
         "suspicious"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFB7T-pij5TbCAh",
+      "key": "AZ8ZuSVN0ku646K0E3f5",
       "rule": "csharpsquid:S1186",
       "severity": "CRITICAL",
       "component": "sonar-test-bad-code:SonarTestBadCode/Controllers/HomeController.cs",
@@ -187,14 +187,14 @@
         "suspicious"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFe7T-pij5TbCCq",
+      "key": "AZ8ZuSWh0ku646K0E3iR",
       "rule": "csharpsquid:S2223",
       "severity": "CRITICAL",
       "component": "sonar-test-bad-code:SonarTestBadCode/Helpers/ValidationHelper.cs",
@@ -217,14 +217,14 @@
         "pitfall"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFe7T-pij5TbCC-",
+      "key": "AZ8ZuSWh0ku646K0E3ih",
       "rule": "csharpsquid:S1186",
       "severity": "CRITICAL",
       "component": "sonar-test-bad-code:SonarTestBadCode/Helpers/ValidationHelper.cs",
@@ -247,14 +247,14 @@
         "suspicious"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFe7T-pij5TbCC_",
+      "key": "AZ8ZuSWh0ku646K0E3ii",
       "rule": "csharpsquid:S1186",
       "severity": "CRITICAL",
       "component": "sonar-test-bad-code:SonarTestBadCode/Helpers/ValidationHelper.cs",
@@ -277,14 +277,14 @@
         "suspicious"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFEg7T-pij5TbB-m",
+      "key": "AZ8ZuSQi0ku646K0E3d9",
       "rule": "csharpsquid:S2223",
       "severity": "CRITICAL",
       "component": "sonar-test-bad-code:SonarTestBadCode/Models/UserModel.cs",
@@ -307,14 +307,14 @@
         "pitfall"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFEg7T-pij5TbB-o",
+      "key": "AZ8ZuSQi0ku646K0E3d_",
       "rule": "csharpsquid:S2223",
       "severity": "CRITICAL",
       "component": "sonar-test-bad-code:SonarTestBadCode/Models/UserModel.cs",
@@ -337,14 +337,14 @@
         "pitfall"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFEg7T-pij5TbB-v",
+      "key": "AZ8ZuSQi0ku646K0E3eA",
       "rule": "csharpsquid:S1186",
       "severity": "CRITICAL",
       "component": "sonar-test-bad-code:SonarTestBadCode/Models/UserModel.cs",
@@ -367,14 +367,14 @@
         "suspicious"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFEg7T-pij5TbB-w",
+      "key": "AZ8ZuSQi0ku646K0E3eB",
       "rule": "csharpsquid:S1186",
       "severity": "CRITICAL",
       "component": "sonar-test-bad-code:SonarTestBadCode/Models/UserModel.cs",
@@ -397,14 +397,14 @@
         "suspicious"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFEx7T-pij5TbB_O",
+      "key": "AZ8ZuSUV0ku646K0E3ek",
       "rule": "csharpsquid:S2223",
       "severity": "CRITICAL",
       "component": "sonar-test-bad-code:SonarTestBadCode/ProcessorClass.cs",
@@ -427,14 +427,14 @@
         "pitfall"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFEx7T-pij5TbB_R",
+      "key": "AZ8ZuSUV0ku646K0E3el",
       "rule": "csharpsquid:S1186",
       "severity": "CRITICAL",
       "component": "sonar-test-bad-code:SonarTestBadCode/ProcessorClass.cs",
@@ -457,14 +457,14 @@
         "suspicious"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFEx7T-pij5TbB_S",
+      "key": "AZ8ZuSUV0ku646K0E3em",
       "rule": "csharpsquid:S1186",
       "severity": "CRITICAL",
       "component": "sonar-test-bad-code:SonarTestBadCode/ProcessorClass.cs",
@@ -487,14 +487,14 @@
         "suspicious"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFU7T-pij5TbCBy",
+      "key": "AZ8ZuSWN0ku646K0E3hb",
       "rule": "csharpsquid:S2223",
       "severity": "CRITICAL",
       "component": "sonar-test-bad-code:SonarTestBadCode/Repositories/UserRepository.cs",
@@ -517,14 +517,14 @@
         "pitfall"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFU7T-pij5TbCBz",
+      "key": "AZ8ZuSWN0ku646K0E3ha",
       "rule": "csharpsquid:S2223",
       "severity": "CRITICAL",
       "component": "sonar-test-bad-code:SonarTestBadCode/Repositories/UserRepository.cs",
@@ -547,14 +547,14 @@
         "pitfall"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFU7T-pij5TbCB2",
+      "key": "AZ8ZuSWN0ku646K0E3hd",
       "rule": "csharpsquid:S2223",
       "severity": "CRITICAL",
       "component": "sonar-test-bad-code:SonarTestBadCode/Repositories/UserRepository.cs",
@@ -577,14 +577,14 @@
         "pitfall"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFU7T-pij5TbCCE",
+      "key": "AZ8ZuSWO0ku646K0E3hn",
       "rule": "csharpsquid:S1186",
       "severity": "CRITICAL",
       "component": "sonar-test-bad-code:SonarTestBadCode/Repositories/UserRepository.cs",
@@ -607,14 +607,14 @@
         "suspicious"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFU7T-pij5TbCCF",
+      "key": "AZ8ZuSWO0ku646K0E3ho",
       "rule": "csharpsquid:S1186",
       "severity": "CRITICAL",
       "component": "sonar-test-bad-code:SonarTestBadCode/Repositories/UserRepository.cs",
@@ -637,14 +637,14 @@
         "suspicious"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFU7T-pij5TbCCG",
+      "key": "AZ8ZuSWO0ku646K0E3hp",
       "rule": "csharpsquid:S1186",
       "severity": "CRITICAL",
       "component": "sonar-test-bad-code:SonarTestBadCode/Repositories/UserRepository.cs",
@@ -667,14 +667,14 @@
         "suspicious"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFM7T-pij5TbCBL",
+      "key": "AZ8ZuSV70ku646K0E3gh",
       "rule": "csharpsquid:S2223",
       "severity": "CRITICAL",
       "component": "sonar-test-bad-code:SonarTestBadCode/Services/DataService.cs",
@@ -697,14 +697,14 @@
         "pitfall"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFM7T-pij5TbCBN",
+      "key": "AZ8ZuSV70ku646K0E3gl",
       "rule": "csharpsquid:S2223",
       "severity": "CRITICAL",
       "component": "sonar-test-bad-code:SonarTestBadCode/Services/DataService.cs",
@@ -727,14 +727,14 @@
         "pitfall"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFM7T-pij5TbCBJ",
+      "key": "AZ8ZuSV70ku646K0E3gm",
       "rule": "csharpsquid:S4487",
       "severity": "CRITICAL",
       "component": "sonar-test-bad-code:SonarTestBadCode/Services/DataService.cs",
@@ -758,14 +758,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFM7T-pij5TbCBM",
+      "key": "AZ8ZuSV70ku646K0E3gn",
       "rule": "csharpsquid:S4487",
       "severity": "CRITICAL",
       "component": "sonar-test-bad-code:SonarTestBadCode/Services/DataService.cs",
@@ -789,14 +789,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFM7T-pij5TbCBd",
+      "key": "AZ8ZuSV80ku646K0E3g7",
       "rule": "csharpsquid:S2696",
       "severity": "CRITICAL",
       "component": "sonar-test-bad-code:SonarTestBadCode/Services/DataService.cs",
@@ -834,14 +834,14 @@
         "multi-threading"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFM7T-pij5TbCBc",
+      "key": "AZ8ZuSV80ku646K0E3g4",
       "rule": "csharpsquid:S2696",
       "severity": "CRITICAL",
       "component": "sonar-test-bad-code:SonarTestBadCode/Services/DataService.cs",
@@ -879,14 +879,14 @@
         "multi-threading"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFM7T-pij5TbCBa",
+      "key": "AZ8ZuSV80ku646K0E3g5",
       "rule": "csharpsquid:S1186",
       "severity": "CRITICAL",
       "component": "sonar-test-bad-code:SonarTestBadCode/Services/DataService.cs",
@@ -909,14 +909,14 @@
         "suspicious"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFM7T-pij5TbCBb",
+      "key": "AZ8ZuSV80ku646K0E3g6",
       "rule": "csharpsquid:S1186",
       "severity": "CRITICAL",
       "component": "sonar-test-bad-code:SonarTestBadCode/Services/DataService.cs",
@@ -939,14 +939,14 @@
         "suspicious"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFM7T-pij5TbCBe",
+      "key": "AZ8ZuSV80ku646K0E3g8",
       "rule": "csharpsquid:S1186",
       "severity": "CRITICAL",
       "component": "sonar-test-bad-code:SonarTestBadCode/Services/DataService.cs",
@@ -969,14 +969,14 @@
         "suspicious"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFE47T-pij5TbB_8",
+      "key": "AZ8ZuSUo0ku646K0E3fO",
       "rule": "csharpsquid:S1186",
       "severity": "CRITICAL",
       "component": "sonar-test-bad-code:SonarTestBadCode/Utilities/StringHelper.cs",
@@ -999,14 +999,14 @@
         "suspicious"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFE47T-pij5TbB_9",
+      "key": "AZ8ZuSUo0ku646K0E3fP",
       "rule": "csharpsquid:S1186",
       "severity": "CRITICAL",
       "component": "sonar-test-bad-code:SonarTestBadCode/Utilities/StringHelper.cs",
@@ -1029,14 +1029,14 @@
         "suspicious"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFB7T-pij5TbCAT",
+      "key": "AZ8ZuSVM0ku646K0E3fq",
       "rule": "csharpsquid:S1144",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Controllers/HomeController.cs",
@@ -1059,14 +1059,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFB7T-pij5TbCAU",
+      "key": "AZ8ZuSVM0ku646K0E3fr",
       "rule": "csharpsquid:S1144",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Controllers/HomeController.cs",
@@ -1089,14 +1089,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFB7T-pij5TbCAV",
+      "key": "AZ8ZuSVM0ku646K0E3fs",
       "rule": "csharpsquid:S1144",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Controllers/HomeController.cs",
@@ -1119,14 +1119,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFB7T-pij5TbCAR",
+      "key": "AZ8ZuSVM0ku646K0E3fo",
       "rule": "csharpsquid:S2933",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Controllers/HomeController.cs",
@@ -1149,14 +1149,14 @@
         "confusing"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFB7T-pij5TbCAY",
+      "key": "AZ8ZuSVM0ku646K0E3ft",
       "rule": "csharpsquid:S1144",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Controllers/HomeController.cs",
@@ -1179,14 +1179,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFB7T-pij5TbCAS",
+      "key": "AZ8ZuSVM0ku646K0E3fp",
       "rule": "csharpsquid:S2933",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Controllers/HomeController.cs",
@@ -1209,14 +1209,14 @@
         "confusing"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFB7T-pij5TbCAZ",
+      "key": "AZ8ZuSVM0ku646K0E3fu",
       "rule": "csharpsquid:S1144",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Controllers/HomeController.cs",
@@ -1239,14 +1239,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFB7T-pij5TbCAl",
+      "key": "AZ8ZuSVN0ku646K0E3f6",
       "rule": "csharpsquid:S112",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Controllers/HomeController.cs",
@@ -1270,14 +1270,14 @@
         "error-handling"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFB7T-pij5TbCAq",
+      "key": "AZ8ZuSVN0ku646K0E3gC",
       "rule": "csharpsquid:S2589",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Controllers/HomeController.cs",
@@ -1302,14 +1302,14 @@
         "suspicious"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFB7T-pij5TbCAp",
+      "key": "AZ8ZuSVN0ku646K0E3gB",
       "rule": "csharpsquid:S3923",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Controllers/HomeController.cs",
@@ -1330,14 +1330,14 @@
       "author": "hagen.guerrero@teia.mx",
       "tags": [],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "BUG",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFB7T-pij5TbCAt",
+      "key": "AZ8ZuSVN0ku646K0E3gF",
       "rule": "csharpsquid:S1066",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Controllers/HomeController.cs",
@@ -1375,14 +1375,14 @@
         "clumsy"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFB7T-pij5TbCAu",
+      "key": "AZ8ZuSVN0ku646K0E3gG",
       "rule": "csharpsquid:S1066",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Controllers/HomeController.cs",
@@ -1420,14 +1420,14 @@
         "clumsy"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFB7T-pij5TbCAv",
+      "key": "AZ8ZuSVN0ku646K0E3gH",
       "rule": "csharpsquid:S1764",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Controllers/HomeController.cs",
@@ -1463,14 +1463,14 @@
       "author": "hagen.guerrero@teia.mx",
       "tags": [],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "BUG",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFB7T-pij5TbCAw",
+      "key": "AZ8ZuSVN0ku646K0E3gI",
       "rule": "csharpsquid:S1764",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Controllers/HomeController.cs",
@@ -1506,14 +1506,14 @@
       "author": "hagen.guerrero@teia.mx",
       "tags": [],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "BUG",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFB7T-pij5TbCAx",
+      "key": "AZ8ZuSVN0ku646K0E3gJ",
       "rule": "csharpsquid:S2589",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Controllers/HomeController.cs",
@@ -1538,14 +1538,14 @@
         "suspicious"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFB7T-pij5TbCAy",
+      "key": "AZ8ZuSVN0ku646K0E3gK",
       "rule": "csharpsquid:S2589",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Controllers/HomeController.cs",
@@ -1570,14 +1570,14 @@
         "suspicious"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFB7T-pij5TbCAQ",
+      "key": "AZ8ZuSVM0ku646K0E3fn",
       "rule": "csharpsquid:S125",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Controllers/HomeController.cs",
@@ -1600,14 +1600,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFB7T-pij5TbCA0",
+      "key": "AZ8ZuSVN0ku646K0E3gM",
       "rule": "csharpsquid:S112",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Controllers/HomeController.cs",
@@ -1631,14 +1631,14 @@
         "error-handling"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFB7T-pij5TbCA1",
+      "key": "AZ8ZuSVN0ku646K0E3gN",
       "rule": "csharpsquid:S112",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Controllers/HomeController.cs",
@@ -1662,14 +1662,14 @@
         "error-handling"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8Zs5vf7T-pij5TbCPg",
+      "key": "AZ8ZuSVN0ku646K0E3gQ",
       "rule": "csharpsquid:S2221",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Controllers/HomeController.cs",
@@ -1693,14 +1693,14 @@
         "error-handling"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:03:43+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8Zs5vf7T-pij5TbCPh",
+      "key": "AZ8ZuSVN0ku646K0E3gR",
       "rule": "csharpsquid:S2221",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Controllers/HomeController.cs",
@@ -1724,14 +1724,14 @@
         "error-handling"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:03:43+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFe7T-pij5TbCCm",
+      "key": "AZ8ZuSWh0ku646K0E3iL",
       "rule": "csharpsquid:S1144",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Helpers/ValidationHelper.cs",
@@ -1754,14 +1754,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFe7T-pij5TbCCn",
+      "key": "AZ8ZuSWh0ku646K0E3iM",
       "rule": "csharpsquid:S1144",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Helpers/ValidationHelper.cs",
@@ -1784,14 +1784,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFe7T-pij5TbCCl",
+      "key": "AZ8ZuSWh0ku646K0E3iK",
       "rule": "csharpsquid:S2933",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Helpers/ValidationHelper.cs",
@@ -1814,14 +1814,14 @@
         "confusing"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFe7T-pij5TbCCp",
+      "key": "AZ8ZuSWh0ku646K0E3iN",
       "rule": "csharpsquid:S1144",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Helpers/ValidationHelper.cs",
@@ -1844,14 +1844,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFe7T-pij5TbCCs",
+      "key": "AZ8ZuSWh0ku646K0E3iS",
       "rule": "csharpsquid:S1066",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Helpers/ValidationHelper.cs",
@@ -1889,14 +1889,14 @@
         "clumsy"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFe7T-pij5TbCCu",
+      "key": "AZ8ZuSWh0ku646K0E3iV",
       "rule": "csharpsquid:S1066",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Helpers/ValidationHelper.cs",
@@ -1934,14 +1934,14 @@
         "clumsy"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFe7T-pij5TbCCv",
+      "key": "AZ8ZuSWh0ku646K0E3iU",
       "rule": "csharpsquid:S1066",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Helpers/ValidationHelper.cs",
@@ -1979,14 +1979,14 @@
         "clumsy"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFe7T-pij5TbCC2",
+      "key": "AZ8ZuSWh0ku646K0E3iZ",
       "rule": "csharpsquid:S2589",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Helpers/ValidationHelper.cs",
@@ -2011,14 +2011,14 @@
         "suspicious"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFe7T-pij5TbCCx",
+      "key": "AZ8ZuSWh0ku646K0E3iX",
       "rule": "csharpsquid:S3923",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Helpers/ValidationHelper.cs",
@@ -2039,14 +2039,14 @@
       "author": "hagen.guerrero@teia.mx",
       "tags": [],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "BUG",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFe7T-pij5TbCCz",
+      "key": "AZ8ZuSWh0ku646K0E3ib",
       "rule": "csharpsquid:S1764",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Helpers/ValidationHelper.cs",
@@ -2082,14 +2082,14 @@
       "author": "hagen.guerrero@teia.mx",
       "tags": [],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "BUG",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFe7T-pij5TbCC0",
+      "key": "AZ8ZuSWh0ku646K0E3ic",
       "rule": "csharpsquid:S1764",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Helpers/ValidationHelper.cs",
@@ -2125,14 +2125,14 @@
       "author": "hagen.guerrero@teia.mx",
       "tags": [],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "BUG",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFe7T-pij5TbCC1",
+      "key": "AZ8ZuSWh0ku646K0E3id",
       "rule": "csharpsquid:S1764",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Helpers/ValidationHelper.cs",
@@ -2168,14 +2168,14 @@
       "author": "hagen.guerrero@teia.mx",
       "tags": [],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "BUG",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFe7T-pij5TbCC4",
+      "key": "AZ8ZuSWh0ku646K0E3if",
       "rule": "csharpsquid:S2589",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Helpers/ValidationHelper.cs",
@@ -2200,14 +2200,14 @@
         "suspicious"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFe7T-pij5TbCC6",
+      "key": "AZ8ZuSWh0ku646K0E3ik",
       "rule": "csharpsquid:S112",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Helpers/ValidationHelper.cs",
@@ -2231,14 +2231,14 @@
         "error-handling"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFe7T-pij5TbCC7",
+      "key": "AZ8ZuSWh0ku646K0E3il",
       "rule": "csharpsquid:S112",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Helpers/ValidationHelper.cs",
@@ -2262,14 +2262,14 @@
         "error-handling"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFe7T-pij5TbCC8",
+      "key": "AZ8ZuSWh0ku646K0E3im",
       "rule": "csharpsquid:S112",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Helpers/ValidationHelper.cs",
@@ -2293,14 +2293,14 @@
         "error-handling"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFe7T-pij5TbCC5",
+      "key": "AZ8ZuSWh0ku646K0E3ig",
       "rule": "csharpsquid:S112",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Helpers/ValidationHelper.cs",
@@ -2324,14 +2324,14 @@
         "error-handling"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFe7T-pij5TbCCk",
+      "key": "AZ8ZuSWh0ku646K0E3iJ",
       "rule": "csharpsquid:S125",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Helpers/ValidationHelper.cs",
@@ -2354,14 +2354,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8Zs5wG7T-pij5TbCPu",
+      "key": "AZ8ZuSWh0ku646K0E3ie",
       "rule": "csharpsquid:S2221",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Helpers/ValidationHelper.cs",
@@ -2385,14 +2385,14 @@
         "error-handling"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:03:43+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFEg7T-pij5TbB-p",
+      "key": "AZ8ZuSQi0ku646K0E3d2",
       "rule": "csharpsquid:S1144",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Models/UserModel.cs",
@@ -2415,14 +2415,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFEg7T-pij5TbB-q",
+      "key": "AZ8ZuSQi0ku646K0E3d3",
       "rule": "csharpsquid:S1144",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Models/UserModel.cs",
@@ -2445,14 +2445,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFEg7T-pij5TbB-r",
+      "key": "AZ8ZuSQi0ku646K0E3d4",
       "rule": "csharpsquid:S1144",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Models/UserModel.cs",
@@ -2475,14 +2475,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFEg7T-pij5TbB-l",
+      "key": "AZ8ZuSQi0ku646K0E3d1",
       "rule": "csharpsquid:S2933",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Models/UserModel.cs",
@@ -2505,14 +2505,14 @@
         "confusing"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFEg7T-pij5TbB-s",
+      "key": "AZ8ZuSQi0ku646K0E3d5",
       "rule": "csharpsquid:S1144",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Models/UserModel.cs",
@@ -2535,14 +2535,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFEg7T-pij5TbB-0",
+      "key": "AZ8ZuSQi0ku646K0E3eC",
       "rule": "csharpsquid:S112",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Models/UserModel.cs",
@@ -2566,14 +2566,14 @@
         "error-handling"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFEg7T-pij5TbB-z",
+      "key": "AZ8ZuSQi0ku646K0E3eF",
       "rule": "csharpsquid:S112",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Models/UserModel.cs",
@@ -2597,14 +2597,14 @@
         "error-handling"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8Zs5uw7T-pij5TbCPZ",
+      "key": "AZ8ZuSQi0ku646K0E3eG",
       "rule": "csharpsquid:S3717",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Models/UserModel.cs",
@@ -2625,14 +2625,14 @@
       "author": "hagen.guerrero@teia.mx",
       "tags": [],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:03:43+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8Zs5uw7T-pij5TbCPa",
+      "key": "AZ8ZuSQi0ku646K0E3eH",
       "rule": "csharpsquid:S3717",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Models/UserModel.cs",
@@ -2653,14 +2653,14 @@
       "author": "hagen.guerrero@teia.mx",
       "tags": [],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:03:43+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFEg7T-pij5TbB-x",
+      "key": "AZ8ZuSQi0ku646K0E3eJ",
       "rule": "csharpsquid:S3923",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Models/UserModel.cs",
@@ -2681,14 +2681,14 @@
       "author": "hagen.guerrero@teia.mx",
       "tags": [],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "BUG",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFEg7T-pij5TbB-3",
+      "key": "AZ8ZuSQi0ku646K0E3eK",
       "rule": "csharpsquid:S1066",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Models/UserModel.cs",
@@ -2726,14 +2726,14 @@
         "clumsy"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFEg7T-pij5TbB-4",
+      "key": "AZ8ZuSQi0ku646K0E3eL",
       "rule": "csharpsquid:S1066",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Models/UserModel.cs",
@@ -2771,14 +2771,14 @@
         "clumsy"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFEg7T-pij5TbB-5",
+      "key": "AZ8ZuSQi0ku646K0E3eM",
       "rule": "csharpsquid:S1764",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Models/UserModel.cs",
@@ -2814,14 +2814,14 @@
       "author": "hagen.guerrero@teia.mx",
       "tags": [],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "BUG",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFEg7T-pij5TbB-6",
+      "key": "AZ8ZuSQi0ku646K0E3eN",
       "rule": "csharpsquid:S1764",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Models/UserModel.cs",
@@ -2857,14 +2857,14 @@
       "author": "hagen.guerrero@teia.mx",
       "tags": [],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "BUG",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFEg7T-pij5TbB-j",
+      "key": "AZ8ZuSQh0ku646K0E3d0",
       "rule": "csharpsquid:S125",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Models/UserModel.cs",
@@ -2887,14 +2887,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8Zs5uw7T-pij5TbCPb",
+      "key": "AZ8ZuSQi0ku646K0E3eO",
       "rule": "csharpsquid:S2221",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Models/UserModel.cs",
@@ -2918,14 +2918,14 @@
         "error-handling"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:03:43+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFEx7T-pij5TbB_N",
+      "key": "AZ8ZuSUV0ku646K0E3eg",
       "rule": "csharpsquid:S1144",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/ProcessorClass.cs",
@@ -2948,14 +2948,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFEx7T-pij5TbB_P",
+      "key": "AZ8ZuSUV0ku646K0E3eh",
       "rule": "csharpsquid:S1144",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/ProcessorClass.cs",
@@ -2978,14 +2978,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFEx7T-pij5TbB_V",
+      "key": "AZ8ZuSUV0ku646K0E3ep",
       "rule": "csharpsquid:S1854",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/ProcessorClass.cs",
@@ -3009,14 +3009,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFEx7T-pij5TbB_b",
+      "key": "AZ8ZuSUV0ku646K0E3ev",
       "rule": "csharpsquid:S112",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/ProcessorClass.cs",
@@ -3040,14 +3040,14 @@
         "error-handling"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFEx7T-pij5TbB_c",
+      "key": "AZ8ZuSUV0ku646K0E3ew",
       "rule": "csharpsquid:S112",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/ProcessorClass.cs",
@@ -3071,14 +3071,14 @@
         "error-handling"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8Zs5vH7T-pij5TbCPc",
+      "key": "AZ8ZuSUV0ku646K0E3e0",
       "rule": "csharpsquid:S2221",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/ProcessorClass.cs",
@@ -3102,14 +3102,14 @@
         "error-handling"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:03:43+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8Zs5vH7T-pij5TbCPd",
+      "key": "AZ8ZuSUV0ku646K0E3e2",
       "rule": "csharpsquid:S2221",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/ProcessorClass.cs",
@@ -3133,14 +3133,14 @@
         "error-handling"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:03:43+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFEx7T-pij5TbB_h",
+      "key": "AZ8ZuSUV0ku646K0E3e1",
       "rule": "csharpsquid:S112",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/ProcessorClass.cs",
@@ -3164,14 +3164,14 @@
         "error-handling"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFEx7T-pij5TbB_L",
+      "key": "AZ8ZuSUV0ku646K0E3ef",
       "rule": "csharpsquid:S125",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/ProcessorClass.cs",
@@ -3194,14 +3194,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFEx7T-pij5TbB_i",
+      "key": "AZ8ZuSUV0ku646K0E3e4",
       "rule": "csharpsquid:S2589",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/ProcessorClass.cs",
@@ -3226,14 +3226,14 @@
         "suspicious"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFU7T-pij5TbCB1",
+      "key": "AZ8ZuSWN0ku646K0E3hQ",
       "rule": "csharpsquid:S1144",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Repositories/UserRepository.cs",
@@ -3256,14 +3256,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFU7T-pij5TbCB3",
+      "key": "AZ8ZuSWN0ku646K0E3hR",
       "rule": "csharpsquid:S1144",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Repositories/UserRepository.cs",
@@ -3286,14 +3286,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFU7T-pij5TbCB4",
+      "key": "AZ8ZuSWN0ku646K0E3hS",
       "rule": "csharpsquid:S1144",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Repositories/UserRepository.cs",
@@ -3316,44 +3316,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFU7T-pij5TbCB5",
-      "rule": "csharpsquid:S1144",
-      "severity": "MAJOR",
-      "component": "sonar-test-bad-code:SonarTestBadCode/Repositories/UserRepository.cs",
-      "project": "sonar-test-bad-code",
-      "line": 20,
-      "hash": "6ef9fada7536567301884889bd7d1597",
-      "textRange": {
-        "startLine": 20,
-        "endLine": 20,
-        "startOffset": 8,
-        "endOffset": 53
-      },
-      "flows": [],
-      "status": "OPEN",
-      "message": "Remove the unused private field '_unusedConnectionLabel'.",
-      "effort": "5min",
-      "debt": "5min",
-      "author": "hagen.guerrero@teia.mx",
-      "tags": [
-        "unused"
-      ],
-      "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
-      "type": "CODE_SMELL",
-      "scope": "MAIN",
-      "quickFixAvailable": false,
-      "messageFormattings": []
-    },
-    {
-      "key": "AZ8ZsFFU7T-pij5TbCBx",
+      "key": "AZ8ZuSWN0ku646K0E3hP",
       "rule": "csharpsquid:S2933",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Repositories/UserRepository.cs",
@@ -3376,14 +3346,44 @@
         "confusing"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFU7T-pij5TbCB6",
+      "key": "AZ8ZuSWN0ku646K0E3hT",
+      "rule": "csharpsquid:S1144",
+      "severity": "MAJOR",
+      "component": "sonar-test-bad-code:SonarTestBadCode/Repositories/UserRepository.cs",
+      "project": "sonar-test-bad-code",
+      "line": 20,
+      "hash": "6ef9fada7536567301884889bd7d1597",
+      "textRange": {
+        "startLine": 20,
+        "endLine": 20,
+        "startOffset": 8,
+        "endOffset": 53
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Remove the unused private field '_unusedConnectionLabel'.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "hagen.guerrero@teia.mx",
+      "tags": [
+        "unused"
+      ],
+      "creationDate": "2026-06-27T04:22:49+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": []
+    },
+    {
+      "key": "AZ8ZuSWN0ku646K0E3hU",
       "rule": "csharpsquid:S1144",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Repositories/UserRepository.cs",
@@ -3406,14 +3406,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFU7T-pij5TbCB-",
+      "key": "AZ8ZuSWN0ku646K0E3he",
       "rule": "csharpsquid:S112",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Repositories/UserRepository.cs",
@@ -3437,14 +3437,14 @@
         "error-handling"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFU7T-pij5TbCCB",
+      "key": "AZ8ZuSWO0ku646K0E3hh",
       "rule": "csharpsquid:S112",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Repositories/UserRepository.cs",
@@ -3468,14 +3468,14 @@
         "error-handling"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8Zs5v67T-pij5TbCPo",
+      "key": "AZ8ZuSWO0ku646K0E3hk",
       "rule": "csharpsquid:S3717",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Repositories/UserRepository.cs",
@@ -3496,14 +3496,14 @@
       "author": "hagen.guerrero@teia.mx",
       "tags": [],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:03:43+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8Zs5v67T-pij5TbCPp",
+      "key": "AZ8ZuSWO0ku646K0E3hl",
       "rule": "csharpsquid:S3717",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Repositories/UserRepository.cs",
@@ -3524,14 +3524,14 @@
       "author": "hagen.guerrero@teia.mx",
       "tags": [],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:03:43+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8Zs5v67T-pij5TbCPq",
+      "key": "AZ8ZuSWO0ku646K0E3hm",
       "rule": "csharpsquid:S3717",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Repositories/UserRepository.cs",
@@ -3552,14 +3552,14 @@
       "author": "hagen.guerrero@teia.mx",
       "tags": [],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:03:43+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8Zs5v67T-pij5TbCPr",
+      "key": "AZ8ZuSWO0ku646K0E3hu",
       "rule": "csharpsquid:S2221",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Repositories/UserRepository.cs",
@@ -3583,14 +3583,14 @@
         "error-handling"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:03:43+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8Zs5v67T-pij5TbCPs",
+      "key": "AZ8ZuSWO0ku646K0E3hx",
       "rule": "csharpsquid:S2221",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Repositories/UserRepository.cs",
@@ -3614,14 +3614,14 @@
         "error-handling"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:03:43+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFU7T-pij5TbCCO",
+      "key": "AZ8ZuSWO0ku646K0E3hy",
       "rule": "csharpsquid:S112",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Repositories/UserRepository.cs",
@@ -3645,14 +3645,14 @@
         "error-handling"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFU7T-pij5TbCCT",
+      "key": "AZ8ZuSWO0ku646K0E3h1",
       "rule": "csharpsquid:S112",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Repositories/UserRepository.cs",
@@ -3676,14 +3676,14 @@
         "error-handling"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFU7T-pij5TbCCN",
+      "key": "AZ8ZuSWO0ku646K0E3hz",
       "rule": "csharpsquid:S3923",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Repositories/UserRepository.cs",
@@ -3704,14 +3704,14 @@
       "author": "hagen.guerrero@teia.mx",
       "tags": [],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "BUG",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFU7T-pij5TbCCU",
+      "key": "AZ8ZuSWO0ku646K0E3h5",
       "rule": "csharpsquid:S1066",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Repositories/UserRepository.cs",
@@ -3749,14 +3749,14 @@
         "clumsy"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFU7T-pij5TbCCV",
+      "key": "AZ8ZuSWO0ku646K0E3h7",
       "rule": "csharpsquid:S2589",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Repositories/UserRepository.cs",
@@ -3781,14 +3781,14 @@
         "suspicious"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFU7T-pij5TbCCS",
+      "key": "AZ8ZuSWO0ku646K0E3h4",
       "rule": "csharpsquid:S1764",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Repositories/UserRepository.cs",
@@ -3824,14 +3824,14 @@
       "author": "hagen.guerrero@teia.mx",
       "tags": [],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "BUG",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFU7T-pij5TbCCW",
+      "key": "AZ8ZuSWO0ku646K0E3h9",
       "rule": "csharpsquid:S2589",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Repositories/UserRepository.cs",
@@ -3856,14 +3856,14 @@
         "suspicious"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFU7T-pij5TbCBu",
+      "key": "AZ8ZuSWN0ku646K0E3hO",
       "rule": "csharpsquid:S125",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Repositories/UserRepository.cs",
@@ -3886,14 +3886,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFM7T-pij5TbCBE",
+      "key": "AZ8ZuSV70ku646K0E3ge",
       "rule": "csharpsquid:S2933",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Services/DataService.cs",
@@ -3916,14 +3916,14 @@
         "confusing"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFM7T-pij5TbCBH",
+      "key": "AZ8ZuSV70ku646K0E3gi",
       "rule": "csharpsquid:S1144",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Services/DataService.cs",
@@ -3946,14 +3946,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFM7T-pij5TbCBF",
+      "key": "AZ8ZuSV70ku646K0E3gf",
       "rule": "csharpsquid:S2933",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Services/DataService.cs",
@@ -3976,14 +3976,14 @@
         "confusing"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFM7T-pij5TbCBI",
+      "key": "AZ8ZuSV70ku646K0E3gj",
       "rule": "csharpsquid:S1144",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Services/DataService.cs",
@@ -4006,14 +4006,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFM7T-pij5TbCBW",
+      "key": "AZ8ZuSV80ku646K0E3gu",
       "rule": "csharpsquid:S112",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Services/DataService.cs",
@@ -4037,14 +4037,14 @@
         "error-handling"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFM7T-pij5TbCBT",
+      "key": "AZ8ZuSV80ku646K0E3gx",
       "rule": "csharpsquid:S112",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Services/DataService.cs",
@@ -4068,14 +4068,14 @@
         "error-handling"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFM7T-pij5TbCBX",
+      "key": "AZ8ZuSV80ku646K0E3g0",
       "rule": "csharpsquid:S112",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Services/DataService.cs",
@@ -4099,14 +4099,14 @@
         "error-handling"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8Zs5vu7T-pij5TbCPj",
+      "key": "AZ8ZuSV80ku646K0E3g1",
       "rule": "csharpsquid:S3717",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Services/DataService.cs",
@@ -4127,14 +4127,14 @@
       "author": "hagen.guerrero@teia.mx",
       "tags": [],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:03:43+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8Zs5vu7T-pij5TbCPk",
+      "key": "AZ8ZuSV80ku646K0E3g2",
       "rule": "csharpsquid:S3717",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Services/DataService.cs",
@@ -4155,14 +4155,14 @@
       "author": "hagen.guerrero@teia.mx",
       "tags": [],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:03:43+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8Zs5vu7T-pij5TbCPl",
+      "key": "AZ8ZuSV80ku646K0E3g3",
       "rule": "csharpsquid:S3717",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Services/DataService.cs",
@@ -4183,14 +4183,14 @@
       "author": "hagen.guerrero@teia.mx",
       "tags": [],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:03:43+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8Zs5vu7T-pij5TbCPm",
+      "key": "AZ8ZuSV80ku646K0E3g9",
       "rule": "csharpsquid:S2221",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Services/DataService.cs",
@@ -4214,14 +4214,14 @@
         "error-handling"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:03:43+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8Zs5vu7T-pij5TbCPn",
+      "key": "AZ8ZuSV80ku646K0E3g_",
       "rule": "csharpsquid:S2221",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Services/DataService.cs",
@@ -4245,14 +4245,14 @@
         "error-handling"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:03:43+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFM7T-pij5TbCBj",
+      "key": "AZ8ZuSV80ku646K0E3hE",
       "rule": "csharpsquid:S2583",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Services/DataService.cs",
@@ -4293,14 +4293,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "BUG",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFM7T-pij5TbCBh",
+      "key": "AZ8ZuSV80ku646K0E3hD",
       "rule": "csharpsquid:S2589",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Services/DataService.cs",
@@ -4325,14 +4325,14 @@
         "suspicious"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFM7T-pij5TbCBg",
+      "key": "AZ8ZuSV80ku646K0E3hA",
       "rule": "csharpsquid:S3923",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Services/DataService.cs",
@@ -4353,14 +4353,14 @@
       "author": "hagen.guerrero@teia.mx",
       "tags": [],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "BUG",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFM7T-pij5TbCBi",
+      "key": "AZ8ZuSV80ku646K0E3hB",
       "rule": "csharpsquid:S1066",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Services/DataService.cs",
@@ -4398,14 +4398,14 @@
         "clumsy"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFM7T-pij5TbCBD",
+      "key": "AZ8ZuSV70ku646K0E3gd",
       "rule": "csharpsquid:S125",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Services/DataService.cs",
@@ -4428,14 +4428,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFE47T-pij5TbB_r",
+      "key": "AZ8ZuSUn0ku646K0E3fC",
       "rule": "csharpsquid:S1118",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Utilities/StringHelper.cs",
@@ -4458,14 +4458,14 @@
         "design"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFE47T-pij5TbB_5",
+      "key": "AZ8ZuSUo0ku646K0E3fT",
       "rule": "csharpsquid:S2589",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Utilities/StringHelper.cs",
@@ -4490,14 +4490,14 @@
         "suspicious"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFE47T-pij5TbCAB",
+      "key": "AZ8ZuSUo0ku646K0E3fW",
       "rule": "csharpsquid:S112",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Utilities/StringHelper.cs",
@@ -4521,14 +4521,14 @@
         "error-handling"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFE47T-pij5TbCAC",
+      "key": "AZ8ZuSUo0ku646K0E3fZ",
       "rule": "csharpsquid:S112",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Utilities/StringHelper.cs",
@@ -4552,14 +4552,14 @@
         "error-handling"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFE47T-pij5TbCAA",
+      "key": "AZ8ZuSUo0ku646K0E3fY",
       "rule": "csharpsquid:S3923",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Utilities/StringHelper.cs",
@@ -4580,14 +4580,14 @@
       "author": "hagen.guerrero@teia.mx",
       "tags": [],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "BUG",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFE47T-pij5TbCAF",
+      "key": "AZ8ZuSUo0ku646K0E3fa",
       "rule": "csharpsquid:S1066",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Utilities/StringHelper.cs",
@@ -4625,14 +4625,14 @@
         "clumsy"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFE47T-pij5TbCAD",
+      "key": "AZ8ZuSUo0ku646K0E3fb",
       "rule": "csharpsquid:S1764",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Utilities/StringHelper.cs",
@@ -4668,14 +4668,14 @@
       "author": "hagen.guerrero@teia.mx",
       "tags": [],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "BUG",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFE47T-pij5TbCAE",
+      "key": "AZ8ZuSUo0ku646K0E3fc",
       "rule": "csharpsquid:S1764",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Utilities/StringHelper.cs",
@@ -4711,14 +4711,14 @@
       "author": "hagen.guerrero@teia.mx",
       "tags": [],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "BUG",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFE47T-pij5TbCAH",
+      "key": "AZ8ZuSUo0ku646K0E3fd",
       "rule": "csharpsquid:S2583",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Utilities/StringHelper.cs",
@@ -4759,14 +4759,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "BUG",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFE47T-pij5TbB_s",
+      "key": "AZ8ZuSUn0ku646K0E3fB",
       "rule": "csharpsquid:S125",
       "severity": "MAJOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Utilities/StringHelper.cs",
@@ -4789,44 +4789,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFB7T-pij5TbCAa",
-      "rule": "csharpsquid:S1104",
-      "severity": "MINOR",
-      "component": "sonar-test-bad-code:SonarTestBadCode/Controllers/HomeController.cs",
-      "project": "sonar-test-bad-code",
-      "line": 11,
-      "hash": "3e60e0a5e81cf61d9d69ae473846d2ff",
-      "textRange": {
-        "startLine": 11,
-        "endLine": 11,
-        "startOffset": 35,
-        "endOffset": 67
-      },
-      "flows": [],
-      "status": "OPEN",
-      "message": "Make this field 'private' and encapsulate it in a 'public' property.",
-      "effort": "10min",
-      "debt": "10min",
-      "author": "hagen.guerrero@teia.mx",
-      "tags": [
-        "cwe"
-      ],
-      "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
-      "type": "CODE_SMELL",
-      "scope": "MAIN",
-      "quickFixAvailable": false,
-      "messageFormattings": []
-    },
-    {
-      "key": "AZ8ZsFFB7T-pij5TbCAe",
+      "key": "AZ8ZuSVM0ku646K0E3fv",
       "rule": "csharpsquid:S2386",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Controllers/HomeController.cs",
@@ -4850,14 +4820,44 @@
         "unpredictable"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFB7T-pij5TbCAc",
+      "key": "AZ8ZuSVM0ku646K0E3fy",
+      "rule": "csharpsquid:S1104",
+      "severity": "MINOR",
+      "component": "sonar-test-bad-code:SonarTestBadCode/Controllers/HomeController.cs",
+      "project": "sonar-test-bad-code",
+      "line": 11,
+      "hash": "3e60e0a5e81cf61d9d69ae473846d2ff",
+      "textRange": {
+        "startLine": 11,
+        "endLine": 11,
+        "startOffset": 35,
+        "endOffset": 67
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Make this field 'private' and encapsulate it in a 'public' property.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "hagen.guerrero@teia.mx",
+      "tags": [
+        "cwe"
+      ],
+      "creationDate": "2026-06-27T04:22:49+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": []
+    },
+    {
+      "key": "AZ8ZuSVM0ku646K0E3f0",
       "rule": "csharpsquid:S1104",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Controllers/HomeController.cs",
@@ -4880,14 +4880,14 @@
         "cwe"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFB7T-pij5TbCAf",
+      "key": "AZ8ZuSVM0ku646K0E3fw",
       "rule": "csharpsquid:S2386",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Controllers/HomeController.cs",
@@ -4911,14 +4911,14 @@
         "unpredictable"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFB7T-pij5TbCAW",
+      "key": "AZ8ZuSVM0ku646K0E3f2",
       "rule": "csharpsquid:S1104",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Controllers/HomeController.cs",
@@ -4941,14 +4941,14 @@
         "cwe"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFB7T-pij5TbCAm",
+      "key": "AZ8ZuSVN0ku646K0E3f7",
       "rule": "csharpsquid:S1481",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Controllers/HomeController.cs",
@@ -4971,14 +4971,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8Zs5vf7T-pij5TbCPf",
+      "key": "AZ8ZuSVM0ku646K0E3fx",
       "rule": "csharpsquid:S1192",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Controllers/HomeController.cs",
@@ -5072,14 +5072,14 @@
         "design"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:03:43+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFB7T-pij5TbCAn",
+      "key": "AZ8ZuSVN0ku646K0E3f8",
       "rule": "csharpsquid:S1481",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Controllers/HomeController.cs",
@@ -5102,14 +5102,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFB7T-pij5TbCAo",
+      "key": "AZ8ZuSVN0ku646K0E3f9",
       "rule": "csharpsquid:S1481",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Controllers/HomeController.cs",
@@ -5132,14 +5132,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFB7T-pij5TbCAi",
+      "key": "AZ8ZuSVN0ku646K0E3f_",
       "rule": "csharpsquid:S3400",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Controllers/HomeController.cs",
@@ -5162,14 +5162,14 @@
         "confusing"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFB7T-pij5TbCAj",
+      "key": "AZ8ZuSVN0ku646K0E3f-",
       "rule": "csharpsquid:S3400",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Controllers/HomeController.cs",
@@ -5192,14 +5192,14 @@
         "confusing"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFB7T-pij5TbCAr",
+      "key": "AZ8ZuSVN0ku646K0E3gD",
       "rule": "csharpsquid:S1481",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Controllers/HomeController.cs",
@@ -5222,14 +5222,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFB7T-pij5TbCAs",
+      "key": "AZ8ZuSVN0ku646K0E3gE",
       "rule": "csharpsquid:S1481",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Controllers/HomeController.cs",
@@ -5252,14 +5252,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFB7T-pij5TbCAk",
+      "key": "AZ8ZuSVN0ku646K0E3gA",
       "rule": "csharpsquid:S1125",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Controllers/HomeController.cs",
@@ -5282,14 +5282,14 @@
         "clumsy"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFB7T-pij5TbCAz",
+      "key": "AZ8ZuSVN0ku646K0E3gL",
       "rule": "csharpsquid:S3400",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Controllers/HomeController.cs",
@@ -5312,14 +5312,14 @@
         "confusing"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFB7T-pij5TbCA2",
+      "key": "AZ8ZuSVN0ku646K0E3gO",
       "rule": "csharpsquid:S1481",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Controllers/HomeController.cs",
@@ -5342,14 +5342,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFB7T-pij5TbCA3",
+      "key": "AZ8ZuSVN0ku646K0E3gP",
       "rule": "csharpsquid:S1481",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Controllers/HomeController.cs",
@@ -5372,44 +5372,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFe7T-pij5TbCCo",
-      "rule": "csharpsquid:S1104",
-      "severity": "MINOR",
-      "component": "sonar-test-bad-code:SonarTestBadCode/Helpers/ValidationHelper.cs",
-      "project": "sonar-test-bad-code",
-      "line": 11,
-      "hash": "aed9783deb63914e84b28850169938e4",
-      "textRange": {
-        "startLine": 11,
-        "endLine": 11,
-        "startOffset": 35,
-        "endOffset": 71
-      },
-      "flows": [],
-      "status": "OPEN",
-      "message": "Make this field 'private' and encapsulate it in a 'public' property.",
-      "effort": "10min",
-      "debt": "10min",
-      "author": "hagen.guerrero@teia.mx",
-      "tags": [
-        "cwe"
-      ],
-      "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
-      "type": "CODE_SMELL",
-      "scope": "MAIN",
-      "quickFixAvailable": false,
-      "messageFormattings": []
-    },
-    {
-      "key": "AZ8ZsFFe7T-pij5TbCCr",
+      "key": "AZ8ZuSWh0ku646K0E3iO",
       "rule": "csharpsquid:S2386",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Helpers/ValidationHelper.cs",
@@ -5433,14 +5403,44 @@
         "unpredictable"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFe7T-pij5TbCCt",
+      "key": "AZ8ZuSWh0ku646K0E3iQ",
+      "rule": "csharpsquid:S1104",
+      "severity": "MINOR",
+      "component": "sonar-test-bad-code:SonarTestBadCode/Helpers/ValidationHelper.cs",
+      "project": "sonar-test-bad-code",
+      "line": 11,
+      "hash": "aed9783deb63914e84b28850169938e4",
+      "textRange": {
+        "startLine": 11,
+        "endLine": 11,
+        "startOffset": 35,
+        "endOffset": 71
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Make this field 'private' and encapsulate it in a 'public' property.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "hagen.guerrero@teia.mx",
+      "tags": [
+        "cwe"
+      ],
+      "creationDate": "2026-06-27T04:22:49+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": []
+    },
+    {
+      "key": "AZ8ZuSWh0ku646K0E3iT",
       "rule": "csharpsquid:S1481",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Helpers/ValidationHelper.cs",
@@ -5463,14 +5463,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFe7T-pij5TbCCw",
+      "key": "AZ8ZuSWh0ku646K0E3iW",
       "rule": "csharpsquid:S1481",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Helpers/ValidationHelper.cs",
@@ -5493,14 +5493,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8Zs5wG7T-pij5TbCPt",
+      "key": "AZ8ZuSWh0ku646K0E3iP",
       "rule": "csharpsquid:S1192",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Helpers/ValidationHelper.cs",
@@ -5594,14 +5594,14 @@
         "design"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:03:43+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFe7T-pij5TbCC3",
+      "key": "AZ8ZuSWh0ku646K0E3ia",
       "rule": "csharpsquid:S1481",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Helpers/ValidationHelper.cs",
@@ -5624,14 +5624,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFe7T-pij5TbCCy",
+      "key": "AZ8ZuSWh0ku646K0E3iY",
       "rule": "csharpsquid:S1125",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Helpers/ValidationHelper.cs",
@@ -5654,14 +5654,14 @@
         "clumsy"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFe7T-pij5TbCDC",
+      "key": "AZ8ZuSWh0ku646K0E3ip",
       "rule": "csharpsquid:S1481",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Helpers/ValidationHelper.cs",
@@ -5684,14 +5684,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFe7T-pij5TbCDD",
+      "key": "AZ8ZuSWh0ku646K0E3iq",
       "rule": "csharpsquid:S1481",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Helpers/ValidationHelper.cs",
@@ -5714,14 +5714,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFe7T-pij5TbCDA",
+      "key": "AZ8ZuSWh0ku646K0E3in",
       "rule": "csharpsquid:S3400",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Helpers/ValidationHelper.cs",
@@ -5744,14 +5744,14 @@
         "confusing"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFe7T-pij5TbCDB",
+      "key": "AZ8ZuSWh0ku646K0E3io",
       "rule": "csharpsquid:S1116",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Helpers/ValidationHelper.cs",
@@ -5774,44 +5774,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFEg7T-pij5TbB-k",
-      "rule": "csharpsquid:S1104",
-      "severity": "MINOR",
-      "component": "sonar-test-bad-code:SonarTestBadCode/Models/UserModel.cs",
-      "project": "sonar-test-bad-code",
-      "line": 11,
-      "hash": "d8246fb9e3a9b83e74800759a8244ace",
-      "textRange": {
-        "startLine": 11,
-        "endLine": 11,
-        "startOffset": 38,
-        "endOffset": 70
-      },
-      "flows": [],
-      "status": "OPEN",
-      "message": "Make this field 'private' and encapsulate it in a 'public' property.",
-      "effort": "10min",
-      "debt": "10min",
-      "author": "hagen.guerrero@teia.mx",
-      "tags": [
-        "cwe"
-      ],
-      "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
-      "type": "CODE_SMELL",
-      "scope": "MAIN",
-      "quickFixAvailable": false,
-      "messageFormattings": []
-    },
-    {
-      "key": "AZ8ZsFEg7T-pij5TbB-t",
+      "key": "AZ8ZuSQi0ku646K0E3d6",
       "rule": "csharpsquid:S2386",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Models/UserModel.cs",
@@ -5835,14 +5805,44 @@
         "unpredictable"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFEg7T-pij5TbB-n",
+      "key": "AZ8ZuSQi0ku646K0E3d8",
+      "rule": "csharpsquid:S1104",
+      "severity": "MINOR",
+      "component": "sonar-test-bad-code:SonarTestBadCode/Models/UserModel.cs",
+      "project": "sonar-test-bad-code",
+      "line": 11,
+      "hash": "d8246fb9e3a9b83e74800759a8244ace",
+      "textRange": {
+        "startLine": 11,
+        "endLine": 11,
+        "startOffset": 38,
+        "endOffset": 70
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Make this field 'private' and encapsulate it in a 'public' property.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "hagen.guerrero@teia.mx",
+      "tags": [
+        "cwe"
+      ],
+      "creationDate": "2026-06-27T04:22:49+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": []
+    },
+    {
+      "key": "AZ8ZuSQi0ku646K0E3d-",
       "rule": "csharpsquid:S1104",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Models/UserModel.cs",
@@ -5865,14 +5865,14 @@
         "cwe"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFEg7T-pij5TbB-u",
+      "key": "AZ8ZuSQi0ku646K0E3d7",
       "rule": "csharpsquid:S2386",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Models/UserModel.cs",
@@ -5896,14 +5896,14 @@
         "unpredictable"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFEg7T-pij5TbB-1",
+      "key": "AZ8ZuSQi0ku646K0E3eD",
       "rule": "csharpsquid:S1481",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Models/UserModel.cs",
@@ -5926,14 +5926,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFEg7T-pij5TbB-2",
+      "key": "AZ8ZuSQi0ku646K0E3eE",
       "rule": "csharpsquid:S1481",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Models/UserModel.cs",
@@ -5956,14 +5956,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFEg7T-pij5TbB-y",
+      "key": "AZ8ZuSQi0ku646K0E3eI",
       "rule": "csharpsquid:S3400",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Models/UserModel.cs",
@@ -5986,14 +5986,14 @@
         "confusing"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFEg7T-pij5TbB-7",
+      "key": "AZ8ZuSQi0ku646K0E3eP",
       "rule": "csharpsquid:S1481",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Models/UserModel.cs",
@@ -6016,14 +6016,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFEg7T-pij5TbB-8",
+      "key": "AZ8ZuSQi0ku646K0E3eQ",
       "rule": "csharpsquid:S1481",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Models/UserModel.cs",
@@ -6046,14 +6046,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFEg7T-pij5TbB-9",
+      "key": "AZ8ZuSQi0ku646K0E3eR",
       "rule": "csharpsquid:S1643",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Models/UserModel.cs",
@@ -6076,14 +6076,14 @@
         "performance"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFEg7T-pij5TbB--",
+      "key": "AZ8ZuSQi0ku646K0E3eS",
       "rule": "csharpsquid:S1116",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Models/UserModel.cs",
@@ -6106,14 +6106,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFEg7T-pij5TbB-_",
+      "key": "AZ8ZuSQi0ku646K0E3eT",
       "rule": "csharpsquid:S1116",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Models/UserModel.cs",
@@ -6136,44 +6136,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFEx7T-pij5TbB_M",
-      "rule": "csharpsquid:S1104",
-      "severity": "MINOR",
-      "component": "sonar-test-bad-code:SonarTestBadCode/ProcessorClass.cs",
-      "project": "sonar-test-bad-code",
-      "line": 10,
-      "hash": "18c53c710b7a58452d71a8198a66493e",
-      "textRange": {
-        "startLine": 10,
-        "endLine": 10,
-        "startOffset": 35,
-        "endOffset": 69
-      },
-      "flows": [],
-      "status": "OPEN",
-      "message": "Make this field 'private' and encapsulate it in a 'public' property.",
-      "effort": "10min",
-      "debt": "10min",
-      "author": "hagen.guerrero@teia.mx",
-      "tags": [
-        "cwe"
-      ],
-      "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
-      "type": "CODE_SMELL",
-      "scope": "MAIN",
-      "quickFixAvailable": false,
-      "messageFormattings": []
-    },
-    {
-      "key": "AZ8ZsFEx7T-pij5TbB_Q",
+      "key": "AZ8ZuSUV0ku646K0E3ei",
       "rule": "csharpsquid:S2386",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/ProcessorClass.cs",
@@ -6197,14 +6167,44 @@
         "unpredictable"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFEx7T-pij5TbB_U",
+      "key": "AZ8ZuSUV0ku646K0E3ej",
+      "rule": "csharpsquid:S1104",
+      "severity": "MINOR",
+      "component": "sonar-test-bad-code:SonarTestBadCode/ProcessorClass.cs",
+      "project": "sonar-test-bad-code",
+      "line": 10,
+      "hash": "18c53c710b7a58452d71a8198a66493e",
+      "textRange": {
+        "startLine": 10,
+        "endLine": 10,
+        "startOffset": 35,
+        "endOffset": 69
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Make this field 'private' and encapsulate it in a 'public' property.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "hagen.guerrero@teia.mx",
+      "tags": [
+        "cwe"
+      ],
+      "creationDate": "2026-06-27T04:22:49+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": []
+    },
+    {
+      "key": "AZ8ZuSUV0ku646K0E3en",
       "rule": "csharpsquid:S3400",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/ProcessorClass.cs",
@@ -6227,14 +6227,14 @@
         "confusing"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFEx7T-pij5TbB_T",
+      "key": "AZ8ZuSUV0ku646K0E3eo",
       "rule": "csharpsquid:S3400",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/ProcessorClass.cs",
@@ -6257,14 +6257,14 @@
         "confusing"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFEx7T-pij5TbB_Y",
+      "key": "AZ8ZuSUV0ku646K0E3es",
       "rule": "csharpsquid:S1481",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/ProcessorClass.cs",
@@ -6287,14 +6287,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFEx7T-pij5TbB_Z",
+      "key": "AZ8ZuSUV0ku646K0E3et",
       "rule": "csharpsquid:S1481",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/ProcessorClass.cs",
@@ -6317,14 +6317,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFEx7T-pij5TbB_a",
+      "key": "AZ8ZuSUV0ku646K0E3eu",
       "rule": "csharpsquid:S1481",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/ProcessorClass.cs",
@@ -6347,14 +6347,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFEx7T-pij5TbB_W",
+      "key": "AZ8ZuSUV0ku646K0E3eq",
       "rule": "csharpsquid:S1116",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/ProcessorClass.cs",
@@ -6377,14 +6377,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFEx7T-pij5TbB_X",
+      "key": "AZ8ZuSUV0ku646K0E3er",
       "rule": "csharpsquid:S1116",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/ProcessorClass.cs",
@@ -6407,14 +6407,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFEx7T-pij5TbB_f",
+      "key": "AZ8ZuSUV0ku646K0E3ez",
       "rule": "csharpsquid:S1481",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/ProcessorClass.cs",
@@ -6437,14 +6437,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFEx7T-pij5TbB_d",
+      "key": "AZ8ZuSUV0ku646K0E3ex",
       "rule": "csharpsquid:S1643",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/ProcessorClass.cs",
@@ -6467,14 +6467,14 @@
         "performance"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFEx7T-pij5TbB_e",
+      "key": "AZ8ZuSUV0ku646K0E3ey",
       "rule": "csharpsquid:S1643",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/ProcessorClass.cs",
@@ -6497,14 +6497,14 @@
         "performance"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFEx7T-pij5TbB_j",
+      "key": "AZ8ZuSUV0ku646K0E3e5",
       "rule": "csharpsquid:S1481",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/ProcessorClass.cs",
@@ -6527,14 +6527,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFEx7T-pij5TbB_g",
+      "key": "AZ8ZuSUV0ku646K0E3e3",
       "rule": "csharpsquid:S1125",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/ProcessorClass.cs",
@@ -6557,14 +6557,14 @@
         "clumsy"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFU7T-pij5TbCB7",
+      "key": "AZ8ZuSWN0ku646K0E3hV",
       "rule": "csharpsquid:S2386",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Repositories/UserRepository.cs",
@@ -6588,14 +6588,14 @@
         "unpredictable"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFU7T-pij5TbCBv",
+      "key": "AZ8ZuSWN0ku646K0E3hZ",
       "rule": "csharpsquid:S1104",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Repositories/UserRepository.cs",
@@ -6618,14 +6618,14 @@
         "cwe"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFU7T-pij5TbCB8",
+      "key": "AZ8ZuSWN0ku646K0E3hW",
       "rule": "csharpsquid:S2386",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Repositories/UserRepository.cs",
@@ -6649,14 +6649,14 @@
         "unpredictable"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFU7T-pij5TbCBw",
+      "key": "AZ8ZuSWN0ku646K0E3hY",
       "rule": "csharpsquid:S1104",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Repositories/UserRepository.cs",
@@ -6679,44 +6679,14 @@
         "cwe"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFU7T-pij5TbCB0",
-      "rule": "csharpsquid:S1104",
-      "severity": "MINOR",
-      "component": "sonar-test-bad-code:SonarTestBadCode/Repositories/UserRepository.cs",
-      "project": "sonar-test-bad-code",
-      "line": 12,
-      "hash": "6d14c7835373dafbfd584da396758af0",
-      "textRange": {
-        "startLine": 12,
-        "endLine": 12,
-        "startOffset": 35,
-        "endOffset": 66
-      },
-      "flows": [],
-      "status": "OPEN",
-      "message": "Make this field 'private' and encapsulate it in a 'public' property.",
-      "effort": "10min",
-      "debt": "10min",
-      "author": "hagen.guerrero@teia.mx",
-      "tags": [
-        "cwe"
-      ],
-      "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
-      "type": "CODE_SMELL",
-      "scope": "MAIN",
-      "quickFixAvailable": false,
-      "messageFormattings": []
-    },
-    {
-      "key": "AZ8ZsFFU7T-pij5TbCB9",
+      "key": "AZ8ZuSWN0ku646K0E3hX",
       "rule": "csharpsquid:S2386",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Repositories/UserRepository.cs",
@@ -6740,14 +6710,44 @@
         "unpredictable"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFU7T-pij5TbCB_",
+      "key": "AZ8ZuSWN0ku646K0E3hc",
+      "rule": "csharpsquid:S1104",
+      "severity": "MINOR",
+      "component": "sonar-test-bad-code:SonarTestBadCode/Repositories/UserRepository.cs",
+      "project": "sonar-test-bad-code",
+      "line": 12,
+      "hash": "6d14c7835373dafbfd584da396758af0",
+      "textRange": {
+        "startLine": 12,
+        "endLine": 12,
+        "startOffset": 35,
+        "endOffset": 66
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Make this field 'private' and encapsulate it in a 'public' property.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "hagen.guerrero@teia.mx",
+      "tags": [
+        "cwe"
+      ],
+      "creationDate": "2026-06-27T04:22:49+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": []
+    },
+    {
+      "key": "AZ8ZuSWN0ku646K0E3hf",
       "rule": "csharpsquid:S1481",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Repositories/UserRepository.cs",
@@ -6770,14 +6770,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFU7T-pij5TbCCA",
+      "key": "AZ8ZuSWO0ku646K0E3hg",
       "rule": "csharpsquid:S1481",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Repositories/UserRepository.cs",
@@ -6800,14 +6800,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFU7T-pij5TbCCC",
+      "key": "AZ8ZuSWO0ku646K0E3hi",
       "rule": "csharpsquid:S1481",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Repositories/UserRepository.cs",
@@ -6830,14 +6830,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFU7T-pij5TbCCD",
+      "key": "AZ8ZuSWO0ku646K0E3hj",
       "rule": "csharpsquid:S1481",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Repositories/UserRepository.cs",
@@ -6860,14 +6860,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFU7T-pij5TbCCI",
+      "key": "AZ8ZuSWO0ku646K0E3hr",
       "rule": "csharpsquid:S1481",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Repositories/UserRepository.cs",
@@ -6890,14 +6890,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFU7T-pij5TbCCJ",
+      "key": "AZ8ZuSWO0ku646K0E3hs",
       "rule": "csharpsquid:S1481",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Repositories/UserRepository.cs",
@@ -6920,14 +6920,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFU7T-pij5TbCCH",
+      "key": "AZ8ZuSWO0ku646K0E3hq",
       "rule": "csharpsquid:S1643",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Repositories/UserRepository.cs",
@@ -6950,14 +6950,14 @@
         "performance"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFU7T-pij5TbCCL",
+      "key": "AZ8ZuSWO0ku646K0E3hv",
       "rule": "csharpsquid:S1481",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Repositories/UserRepository.cs",
@@ -6980,14 +6980,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFU7T-pij5TbCCM",
+      "key": "AZ8ZuSWO0ku646K0E3hw",
       "rule": "csharpsquid:S1481",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Repositories/UserRepository.cs",
@@ -7010,14 +7010,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFU7T-pij5TbCCK",
+      "key": "AZ8ZuSWO0ku646K0E3ht",
       "rule": "csharpsquid:S1643",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Repositories/UserRepository.cs",
@@ -7040,14 +7040,14 @@
         "performance"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFU7T-pij5TbCCP",
+      "key": "AZ8ZuSWO0ku646K0E3h0",
       "rule": "csharpsquid:S3400",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Repositories/UserRepository.cs",
@@ -7070,14 +7070,14 @@
         "confusing"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFU7T-pij5TbCCQ",
+      "key": "AZ8ZuSWO0ku646K0E3h2",
       "rule": "csharpsquid:S3400",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Repositories/UserRepository.cs",
@@ -7100,14 +7100,14 @@
         "confusing"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFU7T-pij5TbCCR",
+      "key": "AZ8ZuSWO0ku646K0E3h3",
       "rule": "csharpsquid:S1125",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Repositories/UserRepository.cs",
@@ -7130,14 +7130,14 @@
         "clumsy"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFU7T-pij5TbCCX",
+      "key": "AZ8ZuSWO0ku646K0E3h6",
       "rule": "csharpsquid:S1116",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Repositories/UserRepository.cs",
@@ -7160,14 +7160,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFU7T-pij5TbCCY",
+      "key": "AZ8ZuSWO0ku646K0E3h8",
       "rule": "csharpsquid:S3400",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Repositories/UserRepository.cs",
@@ -7190,14 +7190,14 @@
         "confusing"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFM7T-pij5TbCBG",
+      "key": "AZ8ZuSV70ku646K0E3gg",
       "rule": "csharpsquid:S1104",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Services/DataService.cs",
@@ -7220,14 +7220,14 @@
         "cwe"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFM7T-pij5TbCBO",
+      "key": "AZ8ZuSV70ku646K0E3go",
       "rule": "csharpsquid:S2386",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Services/DataService.cs",
@@ -7251,14 +7251,14 @@
         "unpredictable"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFM7T-pij5TbCBK",
+      "key": "AZ8ZuSV70ku646K0E3gk",
       "rule": "csharpsquid:S1104",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Services/DataService.cs",
@@ -7281,14 +7281,14 @@
         "cwe"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFM7T-pij5TbCBQ",
+      "key": "AZ8ZuSV80ku646K0E3gr",
       "rule": "csharpsquid:S1481",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Services/DataService.cs",
@@ -7311,14 +7311,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFM7T-pij5TbCBP",
+      "key": "AZ8ZuSV70ku646K0E3gq",
       "rule": "csharpsquid:S1643",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Services/DataService.cs",
@@ -7341,14 +7341,14 @@
         "performance"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFM7T-pij5TbCBS",
+      "key": "AZ8ZuSV80ku646K0E3gt",
       "rule": "csharpsquid:S1481",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Services/DataService.cs",
@@ -7371,14 +7371,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFM7T-pij5TbCBR",
+      "key": "AZ8ZuSV80ku646K0E3gs",
       "rule": "csharpsquid:S1643",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Services/DataService.cs",
@@ -7401,14 +7401,14 @@
         "performance"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFM7T-pij5TbCBY",
+      "key": "AZ8ZuSV80ku646K0E3gv",
       "rule": "csharpsquid:S1481",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Services/DataService.cs",
@@ -7431,14 +7431,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFM7T-pij5TbCBZ",
+      "key": "AZ8ZuSV80ku646K0E3gw",
       "rule": "csharpsquid:S1481",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Services/DataService.cs",
@@ -7461,14 +7461,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFM7T-pij5TbCBU",
+      "key": "AZ8ZuSV80ku646K0E3gy",
       "rule": "csharpsquid:S1481",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Services/DataService.cs",
@@ -7491,14 +7491,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFM7T-pij5TbCBV",
+      "key": "AZ8ZuSV80ku646K0E3gz",
       "rule": "csharpsquid:S1481",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Services/DataService.cs",
@@ -7521,14 +7521,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFM7T-pij5TbCBf",
+      "key": "AZ8ZuSV80ku646K0E3g-",
       "rule": "csharpsquid:S1481",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Services/DataService.cs",
@@ -7551,14 +7551,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8Zs5vu7T-pij5TbCPi",
+      "key": "AZ8ZuSV70ku646K0E3gp",
       "rule": "csharpsquid:S1192",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Services/DataService.cs",
@@ -7638,14 +7638,14 @@
         "design"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:03:43+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFM7T-pij5TbCBk",
+      "key": "AZ8ZuSV80ku646K0E3hC",
       "rule": "csharpsquid:S3400",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Services/DataService.cs",
@@ -7668,14 +7668,14 @@
         "confusing"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFFM7T-pij5TbCBl",
+      "key": "AZ8ZuSV80ku646K0E3hF",
       "rule": "csharpsquid:S1481",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Services/DataService.cs",
@@ -7698,14 +7698,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFE47T-pij5TbB_u",
+      "key": "AZ8ZuSUn0ku646K0E3fF",
       "rule": "csharpsquid:S1481",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Utilities/StringHelper.cs",
@@ -7728,14 +7728,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFE47T-pij5TbB_t",
+      "key": "AZ8ZuSUn0ku646K0E3fE",
       "rule": "csharpsquid:S1643",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Utilities/StringHelper.cs",
@@ -7758,14 +7758,14 @@
         "performance"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFE47T-pij5TbB_w",
+      "key": "AZ8ZuSUn0ku646K0E3fH",
       "rule": "csharpsquid:S1481",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Utilities/StringHelper.cs",
@@ -7788,14 +7788,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFE47T-pij5TbB_x",
+      "key": "AZ8ZuSUn0ku646K0E3fI",
       "rule": "csharpsquid:S1481",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Utilities/StringHelper.cs",
@@ -7818,14 +7818,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFE47T-pij5TbB_v",
+      "key": "AZ8ZuSUn0ku646K0E3fG",
       "rule": "csharpsquid:S1643",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Utilities/StringHelper.cs",
@@ -7848,14 +7848,14 @@
         "performance"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFE47T-pij5TbB_y",
+      "key": "AZ8ZuSUo0ku646K0E3fL",
       "rule": "csharpsquid:S1643",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Utilities/StringHelper.cs",
@@ -7878,14 +7878,14 @@
         "performance"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFE47T-pij5TbB_z",
+      "key": "AZ8ZuSUn0ku646K0E3fJ",
       "rule": "csharpsquid:S3400",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Utilities/StringHelper.cs",
@@ -7908,14 +7908,14 @@
         "confusing"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8Zs5vT7T-pij5TbCPe",
+      "key": "AZ8ZuSUn0ku646K0E3fD",
       "rule": "csharpsquid:S1192",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Utilities/StringHelper.cs",
@@ -8009,14 +8009,14 @@
         "design"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:03:43+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFE47T-pij5TbB_0",
+      "key": "AZ8ZuSUn0ku646K0E3fK",
       "rule": "csharpsquid:S3400",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Utilities/StringHelper.cs",
@@ -8039,14 +8039,14 @@
         "confusing"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFE47T-pij5TbB_1",
+      "key": "AZ8ZuSUo0ku646K0E3fM",
       "rule": "csharpsquid:S3400",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Utilities/StringHelper.cs",
@@ -8069,14 +8069,14 @@
         "confusing"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFE47T-pij5TbB_2",
+      "key": "AZ8ZuSUo0ku646K0E3fN",
       "rule": "csharpsquid:S3400",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Utilities/StringHelper.cs",
@@ -8099,14 +8099,14 @@
         "confusing"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFE47T-pij5TbB_6",
+      "key": "AZ8ZuSUo0ku646K0E3fU",
       "rule": "csharpsquid:S1481",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Utilities/StringHelper.cs",
@@ -8129,14 +8129,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFE47T-pij5TbB_7",
+      "key": "AZ8ZuSUo0ku646K0E3fV",
       "rule": "csharpsquid:S1481",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Utilities/StringHelper.cs",
@@ -8159,14 +8159,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFE47T-pij5TbB_3",
+      "key": "AZ8ZuSUo0ku646K0E3fQ",
       "rule": "csharpsquid:S1125",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Utilities/StringHelper.cs",
@@ -8189,14 +8189,14 @@
         "clumsy"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFE47T-pij5TbB_4",
+      "key": "AZ8ZuSUo0ku646K0E3fR",
       "rule": "csharpsquid:S1125",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Utilities/StringHelper.cs",
@@ -8219,14 +8219,14 @@
         "clumsy"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFE47T-pij5TbB_-",
+      "key": "AZ8ZuSUo0ku646K0E3fS",
       "rule": "csharpsquid:S1481",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Utilities/StringHelper.cs",
@@ -8249,14 +8249,14 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFE47T-pij5TbB__",
+      "key": "AZ8ZuSUo0ku646K0E3fX",
       "rule": "csharpsquid:S3400",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Utilities/StringHelper.cs",
@@ -8279,14 +8279,14 @@
         "confusing"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
       "messageFormattings": []
     },
     {
-      "key": "AZ8ZsFE47T-pij5TbCAG",
+      "key": "AZ8ZuSUo0ku646K0E3fe",
       "rule": "csharpsquid:S1116",
       "severity": "MINOR",
       "component": "sonar-test-bad-code:SonarTestBadCode/Utilities/StringHelper.cs",
@@ -8309,7 +8309,7 @@
         "unused"
       ],
       "creationDate": "2026-06-27T04:22:49+0000",
-      "updateDate": "2026-06-30T18:00:05+0000",
+      "updateDate": "2026-06-30T18:09:44+0000",
       "type": "CODE_SMELL",
       "scope": "MAIN",
       "quickFixAvailable": false,
