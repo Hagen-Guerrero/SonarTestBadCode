@@ -26,6 +26,8 @@ permissions:
 
 jobs:
   sonar-batch:
+    # Only run when dispatched from the agent/batching branch.
+    if: github.ref == 'refs/heads/agent/batching'
     # ubuntu-latest: required for SonarQube service container (Linux image).
     # .NET Framework 4.8 is built via Mono MSBuild installed from the official
     # Mono Project repository (Ubuntu apt does not ship mono-msbuild).
@@ -199,9 +201,13 @@ jobs:
           name: sonar-batch-output-run-${{ github.run_number }}
           path: output/
 
-      - name: Commit output files and open review PR
+      - name: Commit output files and create PR
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           OUTPUT_BRANCH="sonar/batch-output-${{ github.run_number }}"
+          BASE="agent/batching"
+
           git checkout -b "$OUTPUT_BRANCH"
           git add -f output/issues.json output/batches.json
           git commit -m "ci: sonar batch output — run #${{ github.run_number }}"
@@ -212,9 +218,26 @@ jobs:
           BATCHES_COUNT=$(python3 -c \
             "import json; d=json.load(open('output/batches.json')); print(d['total_batches'])")
 
-          REPO="${{ github.repository }}"
-          BASE="agent/batching"
-          PR_URL="https://github.com/${REPO}/compare/${BASE}...${OUTPUT_BRANCH}?expand=1"
+          PR_URL=$(gh pr create \
+            --title "ci: sonar batch output — run #${{ github.run_number }}" \
+            --body "$(cat << EOF
+          ## SonarQube Batch Output — Run #${{ github.run_number }}
+
+          | Metric | Value |
+          |--------|-------|
+          | Issues fetched | ${ISSUES_COUNT} |
+          | Batches created | ${BATCHES_COUNT} |
+          | Severities | ${{ inputs.severities }} |
+          | Language filter | ${{ inputs.language_filter }} |
+          | Output branch | \`${OUTPUT_BRANCH}\` |
+
+          ### Files
+          - \`output/issues.json\` — raw issues from the SonarQube REST API
+          - \`output/batches.json\` — issues grouped per-class → per-type → numeric batch ID
+          EOF
+          )" \
+            --base "$BASE" \
+            --head "$OUTPUT_BRANCH")
 
           cat >> "$GITHUB_STEP_SUMMARY" << EOF
           ## SonarQube Batch Output — Run #${{ github.run_number }}
@@ -226,15 +249,8 @@ jobs:
           | Severities | ${{ inputs.severities }} |
           | Language filter | ${{ inputs.language_filter }} |
           | Output branch | \`$OUTPUT_BRANCH\` |
-
-          ### Files to review
-          - \`output/issues.json\` — raw issues from the SonarQube REST API
-          - \`output/batches.json\` — issues grouped per-class → per-type → numeric batch ID
-
-          ### [Open pull request →]($PR_URL)
-
-          > Click the link above to open a pre-filled PR from \`$OUTPUT_BRANCH\` → \`$BASE\`.
+          | Pull request | $PR_URL |
           EOF
 
           echo "Branch pushed: $OUTPUT_BRANCH"
-          echo "Open PR at: $PR_URL"
+          echo "PR created: $PR_URL"
