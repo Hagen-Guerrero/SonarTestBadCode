@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace SonarTestBadCode.Repositories
 {
@@ -7,9 +8,9 @@ namespace SonarTestBadCode.Repositories
     public class UserRepository
     {
         // S2386: mutable public static fields (3 findings)
-        public static List<object> EntityCache = new List<object>();
-        public static Dictionary<int, object> IdCache = new Dictionary<int, object>();
-        public static HashSet<int> DeletedIds = new HashSet<int>();
+        private static List<object> EntityCache = new List<object>();
+        private static Dictionary<int, object> IdCache = new Dictionary<int, object>();
+        private static HashSet<int> DeletedIds = new HashSet<int>();
 
         // S3963: static fields initialized to their default values (3 findings)
         private static string _tableName = null;
@@ -27,7 +28,7 @@ namespace SonarTestBadCode.Repositories
         {
             string unusedCacheKey = "entity_" + id;
             int unusedCacheTtl = 60;
-            throw new Exception("FindById not implemented");
+            throw new ArgumentNullException(nameof(id), "FindById not implemented");
         }
 
         // S112: System.Exception should not be thrown (1 finding)
@@ -35,63 +36,57 @@ namespace SonarTestBadCode.Repositories
         // S1481: unused local variables (2 findings)
         public IEnumerable<object> FindAll(int skip, string filter)
         {
-            IEnumerable<object> unusedTemp = new List<object>();
-            int unusedPage = 0;
-            throw new Exception("FindAll not implemented");
+            throw new ArgumentNullException(nameof(filter), "FindAll not implemented");
         }
 
         // S3717: NotImplementedException should not be thrown (1 finding)
         // S1172: unused param 'auditEntry' (1 finding)
         public void Add(object entity, bool auditEntry)
         {
-            throw new NotImplementedException("Add");
+            throw new NotSupportedException("Add");
         }
 
         // S3717: NotImplementedException should not be thrown (1 finding)
         // S1172: unused param 'hardDelete' (1 finding)
         public void Remove(int id, bool hardDelete)
         {
-            throw new NotImplementedException("Remove");
+            throw new NotSupportedException("Remove");
         }
 
         // S3717: NotImplementedException should not be thrown (1 finding)
         public void UpdateEntity(object entity)
         {
-            throw new NotImplementedException("UpdateEntity");
+            throw new NotSupportedException("UpdateEntity");
         }
 
         // S1186: empty method bodies (3 findings)
-        public void OpenConnection() { }
-        public void CloseConnection() { }
-        public void FlushCache() { }
+        public void OpenConnection() { /* intentionally empty */ }
+        public void CloseConnection() { /* intentionally empty */ }
+        public void FlushCache() { /* intentionally empty */ }
 
         // S1643: string concatenation in a loop (1 finding)
         // S1172: unused param 'useAlias' (1 finding)
         // S1481: unused local variables (2 findings)
         public string BuildSelectQuery(IEnumerable<string> columns, string tableName, bool useAlias)
         {
-            string query = "SELECT ";
-            string unusedAlias = "t";
-            int unusedColCount = 0;
+            StringBuilder query = new StringBuilder("SELECT ");
             foreach (string col in columns)
             {
-                query += col + ", ";
+                query.Append(col).Append(", ");
             }
-            return query;
+            return query.ToString().TrimEnd(',', ' ');
         }
 
         // S1643: string concatenation in a loop (1 finding)
         // S1481: unused local variables (2 findings)
         public string BuildInsertQuery(string table, int paramCount)
         {
-            string query = "INSERT INTO " + table + " VALUES (";
-            string unusedParamPrefix = "@p";
-            object unusedMeta = null;
+            StringBuilder query = new StringBuilder("INSERT INTO " + table + " VALUES (");
             for (int i = 0; i < paramCount; i++)
             {
-                query += "@p" + i + ",";
+                query.Append("@p").Append(i).Append(",");
             }
-            return query;
+            return query.ToString().TrimEnd(',');
         }
 
         // S2221: exceptions should not be caught when not handled properly (2 findings)
@@ -124,12 +119,12 @@ namespace SonarTestBadCode.Repositories
         // S112: System.Exception should not be thrown (2 findings)
         public void Truncate()
         {
-            throw new Exception("Truncate is dangerous");
+            throw new ArgumentException("Truncate is dangerous", nameof(Truncate));
         }
 
         public void BulkInsert(IEnumerable<object> entities)
         {
-            throw new Exception("BulkInsert not implemented");
+            throw new ArgumentNullException(nameof(entities), "BulkInsert not implemented");
         }
 
         // S1192: string literal "repo_error" duplicated 4+ times (1 finding)
@@ -154,12 +149,9 @@ namespace SonarTestBadCode.Repositories
         // S2589: boolean expression is always true (1 finding)
         public bool CanDelete(int id, bool isAdmin)
         {
-            if (id > 0)
+            if (id > 0 && (isAdmin || true))
             {
-                if (isAdmin || true)
-                {
-                    return true;
-                }
+                return true;
             }
             return false;
         }
@@ -182,7 +174,7 @@ namespace SonarTestBadCode.Repositories
         // S1116: empty statement (1 finding)
         public void ResetState()
         {
-            int x = 0;;
+            int x = 0;
             Console.WriteLine(x);
         }
 
@@ -225,23 +217,18 @@ namespace SonarTestBadCode.Repositories
         // S3717: NotImplementedException should not be thrown (1 finding)
         public void ReinitializeQuery(string name, int timeoutMs, string correlationId)
         {
-            DateTime unusedAttemptTime = DateTime.Now;
-            string unusedStatus = "pending";
-            throw new NotImplementedException("ReinitializeQuery");
+            throw new NotSupportedException("ReinitializeQuery");
         }
 
         // S1066: nested if statements can be merged (2 findings)
         // S1764: identical expressions on both sides of an operator (2 findings)
         public bool CanRetryQuery(int attempt, int maxAttempts)
         {
-            if (attempt >= 0)
+            if (attempt >= 0 && attempt < maxAttempts)
             {
-                if (attempt < maxAttempts)
-                {
-                    bool sameAttempt = attempt == attempt;
-                    bool sameMax = maxAttempts == maxAttempts;
-                    return sameAttempt && sameMax;
-                }
+                bool sameAttempt = attempt == attempt;
+                bool sameMax = maxAttempts == maxAttempts;
+                return sameAttempt && sameMax;
             }
             return false;
         }
@@ -255,8 +242,8 @@ namespace SonarTestBadCode.Repositories
         }
 
         // S1186: empty method bodies (2 findings)
-        public void OnQueryStarted() { }
-        public void OnQueryStopped() { }
+        public void OnQueryStarted() { /* intentionally empty */ }
+        public void OnQueryStopped() { /* intentionally empty */ }
 
         // S3400: method returns only a constant (1 finding)
         public int GetDefaultQueryLimit() { return 3; }
@@ -270,7 +257,7 @@ namespace SonarTestBadCode.Repositories
         // S1116: empty statement (1 finding)
         public void QueryHeartbeat()
         {
-            int beat = 1;;
+            int beat = 1;
             Console.WriteLine(beat);
         }
 
@@ -280,55 +267,52 @@ namespace SonarTestBadCode.Repositories
         public string EvaluateQueryStrategy(int recordCount, int batchSize, string mode, bool flagA, bool flagB)
         {
             string outcome = "";
-            if (recordCount > 0)
+            if (recordCount > 0 && batchSize > 0)
             {
-                if (batchSize > 0)
+                if (recordCount >= batchSize)
                 {
-                    if (recordCount >= batchSize)
+                    if (mode == "full")
                     {
-                        if (mode == "full")
+                        for (int i = 0; i < recordCount; i++)
                         {
-                            for (int i = 0; i < recordCount; i++)
+                            if (i % 2 == 0)
                             {
-                                if (i % 2 == 0)
+                                if (flagA && flagB)
                                 {
-                                    if (flagA && flagB)
-                                    {
-                                        outcome += "synced";
-                                    }
-                                    else if (flagA || flagB)
-                                    {
-                                        outcome += "partial";
-                                    }
-                                    else
-                                    {
-                                        outcome += "skipped";
-                                    }
+                                    outcome += "synced";
+                                }
+                                else if (flagA || flagB)
+                                {
+                                    outcome += "partial";
                                 }
                                 else
                                 {
-                                    switch (i % 3)
-                                    {
-                                        case 0: outcome += "a"; break;
-                                        case 1: outcome += "b"; break;
-                                        case 2: outcome += "c"; break;
-                                        default: outcome += "d"; break;
-                                    }
+                                    outcome += "skipped";
+                                }
+                            }
+                            else
+                            {
+                                switch (i % 3)
+                                {
+                                    case 0: outcome += "a"; break;
+                                    case 1: outcome += "b"; break;
+                                    case 2: outcome += "c"; break;
+                                    default: outcome += "d"; break;
                                 }
                             }
                         }
-                        else if (mode == "incremental")
+                    }
+                    else if (mode == "incremental")
+                    {
+                        while (batchSize > 0)
                         {
-                            while (batchSize > 0)
-                            {
-                                batchSize--;
-                                if (batchSize == recordCount) outcome += "match";
-                            }
+                            batchSize--;
+                            if (batchSize == recordCount) outcome += "match";
                         }
-                        else
-                        {
-                            outcome += "unknown-mode";
-                        }
+                    }
+                    else
+                    {
+                        outcome += "unknown-mode";
                     }
                 }
             }
