@@ -145,8 +145,7 @@ def _build_pr_body(results: list[dict]) -> str:
         "> ⚠️ **Review all changes before merging.** "
         "A follow-up SonarQube scan is the authoritative quality gate — "
         "remaining or newly introduced issues will appear in the next run.",
-        "",
-        "🤖 Generated with [Claude Code](https://claude.ai/claude-code)",
+        ""
     ]
 
     return "\n".join(lines)
