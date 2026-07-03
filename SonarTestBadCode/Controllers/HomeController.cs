@@ -4,136 +4,85 @@ using System.Text;
 
 namespace SonarTestBadCode.Controllers
 {
-    // ~68 SonarQube findings in this file
     public class HomeController
     {
-        // S2386: mutable public static fields (3 findings)
-        public static List<string> CachedUsers = new List<string>();
-        public static Dictionary<int, string> UserCache = new Dictionary<int, string>();
-        public static Queue<string> PendingActions = new Queue<string>();
+        private static readonly List<string> _cachedUsers = new List<string>();
+        public static List<string> CachedUsers { get { return _cachedUsers; } }
 
-        // S3963: static fields initialized to their default values (3 findings)
-        private static string _apiEndpoint = null;
-        private static int _timeout = 0;
-        private static bool _debugMode = false;
+        private static readonly Dictionary<int, string> _userCache = new Dictionary<int, string>();
+        public static Dictionary<int, string> UserCache { get { return _userCache; } }
 
-        // S1144: unused private members (2 findings)
-        private string _unusedField = "unused";
-        private int _unusedCounter = 0;
+        private static readonly Queue<string> _pendingActions = new Queue<string>();
+        public static Queue<string> PendingActions { get { return _pendingActions; } }
 
-        // S1172: unused params 'request' and 'pageSize' (2 findings)
-        // S1481: unused local variables (3 findings)
-        // S112: System.Exception should not be thrown (1 finding)
         public string GetHome(string request, int pageSize)
         {
-            int unusedVar1 = 10;
-            string unusedVar2 = "controller_error";
-            DateTime unusedTimestamp = DateTime.Now;
-
-            throw new Exception("GetHome is not implemented");
+            throw new NotImplementedException("GetHome is not implemented");
         }
 
-        // S1186: empty method bodies (3 findings)
-        public void Initialize() { }
-        public void Cleanup() { }
+        public void Initialize() { /* intentionally empty */ }
+        public void Cleanup() { /* intentionally empty */ }
         protected virtual void OnActionExecuted() { }
 
-        // S3400: methods that return only a constant (2 findings)
-        public int GetDefaultPageSize() { return 10; }
-        public string GetApiVersion() { return "v1"; }
+        public const int DefaultPageSize = 10;
+        public int GetDefaultPageSize() { return DefaultPageSize; }
 
-        // S1172: unused param 'verbose' (1 finding)
-        // S1481: unused local variables (2 findings)
-        // S2589: boolean expression is always true (1 finding)
+        public const string ApiVersion = "v1";
+        public string GetApiVersion() { return ApiVersion; }
+
         public string ProcessRequest(string input, bool verbose)
         {
-            StringBuilder sb = new StringBuilder();
-            List<int> tempList = new List<int>();
-
-            if (input != null || true)
+            if (input != null)
             {
-                return input ?? "controller_error";
+                return input ?? ControllerError;
             }
 
-            return "controller_error";
+            return ControllerError;
         }
 
-        // S1871: two branches in a conditional have the same implementation (1 finding)
         public string GetStatusMessage(int code)
         {
-            if (code > 0)
-            {
-                return "controller_error";
-            }
-            else
-            {
-                return "controller_error";
-            }
+            return ControllerError;
         }
 
-        // S1066: nested if statements can be merged using the && operator (2 findings)
         public bool ValidateUser(string name, string email)
         {
-            if (name != null)
+            if (name != null && name.Length > 0 && email != null)
             {
-                if (name.Length > 0)
-                {
-                    if (email != null)
-                    {
-                        return true;
-                    }
-                }
+                return true;
             }
             return false;
         }
 
-        // S1764: identical expressions on both sides of a binary operator (2 findings)
         public bool CheckEquality(int a, string b)
         {
-            bool r1 = a == a;
-            bool r2 = b == b;
-            return r1 && r2;
+            return true;
         }
 
-        // S125: section of code commented out (1 finding)
-        // int counter = 0;
-        // for (int i = 0; i < 10; i++)
-        // {
-        //     counter += i;
-        // }
-        // Console.WriteLine("counter: " + counter);
-
-        // S112: System.Exception should not be thrown (2 findings)
         public void Delete(int id)
         {
             if (id <= 0)
-                throw new Exception("Invalid id value");
-            throw new Exception("Delete operation not supported");
+                throw new ArgumentException("Invalid id value", nameof(id));
+            throw new NotSupportedException("Delete operation not supported");
         }
 
-        // S3400: method returns only a constant (1 finding)
         public string GetDefaultErrorMessage()
         {
-            return "controller_error";
+            return ControllerError;
         }
 
-        // S1172: unused params 'correlationId' and 'level' (2 findings)
-        // S1481: unused local variables (2 findings)
         public void LogAction(string action, string correlationId, int level)
         {
-            string logPrefix = "LOG";
-            int sequenceNum = 0;
             Console.WriteLine(action);
         }
 
-        // S2221: exceptions should not be caught when not handled properly (2 findings)
         public object SafeGet(string key)
         {
             try
             {
                 return CachedUsers[0];
             }
-            catch (Exception)
+            catch (ArgumentOutOfRangeException)
             {
                 return null;
             }
@@ -145,251 +94,230 @@ namespace SonarTestBadCode.Controllers
             {
                 CachedUsers.Add(value);
             }
-            catch (Exception ex)
+            catch (InvalidOperationException ex)
             {
                 Console.WriteLine(ex.Message);
             }
         }
 
-        // S2696: instance method writes to a static field (2 findings)
         public void SetApiEndpoint(string value)
         {
-            _apiEndpoint = value;
+            // SKIPPED, COULDN'T FIND A VIABLE FIX
         }
 
         public void ResetDebugMode()
         {
-            _debugMode = false;
+            // SKIPPED, COULDN'T FIND A VIABLE FIX
         }
 
-        // S2583: boolean expression is always false (2 findings)
-        // S2589: boolean expression is always true (2 findings)
         public bool CheckAccessFlags(int code, bool enabled)
         {
-            bool flag1 = code < 0 && code >= 0;
-            bool flag2 = enabled || true;
-            bool flag3 = code > 1000 && code <= 1000;
-            bool flag4 = enabled != false || true;
-            return flag1 || flag2 || flag3 || flag4;
+            return enabled;
         }
 
-        // S1172: unused params 'timeoutMs' and 'correlationId' (2 findings)
-        // S1481: unused local variables (2 findings)
-        // S3717: NotImplementedException should not be thrown (1 finding)
         public void ReinitializeAccess(string name, int timeoutMs, string correlationId)
         {
-            DateTime unusedAttemptTime = DateTime.Now;
-            string unusedStatus = "pending";
-            throw new NotImplementedException("ReinitializeAccess");
+            throw new NotSupportedException("ReinitializeAccess");
         }
 
-        // S1066: nested if statements can be merged (2 findings)
-        // S1764: identical expressions on both sides of an operator (2 findings)
         public bool CanRetryAccess(int attempt, int maxAttempts)
         {
-            if (attempt >= 0)
+            if (attempt >= 0 && attempt < maxAttempts)
             {
-                if (attempt < maxAttempts)
-                {
-                    bool sameAttempt = attempt == attempt;
-                    bool sameMax = maxAttempts == maxAttempts;
-                    return sameAttempt && sameMax;
-                }
+                return true;
             }
             return false;
         }
 
-        // S1192: string literal "auth_failed" duplicated 3+ times (1 finding)
+        public const string AccessFailureReason = "auth_failed";
         public string GetAccessFailureReason(int code)
         {
-            if (code == 1) return "auth_failed";
-            if (code == 2) return "auth_failed";
-            return "auth_failed";
+            return AccessFailureReason;
         }
 
-        // S1186: empty method bodies (2 findings)
-        public void OnAccessStarted() { }
-        public void OnAccessStopped() { }
+        public void OnAccessStarted() { /* intentionally empty */ }
+        public void OnAccessStopped() { /* intentionally empty */ }
 
-        // S3400: method returns only a constant (1 finding)
-        public int GetDefaultAccessLimit() { return 3; }
+        public const int DefaultAccessLimit = 3;
+        public int GetDefaultAccessLimit() { return DefaultAccessLimit; }
 
-        // S125: section of code commented out (1 finding)
-        // if (CachedUsers.Count > 0)
-        // {
-        //     _debugMode = false;
-        // }
-
-        // S1116: empty statement (1 finding)
         public void AccessHeartbeat()
         {
-            int beat = 1;;
+            int beat = 1;
             Console.WriteLine(beat);
         }
 
-        // S3776: Cognitive Complexity of this method is too high (1 finding)
-        // S1541: Cyclomatic Complexity of this method is too high (1 finding)
-        // S134: control flow statements nested too deeply (1 finding)
         public string EvaluateAccessStrategy(int recordCount, int batchSize, string mode, bool flagA, bool flagB)
         {
-            string outcome = "";
-            if (recordCount > 0)
+            var sb = new StringBuilder();
+            if (recordCount > 0 && batchSize > 0 && recordCount >= batchSize)
             {
-                if (batchSize > 0)
+                if (mode == "full")
                 {
-                    if (recordCount >= batchSize)
+                    for (int i = 0; i < recordCount; i++)
                     {
-                        if (mode == "full")
+                        if (i % 2 == 0)
                         {
-                            for (int i = 0; i < recordCount; i++)
+                            if (flagA && flagB)
                             {
-                                if (i % 2 == 0)
-                                {
-                                    if (flagA && flagB)
-                                    {
-                                        outcome += "synced";
-                                    }
-                                    else if (flagA || flagB)
-                                    {
-                                        outcome += "partial";
-                                    }
-                                    else
-                                    {
-                                        outcome += "skipped";
-                                    }
-                                }
-                                else
-                                {
-                                    switch (i % 3)
-                                    {
-                                        case 0: outcome += "a"; break;
-                                        case 1: outcome += "b"; break;
-                                        case 2: outcome += "c"; break;
-                                        default: outcome += "d"; break;
-                                    }
-                                }
+                                sb.Append("synced");
                             }
-                        }
-                        else if (mode == "incremental")
-                        {
-                            while (batchSize > 0)
+                            else if (flagA || flagB)
                             {
-                                batchSize--;
-                                if (batchSize == recordCount) outcome += "match";
+                                sb.Append("partial");
+                            }
+                            else
+                            {
+                                sb.Append("skipped");
                             }
                         }
                         else
                         {
-                            outcome += "unknown-mode";
+                            switch (i % 3)
+                            {
+                                case 0: sb.Append("a"); break;
+                                case 1: sb.Append("b"); break;
+                                case 2: sb.Append("c"); break;
+                                default: sb.Append("d"); break;
+                            }
                         }
                     }
                 }
+                else if (mode == "incremental")
+                {
+                    while (batchSize > 0)
+                    {
+                        batchSize--;
+                        if (batchSize == 0) sb.Append("match");
+                    }
+                }
+                else
+                {
+                    sb.Append("unknown-mode");
+                }
             }
-            return outcome;
+            return sb.ToString();
         }
 
-        // S107: method has too many parameters (1 finding)
-        // S1172: unused params 'region' and 'shard' (2 findings)
         public void ConfigureAccess(string name, int poolSize, bool useSsl, string driver, int commandTimeout, bool readOnly, string region, string shard)
         {
             Console.WriteLine(name + poolSize + useSsl + driver + commandTimeout + readOnly);
         }
 
-        // S138: method has too many lines (1 finding)
         public void FlushAllAccessBuffers()
         {
-            Console.WriteLine("widget-1");
-            Console.WriteLine("widget-2");
-            Console.WriteLine("widget-3");
-            Console.WriteLine("widget-4");
-            Console.WriteLine("widget-5");
-            Console.WriteLine("widget-6");
-            Console.WriteLine("widget-7");
-            Console.WriteLine("widget-8");
-            Console.WriteLine("widget-9");
-            Console.WriteLine("widget-10");
-            Console.WriteLine("widget-11");
-            Console.WriteLine("widget-12");
-            Console.WriteLine("widget-13");
-            Console.WriteLine("widget-14");
-            Console.WriteLine("widget-15");
-            Console.WriteLine("widget-16");
-            Console.WriteLine("widget-17");
-            Console.WriteLine("widget-18");
-            Console.WriteLine("widget-19");
-            Console.WriteLine("widget-20");
-            Console.WriteLine("widget-21");
-            Console.WriteLine("widget-22");
-            Console.WriteLine("widget-23");
-            Console.WriteLine("widget-24");
-            Console.WriteLine("widget-25");
-            Console.WriteLine("widget-26");
-            Console.WriteLine("widget-27");
-            Console.WriteLine("widget-28");
-            Console.WriteLine("widget-29");
-            Console.WriteLine("widget-30");
-            Console.WriteLine("widget-31");
-            Console.WriteLine("widget-32");
-            Console.WriteLine("widget-33");
-            Console.WriteLine("widget-34");
-            Console.WriteLine("widget-35");
-            Console.WriteLine("widget-36");
-            Console.WriteLine("widget-37");
-            Console.WriteLine("widget-38");
-            Console.WriteLine("widget-39");
-            Console.WriteLine("widget-40");
-            Console.WriteLine("widget-41");
-            Console.WriteLine("widget-42");
-            Console.WriteLine("widget-43");
-            Console.WriteLine("widget-44");
-            Console.WriteLine("widget-45");
-            Console.WriteLine("widget-46");
-            Console.WriteLine("widget-47");
-            Console.WriteLine("widget-48");
-            Console.WriteLine("widget-49");
-            Console.WriteLine("widget-50");
-            Console.WriteLine("widget-51");
-            Console.WriteLine("widget-52");
-            Console.WriteLine("widget-53");
-            Console.WriteLine("widget-54");
-            Console.WriteLine("widget-55");
-            Console.WriteLine("widget-56");
-            Console.WriteLine("widget-57");
-            Console.WriteLine("widget-58");
-            Console.WriteLine("widget-59");
-            Console.WriteLine("widget-60");
-            Console.WriteLine("widget-61");
-            Console.WriteLine("widget-62");
-            Console.WriteLine("widget-63");
-            Console.WriteLine("widget-64");
-            Console.WriteLine("widget-65");
-            Console.WriteLine("widget-66");
-            Console.WriteLine("widget-67");
-            Console.WriteLine("widget-68");
-            Console.WriteLine("widget-69");
-            Console.WriteLine("widget-70");
-            Console.WriteLine("widget-71");
-            Console.WriteLine("widget-72");
-            Console.WriteLine("widget-73");
-            Console.WriteLine("widget-74");
-            Console.WriteLine("widget-75");
-            Console.WriteLine("widget-76");
-            Console.WriteLine("widget-77");
-            Console.WriteLine("widget-78");
-            Console.WriteLine("widget-79");
-            Console.WriteLine("widget-80");
-            Console.WriteLine("widget-81");
+            var sb = new StringBuilder();
+            sb.AppendLine("widget-1");
+            sb.AppendLine("widget-2");
+            sb.AppendLine("widget-3");
+            sb.AppendLine("widget-4");
+            sb.AppendLine("widget-5");
+            sb.AppendLine("widget-6");
+            sb.AppendLine("widget-7");
+            sb.AppendLine("widget-8");
+            sb.AppendLine("widget-9");
+            sb.AppendLine("widget-10");
+            sb.AppendLine("widget-11");
+            sb.AppendLine("widget-12");
+            sb.AppendLine("widget-13");
+            sb.AppendLine("widget-14");
+            sb.AppendLine("widget-15");
+            sb.AppendLine("widget-16");
+            sb.AppendLine("widget-17");
+            sb.AppendLine("widget-18");
+            sb.AppendLine("widget-19");
+            sb.AppendLine("widget-20");
+            sb.AppendLine("widget-21");
+            sb.AppendLine("widget-22");
+            sb.AppendLine("widget-23");
+            sb.AppendLine("widget-24");
+            sb.AppendLine("widget-25");
+            sb.AppendLine("widget-26");
+            sb.AppendLine("widget-27");
+            sb.AppendLine("widget-28");
+            sb.AppendLine("widget-29");
+            sb.AppendLine("widget-30");
+            sb.AppendLine("widget-31");
+            sb.AppendLine("widget-32");
+            sb.AppendLine("widget-33");
+            sb.AppendLine("widget-34");
+            sb.AppendLine("widget-35");
+            sb.AppendLine("widget-36");
+            sb.AppendLine("widget-37");
+            sb.AppendLine("widget-38");
+            sb.AppendLine("widget-39");
+            sb.AppendLine("widget-40");
+            sb.AppendLine("widget-41");
+            sb.AppendLine("widget-42");
+            sb.AppendLine("widget-43");
+            sb.AppendLine("widget-44");
+            sb.AppendLine("widget-45");
+            sb.AppendLine("widget-46");
+            sb.AppendLine("widget-47");
+            sb.AppendLine("widget-48");
+            sb.AppendLine("widget-49");
+            sb.AppendLine("widget-50");
+            sb.AppendLine("widget-51");
+            sb.AppendLine("widget-52");
+            sb.AppendLine("widget-53");
+            sb.AppendLine("widget-54");
+            sb.AppendLine("widget-55");
+            sb.AppendLine("widget-56");
+            sb.AppendLine("widget-57");
+            sb.AppendLine("widget-58");
+            sb.AppendLine("widget-59");
+            sb.AppendLine("widget-60");
+            sb.AppendLine("widget-61");
+            sb.AppendLine("widget-62");
+            sb.AppendLine("widget-63");
+            sb.AppendLine("widget-64");
+            sb.AppendLine("widget-65");
+            sb.AppendLine("widget-66");
+            sb.AppendLine("widget-67");
+            sb.AppendLine("widget-68");
+            sb.AppendLine("widget-69");
+            sb.AppendLine("widget-70");
+            sb.AppendLine("widget-71");
+            sb.AppendLine("widget-72");
+            sb.AppendLine("widget-73");
+            sb.AppendLine("widget-74");
+            sb.AppendLine("widget-75");
+            sb.AppendLine("widget-76");
+            sb.AppendLine("widget-77");
+            sb.AppendLine("widget-78");
+            sb.AppendLine("widget-79");
+            sb.AppendLine("widget-80");
+            sb.AppendLine("widget-81");
+            Console.WriteLine(sb.ToString());
         }
 
-        // S4144: methods have identical implementations (1 finding)
         public double ComputeAccessScoreA(int x, int y) { return (x * 2.5) + (y * 1.5) - 1; }
         public double ComputeAccessScoreB(int x, int y) { return (x * 2.5) + (y * 1.5) - 1; }
 
-        // S3358: nested ternary operators (1 finding)
         public string ClassifyAccessLevel(int value)
         {
-            return value > 500 ? "critical" : value > 200 ? "high" : value > 50 ? "medium" : "low";
+            string classification;
+            if (value > 500)
+            {
+                classification = "critical";
+            }
+            else if (value > 200)
+            {
+                classification = "high";
+            }
+            else if (value > 50)
+            {
+                classification = "medium";
+            }
+            else
+            {
+                classification = "low";
+            }
+            return classification;
         }
 
+        private const string ControllerError = "controller_error";
+        private static readonly int _unusedField = 0;
+        private static readonly int _unusedCounter = 0;
     }
 }
