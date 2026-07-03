@@ -141,6 +141,26 @@ def _build_pr_body(results: list[dict]) -> str:
             lines.append(f"| `{fname}` | {n} | {reason} |")
         lines.append("")
 
+    # Token usage summary
+    prompt_tokens = sum(r.get("token_usage", {}).get("prompt_tokens", 0) for r in results)
+    completion_tokens = sum(r.get("token_usage", {}).get("completion_tokens", 0) for r in results)
+    total_tokens = prompt_tokens + completion_tokens
+    api_calls = sum(r.get("chunks_succeeded", 0) for r in results)
+
+    if total_tokens > 0:
+        lines += [
+            "### Token usage",
+            "",
+            "| Metric | Value |",
+            "|--------|-------|",
+            f"| Prompt tokens | {prompt_tokens:,} |",
+            f"| Completion tokens | {completion_tokens:,} |",
+            f"| **Total tokens** | **{total_tokens:,}** |",
+            f"| API calls made | {api_calls} |",
+            f"| Avg tokens / call | {total_tokens // api_calls if api_calls else 0:,} |",
+            "",
+        ]
+
     lines += [
         "---",
         "> ⚠️ **Review all changes before merging.** "
