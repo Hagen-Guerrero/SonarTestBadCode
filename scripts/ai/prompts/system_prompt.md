@@ -38,7 +38,7 @@ Return your response as exactly two sections with no text before, between, or af
 - For a fix that was skipped: `RULE:LINE: SKIPPED — brief reason`
 - Keep each line under 120 characters. No blank lines between entries.
 
-Examples of valid FIXES lines:
+Examples of valid FIXES lines:   
 
     S1481:42: Removed unused variable 'result'.
     S125:67: Deleted commented-out code block (lines 67–71).
