@@ -16,34 +16,34 @@ namespace SonarTestBadCode.Services
         private static int _retryCount = 0;
 
         // S1144: unused private members (2 findings)
-        private string _unusedServiceField = "none";
-        private int _unusedInternalId = -1;
+        private readonly string _unusedServiceField = "none";
+        private readonly int _unusedInternalId = -1;
 
         // S1643: string concatenation in a loop (1 finding)
         // S1172: unused param 'separator' (1 finding)
         // S1481: unused local variable (1 finding)
         public string LoadData(int count, string separator)
         {
-            string result = "";
+            StringBuilder result = new StringBuilder();
             int unusedIndex = 0;
             for (int i = 0; i < count; i++)
             {
-                result += "item_" + i;
+                result.Append("item_").Append(i);
             }
-            return result;
+            return result.ToString();
         }
 
         // S1643: string concatenation in a loop (1 finding)
         // S1481: unused local variable (1 finding)
         public string ProcessItems(IEnumerable<string> items)
         {
-            string output = "";
+            StringBuilder output = new StringBuilder();
             int unusedLineCount = 0;
             foreach (string item in items)
             {
-                output += item + ",";
+                output.Append(item).Append(",");
             }
-            return output;
+            return output.ToString();
         }
 
         // S112: System.Exception should not be thrown (1 finding)
@@ -53,7 +53,7 @@ namespace SonarTestBadCode.Services
         {
             int unusedTemp1 = id * 2;
             string unusedKey = "key_" + id;
-            throw new Exception("GetById not implemented");
+            throw new ArgumentException("GetById not implemented", nameof(id));
         }
 
         // S112: System.Exception should not be thrown (1 finding)
@@ -63,13 +63,13 @@ namespace SonarTestBadCode.Services
         {
             string unusedValidationResult = null;
             bool unusedSaveFlag = false;
-            throw new Exception("Save not implemented");
+            throw new ArgumentException("Save not implemented", nameof(entity));
         }
 
         // S112: System.Exception should not be thrown (1 finding)
         public void DeleteById(int id)
         {
-            throw new Exception("Delete not implemented");
+            throw new ArgumentException("Delete not implemented", nameof(id));
         }
 
         // S3717: NotImplementedException should not be thrown (1 finding)
@@ -94,21 +94,21 @@ namespace SonarTestBadCode.Services
         }
 
         // S2696: instance method writes to a static field (1 finding)
-        public void UpdateStatus(string status)
+        public static void UpdateStatus(string status)
         {
             _connectionString = status;
         }
 
         // S2696: instance method writes to a static field (1 finding)
-        public void IncrementCounter()
+        public static void IncrementCounter()
         {
             _retryCount++;
         }
 
         // S1186: empty method bodies (3 findings)
-        public void BeginTransaction() { }
-        public void CommitTransaction() { }
-        public void RollbackTransaction() { }
+        public void BeginTransaction() { /* intentionally empty */ }
+        public void CommitTransaction() { /* intentionally empty */ }
+        public void RollbackTransaction() { /* intentionally empty */ }
 
         // S2221: exceptions should not be caught when not handled properly (2 findings)
         // S1481: unused local variable (1 finding)
@@ -119,7 +119,7 @@ namespace SonarTestBadCode.Services
                 string tempKey = "key";
                 return DataCache[id];
             }
-            catch (Exception)
+            catch (ArgumentOutOfRangeException)
             {
                 return null;
             }
@@ -132,7 +132,7 @@ namespace SonarTestBadCode.Services
                 DataCache.Add(obj);
                 return true;
             }
-            catch (Exception ex)
+            catch (ArgumentNullException ex)
             {
                 Console.WriteLine(ex.Message);
                 return false;
@@ -149,7 +149,7 @@ namespace SonarTestBadCode.Services
                 return "service_error";
             }
 
-            if (code != null || code == null)
+            if (code != null)
             {
                 return "service_error";
             }
@@ -173,12 +173,9 @@ namespace SonarTestBadCode.Services
         // S1066: nested if statements can be merged (1 finding)
         public bool IsValid(object obj, bool strict)
         {
-            if (obj != null)
+            if (obj != null && strict)
             {
-                if (strict)
-                {
-                    return true;
-                }
+                return true;
             }
             return false;
         }
@@ -201,12 +198,12 @@ namespace SonarTestBadCode.Services
         }
 
         // S2696: instance method writes to a static field (2 findings)
-        public void SetConnectionString(string value)
+        public static void SetConnectionString(string value)
         {
             _connectionString = value;
         }
 
-        public void ResetRetryCount()
+        public static void ResetRetryCount()
         {
             _retryCount = 0;
         }
@@ -236,14 +233,11 @@ namespace SonarTestBadCode.Services
         // S1764: identical expressions on both sides of an operator (2 findings)
         public bool CanRetrySync(int attempt, int maxAttempts)
         {
-            if (attempt >= 0)
+            if (attempt >= 0 && attempt < maxAttempts)
             {
-                if (attempt < maxAttempts)
-                {
-                    bool sameAttempt = attempt == attempt;
-                    bool sameMax = maxAttempts == maxAttempts;
-                    return sameAttempt && sameMax;
-                }
+                bool sameAttempt = attempt == attempt;
+                bool sameMax = maxAttempts == maxAttempts;
+                return sameAttempt && sameMax;
             }
             return false;
         }
@@ -257,8 +251,8 @@ namespace SonarTestBadCode.Services
         }
 
         // S1186: empty method bodies (2 findings)
-        public void OnSyncStarted() { }
-        public void OnSyncStopped() { }
+        public void OnSyncStarted() { /* intentionally empty */ }
+        public void OnSyncStopped() { /* intentionally empty */ }
 
         // S3400: method returns only a constant (1 finding)
         public int GetDefaultSyncLimit() { return 3; }
@@ -272,7 +266,7 @@ namespace SonarTestBadCode.Services
         // S1116: empty statement (1 finding)
         public void SyncHeartbeat()
         {
-            int beat = 1;;
+            int beat = 1;
             Console.WriteLine(beat);
         }
 
@@ -281,60 +275,57 @@ namespace SonarTestBadCode.Services
         // S134: control flow statements nested too deeply (1 finding)
         public string EvaluateSyncStrategy(int recordCount, int batchSize, string mode, bool flagA, bool flagB)
         {
-            string outcome = "";
-            if (recordCount > 0)
+            StringBuilder outcome = new StringBuilder();
+            if (recordCount > 0 && batchSize > 0)
             {
-                if (batchSize > 0)
+                if (recordCount >= batchSize)
                 {
-                    if (recordCount >= batchSize)
+                    if (mode == "full")
                     {
-                        if (mode == "full")
+                        for (int i = 0; i < recordCount; i++)
                         {
-                            for (int i = 0; i < recordCount; i++)
+                            if (i % 2 == 0)
                             {
-                                if (i % 2 == 0)
+                                if (flagA && flagB)
                                 {
-                                    if (flagA && flagB)
-                                    {
-                                        outcome += "synced";
-                                    }
-                                    else if (flagA || flagB)
-                                    {
-                                        outcome += "partial";
-                                    }
-                                    else
-                                    {
-                                        outcome += "skipped";
-                                    }
+                                    outcome.Append("synced");
+                                }
+                                else if (flagA || flagB)
+                                {
+                                    outcome.Append("partial");
                                 }
                                 else
                                 {
-                                    switch (i % 3)
-                                    {
-                                        case 0: outcome += "a"; break;
-                                        case 1: outcome += "b"; break;
-                                        case 2: outcome += "c"; break;
-                                        default: outcome += "d"; break;
-                                    }
+                                    outcome.Append("skipped");
+                                }
+                            }
+                            else
+                            {
+                                switch (i % 3)
+                                {
+                                    case 0: outcome.Append("a"); break;
+                                    case 1: outcome.Append("b"); break;
+                                    case 2: outcome.Append("c"); break;
+                                    default: outcome.Append("d"); break;
                                 }
                             }
                         }
-                        else if (mode == "incremental")
+                    }
+                    else if (mode == "incremental")
+                    {
+                        while (batchSize > 0)
                         {
-                            while (batchSize > 0)
-                            {
-                                batchSize--;
-                                if (batchSize == recordCount) outcome += "match";
-                            }
+                            batchSize--;
+                            if (batchSize == recordCount) outcome.Append("match");
                         }
-                        else
-                        {
-                            outcome += "unknown-mode";
-                        }
+                    }
+                    else
+                    {
+                        outcome.Append("unknown-mode");
                     }
                 }
             }
-            return outcome;
+            return outcome.ToString();
         }
 
         // S107: method has too many parameters (1 finding)
