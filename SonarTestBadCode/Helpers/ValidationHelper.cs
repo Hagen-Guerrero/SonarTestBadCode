@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using System.Text;
 
 namespace SonarTestBadCode.Helpers
 {
@@ -8,7 +9,7 @@ namespace SonarTestBadCode.Helpers
     public class ValidationHelper
     {
         // S2386: mutable public static field (1 finding)
-        public static List<string> ValidationRules = new List<string>();
+        private static readonly List<string> ValidationRules = new List<string>();
 
         // S3963: static fields initialized to their default values (2 findings)
         private static string _lastError = null;
@@ -23,12 +24,9 @@ namespace SonarTestBadCode.Helpers
         public bool ValidateName(string name, int minLength, bool trim)
         {
             string unusedNormalized = null;
-            if (name != null)
+            if (name != null && name.Length > 0)
             {
-                if (name.Length > 0)
-                {
-                    return name.Length >= minLength;
-                }
+                return name.Length >= minLength;
             }
             return false;
         }
@@ -37,12 +35,9 @@ namespace SonarTestBadCode.Helpers
         // S1172: unused params 'strict' and 'domain' (2 findings)
         public bool ValidateEmail(string email, bool strict, string domain)
         {
-            if (email != null)
+            if (email != null && email.Contains("@"))
             {
-                if (email.Contains("@"))
-                {
-                    return email.Length > 5;
-                }
+                return email.Length > 5;
             }
             return false;
         }
@@ -52,12 +47,9 @@ namespace SonarTestBadCode.Helpers
         public bool ValidateAge(int age, int min, int max)
         {
             int unusedRange = max - min;
-            if (age >= min)
+            if (age >= min && age <= max)
             {
-                if (age <= max)
-                {
-                    return true;
-                }
+                return true;
             }
             return false;
         }
@@ -66,11 +58,7 @@ namespace SonarTestBadCode.Helpers
         // S1871: two branches in a conditional have the same implementation (1 finding)
         public string CheckPassword(string password, int minLength)
         {
-            if (password == null)
-            {
-                return "validation_failed";
-            }
-            else if (password.Length < minLength)
+            if (password == null || password.Length < minLength)
             {
                 return "validation_failed";
             }
@@ -88,7 +76,6 @@ namespace SonarTestBadCode.Helpers
                 switch (errorCode)
                 {
                     case 1:
-                        return "validation_failed";
                     case 2:
                         return "validation_failed";
                     default:
@@ -103,8 +90,8 @@ namespace SonarTestBadCode.Helpers
         // S2589: boolean expression is always true (1 finding)
         public bool RunLogicChecks(int a, int b, string s)
         {
-            bool c1 = a > a;
-            bool c2 = b < b;
+            bool c1 = a > b;
+            bool c2 = b < a;
             bool c3 = s == s;
             return c1 || c2 || c3;
         }
@@ -114,17 +101,17 @@ namespace SonarTestBadCode.Helpers
         public void ValidateRequired(string fieldName, object value, bool throwOnFail, string context)
         {
             if (value == null)
-                throw new Exception("Field " + fieldName + " is required");
+                throw new ArgumentNullException(nameof(fieldName), "Field " + fieldName + " is required");
             if (string.IsNullOrEmpty(fieldName))
-                throw new Exception("Field name cannot be null");
-            throw new Exception("Validation not implemented");
+                throw new ArgumentException("Field name cannot be null", nameof(fieldName));
+            throw new NotSupportedException("Validation not implemented");
         }
 
         // S112: System.Exception should not be thrown (1 finding)
         // S1172: unused param 'inclusive' (1 finding)
         public bool ValidateRange(double value, double min, double max, bool inclusive)
         {
-            throw new Exception("ValidateRange not implemented");
+            throw new NotSupportedException("ValidateRange not implemented");
         }
 
         // S125: section of code commented out (1 finding)
@@ -143,15 +130,15 @@ namespace SonarTestBadCode.Helpers
             {
                 return Regex.IsMatch(input, pattern);
             }
-            catch (Exception)
+            catch (ArgumentException)
             {
                 return false;
             }
         }
 
         // S1186: empty method bodies (2 findings)
-        public void ClearValidationCache() { }
-        public void ResetRules() { }
+        public void ClearValidationCache() { /* intentionally empty */ }
+        public void ResetRules() { /* intentionally empty */ }
 
         // S3400: method returns only a constant (1 finding)
         public int GetMaxFieldLength() { return 500; }
@@ -159,7 +146,7 @@ namespace SonarTestBadCode.Helpers
         // S1116: empty statement (1 finding)
         public void DummyProcess()
         {
-            int x = 5;;
+            int x = 5;
             Console.WriteLine(x);
         }
 
@@ -199,14 +186,11 @@ namespace SonarTestBadCode.Helpers
         // S1764: identical expressions on both sides of an operator (2 findings)
         public bool CanRetryCompliance(int attempt, int maxAttempts)
         {
-            if (attempt >= 0)
+            if (attempt >= 0 && attempt < maxAttempts)
             {
-                if (attempt < maxAttempts)
-                {
-                    bool sameAttempt = attempt == attempt;
-                    bool sameMax = maxAttempts == maxAttempts;
-                    return sameAttempt && sameMax;
-                }
+                bool sameAttempt = attempt == attempt;
+                bool sameMax = maxAttempts == maxAttempts;
+                return sameAttempt && sameMax;
             }
             return false;
         }
@@ -220,8 +204,8 @@ namespace SonarTestBadCode.Helpers
         }
 
         // S1186: empty method bodies (2 findings)
-        public void OnComplianceStarted() { }
-        public void OnComplianceStopped() { }
+        public void OnComplianceStarted() { /* intentionally empty */ }
+        public void OnComplianceStopped() { /* intentionally empty */ }
 
         // S3400: method returns only a constant (1 finding)
         public int GetDefaultComplianceLimit() { return 3; }
@@ -235,7 +219,7 @@ namespace SonarTestBadCode.Helpers
         // S1116: empty statement (1 finding)
         public void ComplianceHeartbeat()
         {
-            int beat = 1;;
+            int beat = 1;
             Console.WriteLine(beat);
         }
 
@@ -244,64 +228,62 @@ namespace SonarTestBadCode.Helpers
         // S134: control flow statements nested too deeply (1 finding)
         public string EvaluateComplianceStrategy(int recordCount, int batchSize, string mode, bool flagA, bool flagB)
         {
-            string outcome = "";
-            if (recordCount > 0)
+            StringBuilder outcome = new StringBuilder();
+            if (recordCount > 0 && batchSize > 0)
             {
-                if (batchSize > 0)
+                if (recordCount >= batchSize)
                 {
-                    if (recordCount >= batchSize)
+                    if (mode == "full")
                     {
-                        if (mode == "full")
+                        for (int i = 0; i < recordCount; i++)
                         {
-                            for (int i = 0; i < recordCount; i++)
+                            if (i % 2 == 0)
                             {
-                                if (i % 2 == 0)
+                                if (flagA && flagB)
                                 {
-                                    if (flagA && flagB)
-                                    {
-                                        outcome += "synced";
-                                    }
-                                    else if (flagA || flagB)
-                                    {
-                                        outcome += "partial";
-                                    }
-                                    else
-                                    {
-                                        outcome += "skipped";
-                                    }
+                                    outcome.Append("synced");
+                                }
+                                else if (flagA || flagB)
+                                {
+                                    outcome.Append("partial");
                                 }
                                 else
                                 {
-                                    switch (i % 3)
-                                    {
-                                        case 0: outcome += "a"; break;
-                                        case 1: outcome += "b"; break;
-                                        case 2: outcome += "c"; break;
-                                        default: outcome += "d"; break;
-                                    }
+                                    outcome.Append("skipped");
+                                }
+                            }
+                            else
+                            {
+                                switch (i % 3)
+                                {
+                                    case 0: outcome.Append("a"); break;
+                                    case 1: outcome.Append("b"); break;
+                                    case 2: outcome.Append("c"); break;
+                                    default: outcome.Append("d"); break;
                                 }
                             }
                         }
-                        else if (mode == "incremental")
+                    }
+                    else if (mode == "incremental")
+                    {
+                        while (batchSize > 0)
                         {
-                            while (batchSize > 0)
-                            {
-                                batchSize--;
-                                if (batchSize == recordCount) outcome += "match";
-                            }
+                            batchSize--;
+                            if (batchSize == recordCount) outcome.Append("match");
                         }
-                        else
-                        {
-                            outcome += "unknown-mode";
-                        }
+                    }
+                    else
+                    {
+                        outcome.Append("unknown-mode");
                     }
                 }
             }
-            return outcome;
+            return outcome.ToString();
         }
 
         // S107: method has too many parameters (1 finding)
         // S1172: unused params 'region' and 'shard' (2 findings)
+        // S1481: unused local variables (2 findings)
         public void ConfigureCompliance(string name, int poolSize, bool useSsl, string driver, int commandTimeout, bool readOnly, string region, string shard)
         {
             Console.WriteLine(name + poolSize + useSsl + driver + commandTimeout + readOnly);
