@@ -140,8 +140,8 @@ def _sleep_for_retry(resp, attempt: int) -> None:
     time.sleep(wait)
 
 
-def call_ai(content: str, file_path: str, issues: list[dict]) -> str | None:
-    """Call the AI API with Copilot → GitHub Models fallback. Returns raw text or None."""
+def call_ai(content: str, file_path: str, issues: list[dict]) -> tuple[str | None, str | None]:
+    """Call the AI API with Copilot → GitHub Models fallback. Returns (text, error_reason)."""
     global _copilot_available
 
     payload = {
@@ -154,16 +154,19 @@ def call_ai(content: str, file_path: str, issues: list[dict]) -> str | None:
         "max_tokens": 4096,
     }
 
+    last_error: str = "all attempts exhausted"
+
     for attempt in range(AI_RETRY_MAX + 1):
         if _copilot_available:
             resp = _post(COPILOT_URL, payload, _copilot_headers())
             if resp is None:
                 _copilot_available = False
+                last_error = "Copilot API unreachable"
             elif resp.status_code in (401, 403):
                 print(f"  Copilot auth failed ({resp.status_code}) — switching to GitHub Models")
                 _copilot_available = False
             elif resp.status_code == 200:
-                return resp.json()["choices"][0]["message"]["content"]
+                return resp.json()["choices"][0]["message"]["content"], None
             elif resp.status_code == 429:
                 _sleep_for_retry(resp, attempt)
                 continue
@@ -174,19 +177,25 @@ def call_ai(content: str, file_path: str, issues: list[dict]) -> str | None:
         # GitHub Models fallback
         resp = _post(MODELS_URL, payload, _models_headers())
         if resp is None:
-            print("  GitHub Models unreachable")
+            last_error = "GitHub Models unreachable"
+            print(f"  {last_error}")
             break
         if resp.status_code == 200:
-            return resp.json()["choices"][0]["message"]["content"]
+            return resp.json()["choices"][0]["message"]["content"], None
         elif resp.status_code == 429:
             _sleep_for_retry(resp, attempt)
             continue
         else:
-            print(f"  GitHub Models error {resp.status_code}: {resp.text[:200]}")
+            try:
+                detail = resp.json().get("error", {}).get("message", resp.text[:120])
+            except Exception:
+                detail = resp.text[:120]
+            last_error = f"HTTP {resp.status_code}: {detail}"
+            print(f"  GitHub Models error {resp.status_code}: {detail}")
             break
 
     print(f"  All {AI_RETRY_MAX + 1} attempt(s) exhausted — skipping chunk")
-    return None
+    return None, last_error
 
 
 # ---------------------------------------------------------------------------
@@ -280,6 +289,7 @@ def _write_fix_result(
     status: str,
     chunks_done: int,
     chunks_total: int,
+    skip_reason: str | None = None,
 ) -> None:
     record = {
         "batch_id": batch["batch_id"],
@@ -290,6 +300,8 @@ def _write_fix_result(
         "chunks_succeeded": chunks_done,
         "fixes": fixes,
     }
+    if skip_reason:
+        record["skip_reason"] = skip_reason
     out = os.path.join(FIX_RESULTS_DIR, f"batch_{batch['batch_id']}.json")
     with open(out, "w", encoding="utf-8") as f:
         json.dump(record, f, indent=2)
@@ -327,7 +339,7 @@ def main() -> int:
 
         if not os.path.isfile(abs_path):
             print(f"  SKIP: file not found at {abs_path}")
-            _write_fix_result(batch, [], "skipped_not_found", 0, 0)
+            _write_fix_result(batch, [], "skipped_not_found", 0, 0, f"file not found: {abs_path}")
             files_skipped += 1
             continue
 
@@ -335,7 +347,7 @@ def main() -> int:
             original_content = Path(abs_path).read_text(encoding="utf-8")
         except OSError as e:
             print(f"  SKIP: cannot read file: {e}")
-            _write_fix_result(batch, [], "read_error", 0, 0)
+            _write_fix_result(batch, [], "read_error", 0, 0, f"cannot read file: {e}")
             files_skipped += 1
             continue
 
@@ -347,23 +359,27 @@ def main() -> int:
         current_content = original_content
         all_fixes: list[str] = []
         chunks_done = 0
+        skip_reason: str | None = None
 
         for chunk_idx, chunk in enumerate(chunks):
             print(f"  chunk {chunk_idx + 1}/{total_chunks}: {len(chunk)} issues")
 
-            raw = call_ai(current_content, local_path, chunk)
+            raw, api_err = call_ai(current_content, local_path, chunk)
             if raw is None:
-                print(f"  chunk {chunk_idx + 1}: API failed — stopping sub-batch for this file")
+                skip_reason = api_err or "API call returned no data"
+                print(f"  chunk {chunk_idx + 1}: API failed ({skip_reason}) — stopping sub-batch for this file")
                 break
 
             code, fixes = parse_response(raw)
             if code is None:
-                print(f"  chunk {chunk_idx + 1}: response missing <CODE> tags — stopping")
+                skip_reason = "AI response missing <CODE> section"
+                print(f"  chunk {chunk_idx + 1}: {skip_reason} — stopping")
                 break
 
-            ok, reason = validate_code(code, current_content)
+            ok, val_reason = validate_code(code, current_content)
             if not ok:
-                print(f"  chunk {chunk_idx + 1}: validation failed ({reason}) — stopping")
+                skip_reason = f"validation failed: {val_reason}"
+                print(f"  chunk {chunk_idx + 1}: {skip_reason} — stopping")
                 break
 
             Path(abs_path).write_text(code, encoding="utf-8")
@@ -381,7 +397,7 @@ def main() -> int:
             files_fixed += 1
             print(f"  committed ({files_fixed} file(s) fixed so far)")
         else:
-            _write_fix_result(batch, [], "skipped", 0, total_chunks)
+            _write_fix_result(batch, [], "skipped", 0, total_chunks, skip_reason)
             files_skipped += 1
             print(f"  no changes committed")
 

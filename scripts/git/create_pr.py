@@ -131,13 +131,14 @@ def _build_pr_body(results: list[dict]) -> str:
         lines += [
             "### Skipped files",
             "",
-            "| File | Reason |",
-            "|------|--------|",
+            "| File | Issues | Skip reason |",
+            "|------|--------|-------------|",
         ]
         for r in skipped:
             fname = os.path.basename(r["local_path"])
-            status = r.get("status", "unknown")
-            lines.append(f"| `{fname}` | {status} |")
+            n = r.get("issues_total", "?")
+            reason = r.get("skip_reason") or r.get("status", "unknown")
+            lines.append(f"| `{fname}` | {n} | {reason} |")
         lines.append("")
 
     lines += [
