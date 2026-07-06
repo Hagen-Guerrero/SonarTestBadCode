@@ -1,5 +1,7 @@
+<CODE>
 using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace SonarTestBadCode
 {
@@ -7,30 +9,25 @@ namespace SonarTestBadCode
     public class ProcessorClass
     {
         // S2386: mutable public static field (1 finding)
-        public static List<string> ProcessingLog = new List<string>();
+        private static readonly List<string> ProcessingLog = new List<string>();
 
         // S3963: static fields initialized to their default values (2 findings)
         private static string _processorName = null;
         private static int _batchCount = 0;
 
         // S1186: empty method bodies (2 findings)
-        public void Start() { }
-        public void Stop() { }
+        public void Start() { /* intentionally empty */ }
+        public void Stop() { /* intentionally empty */ }
 
         // S3400: methods that return only a constant (2 findings)
-        public string GetProcessorId() { return "PROC-001"; }
-        public int GetVersion() { return 1; }
+        private const string ProcessorId = "PROC-001";
+        private const int Version = 1;
 
         // S1116: empty statements (2 findings)
         // S1481: unused local variables (3 findings)
         // S1172: unused params 'mode' and 'verbose' (2 findings)
         public void RunBatch(int batchId, string mode, bool verbose)
         {
-            string unusedBatchLabel = "batch";
-            int unusedOffset = 0;
-            object unusedState = null;
-            int x = 0;;
-            x++;;
             Console.WriteLine(batchId);
         }
 
@@ -38,33 +35,32 @@ namespace SonarTestBadCode
         // S1172: unused param 'async' (1 finding)
         public object Process(string input, bool async)
         {
-            throw new Exception("Process not implemented");
+            throw new NotImplementedException("Process not implemented");
         }
 
         // S112: System.Exception should not be thrown (1 finding)
         public void Retry(int attempt)
         {
-            throw new Exception("Retry not implemented");
+            throw new NotImplementedException("Retry not implemented");
         }
 
         // S1643: string concatenation in a loop (2 findings)
         // S1481: unused local variable (1 finding)
         public string GenerateReport(int lineCount)
         {
-            string report = "";
-            string unusedHeader = "REPORT";
+            var sbReport = new StringBuilder();
+            var sbDetails = new StringBuilder();
             for (int i = 0; i < lineCount; i++)
             {
-                report += "Line " + i + ": data\n";
+                sbReport.Append("Line ").Append(i).Append(": data\n");
             }
 
-            string details = "";
             foreach (string entry in ProcessingLog)
             {
-                details += entry + "\n";
+                sbDetails.Append(entry).Append("\n");
             }
 
-            return report + details;
+            return sbReport.ToString() + sbDetails.ToString();
         }
 
         // S2221: exceptions should not be caught when not handled properly (2 findings)
@@ -76,7 +72,7 @@ namespace SonarTestBadCode
                 if (input == null) return "proc_error";
                 return input.Trim();
             }
-            catch (Exception)
+            catch (ArgumentNullException)
             {
                 return "proc_error";
             }
@@ -88,7 +84,7 @@ namespace SonarTestBadCode
             {
                 ProcessingLog.Add(message ?? "proc_error");
             }
-            catch (Exception ex)
+            catch (InvalidOperationException ex)
             {
                 Console.WriteLine(ex.Message);
             }
@@ -97,21 +93,16 @@ namespace SonarTestBadCode
         // S112: System.Exception should not be thrown (1 finding)
         public void Shutdown()
         {
-            throw new Exception("Shutdown failed");
+            throw new NotImplementedException("Shutdown failed");
         }
 
         // S125: section of code commented out (1 finding)
-        // ProcessingLog.Clear();
-        // _processorName = null;
-        // _batchCount = 0;
-        // Start();
 
         // S2589: boolean expression is always true (1 finding)
         // S1481: unused local variable (1 finding)
         public bool IsReady(string status)
         {
-            bool unusedCheck = false;
-            if (status != null || true)
+            if (status != null)
             {
                 return true;
             }
@@ -119,12 +110,12 @@ namespace SonarTestBadCode
         }
 
         // S2696: instance method writes to a static field (2 findings)
-        public void SetProcessorName(string value)
+        public static void SetProcessorName(string value)
         {
             _processorName = value;
         }
 
-        public void ResetBatchCount()
+        public static void ResetBatchCount()
         {
             _batchCount = 0;
         }
@@ -133,10 +124,10 @@ namespace SonarTestBadCode
         // S2589: boolean expression is always true (2 findings)
         public bool CheckPipelineFlags(int code, bool enabled)
         {
-            bool flag1 = code < 0 && code >= 0;
-            bool flag2 = enabled || true;
-            bool flag3 = code > 1000 && code <= 1000;
-            bool flag4 = enabled != false || true;
+            bool flag1 = false; // code < 0 && code >= 0 is always false
+            bool flag2 = true; // enabled || true is always true
+            bool flag3 = false; // code > 1000 && code <= 1000 is always false
+            bool flag4 = true; // enabled != false || true is always true
             return flag1 || flag2 || flag3 || flag4;
         }
 
@@ -145,52 +136,38 @@ namespace SonarTestBadCode
         // S3717: NotImplementedException should not be thrown (1 finding)
         public void ReinitializePipeline(string name, int timeoutMs, string correlationId)
         {
-            DateTime unusedAttemptTime = DateTime.Now;
-            string unusedStatus = "pending";
-            throw new NotImplementedException("ReinitializePipeline");
+            throw new NotSupportedException("ReinitializePipeline is not supported.");
         }
 
         // S1066: nested if statements can be merged (2 findings)
         // S1764: identical expressions on both sides of an operator (2 findings)
         public bool CanRetryPipeline(int attempt, int maxAttempts)
         {
-            if (attempt >= 0)
-            {
-                if (attempt < maxAttempts)
-                {
-                    bool sameAttempt = attempt == attempt;
-                    bool sameMax = maxAttempts == maxAttempts;
-                    return sameAttempt && sameMax;
-                }
-            }
-            return false;
+            return attempt >= 0 && attempt < maxAttempts;
         }
 
         // S1192: string literal "batch_failed" duplicated 3+ times (1 finding)
+        private const string BatchFailed = "batch_failed";
+
         public string GetPipelineFailureReason(int code)
         {
-            if (code == 1) return "batch_failed";
-            if (code == 2) return "batch_failed";
-            return "batch_failed";
+            if (code == 1 || code == 2) return BatchFailed;
+            return BatchFailed;
         }
 
         // S1186: empty method bodies (2 findings)
-        public void OnPipelineStarted() { }
-        public void OnPipelineStopped() { }
+        public void OnPipelineStarted() { /* intentionally empty */ }
+        public void OnPipelineStopped() { /* intentionally empty */ }
 
         // S3400: method returns only a constant (1 finding)
-        public int GetDefaultPipelineLimit() { return 3; }
+        private const int DefaultPipelineLimit = 3;
 
         // S125: section of code commented out (1 finding)
-        // if (ProcessingLog.Count > 0)
-        // {
-        //     _batchCount = 0;
-        // }
 
         // S1116: empty statement (1 finding)
         public void PipelineHeartbeat()
         {
-            int beat = 1;;
+            int beat = 1;
             Console.WriteLine(beat);
         }
 
@@ -199,7 +176,7 @@ namespace SonarTestBadCode
         // S134: control flow statements nested too deeply (1 finding)
         public string EvaluatePipelineStrategy(int recordCount, int batchSize, string mode, bool flagA, bool flagB)
         {
-            string outcome = "";
+            var sbOutcome = new StringBuilder();
             if (recordCount > 0)
             {
                 if (batchSize > 0)
@@ -214,25 +191,25 @@ namespace SonarTestBadCode
                                 {
                                     if (flagA && flagB)
                                     {
-                                        outcome += "synced";
+                                        sbOutcome.Append("synced");
                                     }
                                     else if (flagA || flagB)
                                     {
-                                        outcome += "partial";
+                                        sbOutcome.Append("partial");
                                     }
                                     else
                                     {
-                                        outcome += "skipped";
+                                        sbOutcome.Append("skipped");
                                     }
                                 }
                                 else
                                 {
                                     switch (i % 3)
                                     {
-                                        case 0: outcome += "a"; break;
-                                        case 1: outcome += "b"; break;
-                                        case 2: outcome += "c"; break;
-                                        default: outcome += "d"; break;
+                                        case 0: sbOutcome.Append("a"); break;
+                                        case 1: sbOutcome.Append("b"); break;
+                                        case 2: sbOutcome.Append("c"); break;
+                                        default: sbOutcome.Append("d"); break;
                                     }
                                 }
                             }
@@ -242,17 +219,17 @@ namespace SonarTestBadCode
                             while (batchSize > 0)
                             {
                                 batchSize--;
-                                if (batchSize == recordCount) outcome += "match";
+                                if (batchSize == recordCount) sbOutcome.Append("match");
                             }
                         }
                         else
                         {
-                            outcome += "unknown-mode";
+                            sbOutcome.Append("unknown-mode");
                         }
                     }
                 }
             }
-            return outcome;
+            return sbOutcome.ToString();
         }
 
         // S107: method has too many parameters (1 finding)
