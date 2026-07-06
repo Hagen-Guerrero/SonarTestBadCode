@@ -1,4 +1,4 @@
-name: SonarQube — Fetch & Batch Issues
+name: SonarQube — Scan, Batch & AI Auto-Fix
 
 on:
   workflow_dispatch:
@@ -35,20 +35,26 @@ on:
         description: 'Max files to batch (0 = unlimited)'
         required: false
         default: '0'
+      max_issues_per_call:
+        description: 'Max issues per AI call — lower value reduces hallucination risk'
+        required: false
+        default: '15'
+      run_copilot_agent:
+        description: 'Fire Copilot Agent Tasks for skipped files (requires COPILOT_PAT)'
+        required: false
+        default: 'false'
+        type: boolean
 
 permissions:
   contents: write
   pull-requests: write
+  models: read
+  issues: write
 
 jobs:
-  sonar-batch:
-    # Only run when dispatched from the agent/batching branch.
-    if: github.ref == 'refs/heads/agent/batching'
-    # ubuntu-latest: required for SonarQube service container (Linux image).
-    # .NET Framework 4.8 is built via Mono MSBuild installed from the official
-    # Mono Project repository (Ubuntu apt does not ship mono-msbuild).
-    # GitHub-hosted Windows runners use Docker CE (not Desktop) and cannot run
-    # Linux containers, so the runner must stay on Ubuntu.
+  sonar-fix:
+    # Only run when dispatched from the agent/fix branch.
+    if: github.ref == 'refs/heads/agent/fix'
     runs-on: ubuntu-latest
 
     services:
@@ -56,8 +62,6 @@ jobs:
         image: sonarqube:lts-community
         ports:
           - 9000:9000
-        # No health-cmd — the JRE base image has no curl/wget.
-        # Readiness is polled from the runner in the wait step below.
 
     steps:
       # -----------------------------------------------------------------------
@@ -98,9 +102,6 @@ jobs:
 
       # -----------------------------------------------------------------------
       # Bootstrap — wait for SonarQube, generate token, create project
-      # SonarQube 9.9.x LTS: admin:admin works on a fresh ephemeral instance.
-      # Use sonar.login (not sonar.token) — sonar.token is 10.x syntax.
-      # Use projectKeys (not componentKeys) in REST API — returns full result set.
       # -----------------------------------------------------------------------
       - name: Wait for SonarQube to be fully UP
         run: |
@@ -137,14 +138,12 @@ jobs:
 
       - name: Import quality profile
         run: |
-          # "Sonar way" is a built-in read-only profile — restore rejects that name.
-          # Rename it to a custom name in the XML before uploading.
           sed 's|<name>Sonar way</name>|<name>CI-Profile-cs</name>|' \
             sonar/quality-profile-cs.xml > /tmp/ci-profile-cs.xml
 
-          PROFILE_RESP=$(curl -sf -X POST -u "admin:admin" \
+          curl -sf -X POST -u "admin:admin" \
             "http://localhost:9000/api/qualityprofiles/restore" \
-            -F "backup=@/tmp/ci-profile-cs.xml")
+            -F "backup=@/tmp/ci-profile-cs.xml"
 
           curl -sf -X POST -u "admin:admin" \
             "http://localhost:9000/api/qualityprofiles/set_default" \
@@ -169,7 +168,7 @@ jobs:
             /d:sonar.login="$SONARQUBE_TOKEN" \
             /d:sonar.exclusions="scripts/**,output/**"
 
-      - name: Build (.NET Framework 4.8 via dotnet MSBuild)
+      - name: Build (.NET Framework 4.8 via Mono MSBuild)
         env:
           FrameworkPathOverride: /usr/lib/mono/4.8-api/
         run: dotnet msbuild SonarTestBadCode.sln /p:Configuration=Release
@@ -197,13 +196,8 @@ jobs:
             STATUS=$(curl -sf -u "$SONARQUBE_TOKEN:" "$CE_TASK_URL" \
               | python3 -c "import json,sys; print(json.load(sys.stdin)['task']['status'])")
             echo "  attempt $i: $STATUS"
-            if [ "$STATUS" = "SUCCESS" ]; then
-              break
-            fi
-            if [ "$STATUS" = "FAILED" ]; then
-              echo "CE task FAILED"
-              exit 1
-            fi
+            if [ "$STATUS" = "SUCCESS" ]; then break; fi
+            if [ "$STATUS" = "FAILED" ]; then echo "CE task FAILED"; exit 1; fi
             sleep 5
           done
           if [ "$STATUS" != "SUCCESS" ]; then
@@ -243,64 +237,51 @@ jobs:
         run: python scripts/sonar/batch_issues.py
 
       # -----------------------------------------------------------------------
-      # Upload artifacts and open review PR
+      # AI fix loop + PR creation
       # -----------------------------------------------------------------------
-      - name: Upload output as workflow artifact
+      - name: AI fix batches
+        id: fix
+        env:
+          COPILOT_TOKEN: ${{ secrets.COPILOT_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MAX_ISSUES_PER_CALL: ${{ inputs.max_issues_per_call }}
+          GITHUB_RUN_ID: ${{ github.run_id }}
+          WORKSPACE_ROOT: ${{ github.workspace }}
+        run: |
+          python scripts/ai/fix_batch.py
+          EXIT=$?
+          echo "exit_code=$EXIT" >> "$GITHUB_OUTPUT"
+          # exit 2 = all skipped (non-fatal) — treat as success for the step
+          # exit 3 = fatal — fail the step
+          [ $EXIT -eq 3 ] && exit 1 || exit 0
+
+      - name: Upload output and fix results as workflow artifact
         uses: actions/upload-artifact@v4
         with:
-          name: sonar-batch-output-run-${{ github.run_number }}
+          name: sonar-fix-run-${{ github.run_number }}
           path: output/
 
-      - name: Commit output files and create PR
+      - name: Create fix PR
+        if: steps.fix.outputs.exit_code != '3'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          OUTPUT_BRANCH="sonar/batch-output-${{ github.run_number }}"
-          BASE="agent/batching"
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_RUN_ID: ${{ github.run_id }}
+          GITHUB_RUN_NUMBER: ${{ github.run_number }}
+          GITHUB_BASE_BRANCH: agent/fix
+          FIX_EXIT_CODE: ${{ steps.fix.outputs.exit_code }}
+        run: python scripts/git/create_pr.py
 
-          git checkout -b "$OUTPUT_BRANCH"
-          git add -f output/issues.json output/batches.json
-          git commit -m "ci: sonar batch output — run #${{ github.run_number }}"
-          git push origin "$OUTPUT_BRANCH"
-
-          ISSUES_COUNT=$(python3 -c \
-            "import json; d=json.load(open('output/issues.json')); print(d['total_fetched'])")
-          BATCHES_COUNT=$(python3 -c \
-            "import json; d=json.load(open('output/batches.json')); print(d['total_batches'])")
-
-          PR_URL=$(gh pr create \
-            --title "ci: sonar batch output — run #${{ github.run_number }}" \
-            --body "$(cat << EOF
-          ## SonarQube Batch Output — Run #${{ github.run_number }}
-
-          | Metric | Value |
-          |--------|-------|
-          | Issues fetched | ${ISSUES_COUNT} |
-          | Batches created | ${BATCHES_COUNT} |
-          | Severities | ${{ steps.severities.outputs.value }} |
-          | Language filter | ${{ inputs.language_filter }} |
-          | Output branch | \`${OUTPUT_BRANCH}\` |
-
-          ### Files
-          - \`output/issues.json\` — raw issues from the SonarQube REST API
-          - \`output/batches.json\` — issues grouped per-class → per-type → numeric batch ID
-          EOF
-          )" \
-            --base "$BASE" \
-            --head "$OUTPUT_BRANCH")
-
-          cat >> "$GITHUB_STEP_SUMMARY" << EOF
-          ## SonarQube Batch Output — Run #${{ github.run_number }}
-
-          | Metric | Value |
-          |--------|-------|
-          | Issues fetched | $ISSUES_COUNT |
-          | Batches created | $BATCHES_COUNT |
-          | Severities | ${{ steps.severities.outputs.value }} |
-          | Language filter | ${{ inputs.language_filter }} |
-          | Output branch | \`$OUTPUT_BRANCH\` |
-          | Pull request | $PR_URL |
-          EOF
-
-          echo "Branch pushed: $OUTPUT_BRANCH"
-          echo "PR created: $PR_URL"
+      # Create Copilot Agent Tasks for any batches that fix_batch.py could not fix.
+      # Requires COPILOT_PAT secret: fine-grained PAT with actions:write,
+      # contents:write, issues:write, pull-requests:write.
+      # GITHUB_TOKEN is explicitly rejected by the Agent Tasks API (billing is
+      # user-level). Skips gracefully when the secret is absent.
+      - name: Create Copilot Agent Tasks for skipped files
+        if: steps.fix.outputs.exit_code != '3' && inputs.run_copilot_agent == 'true'
+        env:
+          COPILOT_PAT: ${{ secrets.COPILOT_PAT }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_RUN_NUMBER: ${{ github.run_number }}
+          GITHUB_BASE_BRANCH: agent/fix
+        run: python scripts/ai/create_copilot_tasks.py
