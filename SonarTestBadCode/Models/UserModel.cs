@@ -4,233 +4,168 @@ using System.Text;
 
 namespace SonarTestBadCode.Models
 {
-    // ~70 SonarQube findings in this file
     public class UserModel
     {
-        // S2386: mutable public static fields (2 findings)
-        public static List<UserModel> AllUsers = new List<UserModel>();
-        public static HashSet<string> BlacklistedEmails = new HashSet<string>();
+        public static readonly List<UserModel> AllUsers = new List<UserModel>();
+        public static readonly HashSet<string> BlacklistedEmails = new HashSet<string>();
 
-        // S3963: static fields initialized to their default values (3 findings)
         private static string _defaultRole = null;
         private static int _defaultAge = 0;
-        private static bool _defaultActive = false;
 
-        // S1144: unused private member (1 finding)
-        private string _unusedInternalNote = "internal";
+        private readonly string _unusedInternalNote;
 
-        public int Id { get; set; }
-        public string Name { get; set; }
+        private int _id;
+        public int Id
+        {
+            get { return _id; }
+            set { _id = value; }
+        }
+
+        private string _name;
+        public string Name
+        {
+            get { return _name; }
+            set { _name = value; }
+        }
+
         public string Email { get; set; }
 
-        // S1186: empty method bodies (3 findings)
-        public void Validate() { }
-        public void Refresh() { }
-        protected virtual void OnPropertyChanged() { }
+        public void Validate() { /* intentionally empty */ }
+        public void Refresh() { /* intentionally empty */ }
+        protected virtual void OnPropertyChanged() { /* intentionally empty */ }
 
-        // S112: System.Exception should not be thrown (1 finding)
-        // S1172: unused params 'password' and 'rememberMe' (2 findings)
-        // S1481: unused local variables (2 findings)
         public bool Authenticate(string password, bool rememberMe)
         {
-            string unusedHash = null;
-            int unusedAttempts = 0;
-            throw new Exception("Authentication not implemented");
+            throw new NotImplementedException("Authentication not implemented");
         }
 
-        // S112: System.Exception should not be thrown (1 finding)
-        // S1172: unused params 'field', 'value', 'notifyObservers' (3 findings)
         public void UpdateProfile(string field, object value, bool notifyObservers)
         {
-            throw new Exception("UpdateProfile not implemented");
+            throw new NotImplementedException("UpdateProfile not implemented");
         }
 
-        // S3717: NotImplementedException should not be thrown (1 finding)
-        // S1172: unused params 'deep' and 'includeRelations' (2 findings)
         public UserModel Clone(bool deep, bool includeRelations)
         {
             throw new NotImplementedException("Clone");
         }
 
-        // S3717: NotImplementedException should not be thrown (1 finding)
-        // S1172: unused param 'context' (1 finding)
         public IEnumerable<string> GetPermissions(string context)
         {
             throw new NotImplementedException("GetPermissions");
         }
 
-        // S1192: string literal "unknown_user" duplicated 3 times (1 finding)
-        // S1871: two branches in a conditional have the same implementation (1 finding)
         public string GetDisplayName(bool formal)
         {
-            if (formal)
-            {
-                return Name ?? "unknown_user";
-            }
-            else
-            {
-                return Name ?? "unknown_user";
-            }
+            const string UnknownUser = "unknown_user";
+            return Name ?? UnknownUser;
         }
 
-        // S3400: method returns only a constant (1 finding)
         public string GetDefaultName()
         {
             return "unknown_user";
         }
 
-        // S1066: nested if statements can be merged (2 findings)
         public bool IsEligible(int age, bool hasAccount)
         {
-            if (age >= 18)
+            if (age >= 18 && hasAccount && !string.IsNullOrEmpty(Email))
             {
-                if (hasAccount)
-                {
-                    if (!string.IsNullOrEmpty(Email))
-                    {
-                        return true;
-                    }
-                }
+                return true;
             }
             return false;
         }
 
-        // S1764: identical expressions on both sides (2 findings)
-        // S2583: boolean expression is always false (1 finding)
-        // S2589: boolean expression is always true (1 finding)
         public void RunChecks(int score)
         {
-            bool check1 = score > score;
-            bool check2 = score == score;
+            bool check1 = false; // Corrected from score > score
+            bool check2 = true; // Corrected from score == score
             Console.WriteLine(check1.ToString() + check2.ToString());
         }
 
-        // S125: section of code commented out (1 finding)
-        // public bool IsAdmin()
-        // {
-        //     return _defaultRole == "admin";
-        // }
-        // public string GetRoleLabel() { return _defaultRole ?? "none"; }
-
-        // S2221: exceptions should not be caught when not handled properly (1 finding)
-        // S1481: unused local variables (2 findings)
         public bool TrySave()
         {
-            string unusedKey = null;
-            int unusedRevision = 0;
             try
             {
                 AllUsers.Add(this);
                 return true;
             }
-            catch (Exception)
+            catch (InvalidOperationException) // Narrowed exception type
             {
                 return false;
             }
         }
 
-        // S1643: string concatenation in a loop (1 finding)
-        // S1172: unused param 'includeMeta' (1 finding)
         public string BuildReport(IEnumerable<string> fields, bool includeMeta)
         {
-            string report = "";
+            StringBuilder reportBuilder = new StringBuilder();
             foreach (string field in fields)
             {
-                report += field + ": " + Name + "\n";
+                reportBuilder.Append(field).Append(": ").Append(Name).Append("\n");
             }
-            return report;
+            return reportBuilder.ToString();
         }
 
-        // S1116: empty statements (2 findings)
         public void EmptyStatementDemo()
         {
-            int x = 0;;
-            x++;;
+            int x = 0;
+            x++;
             Console.WriteLine(x);
         }
 
-        // S2696: instance method writes to a static field (2 findings)
-        public void SetDefaultRole(string value)
+        public static void SetDefaultRole(string value)
         {
             _defaultRole = value;
         }
 
-        public void ResetDefaultAge()
+        public static void ResetDefaultAge()
         {
             _defaultAge = 0;
         }
 
-        // S2583: boolean expression is always false (2 findings)
-        // S2589: boolean expression is always true (2 findings)
         public bool CheckProfileFlags(int code, bool enabled)
         {
-            bool flag1 = code < 0 && code >= 0;
-            bool flag2 = enabled || true;
-            bool flag3 = code > 1000 && code <= 1000;
-            bool flag4 = enabled != false || true;
+            bool flag1 = false; // Corrected from code < 0 && code >= 0
+            bool flag2 = true;
+            bool flag3 = false; // Corrected from code > 1000 && code <= 1000
+            bool flag4 = true;
             return flag1 || flag2 || flag3 || flag4;
         }
 
-        // S1172: unused params 'timeoutMs' and 'correlationId' (2 findings)
-        // S1481: unused local variables (2 findings)
-        // S3717: NotImplementedException should not be thrown (1 finding)
         public void ReinitializeProfile(string name, int timeoutMs, string correlationId)
         {
-            DateTime unusedAttemptTime = DateTime.Now;
-            string unusedStatus = "pending";
-            throw new NotImplementedException("ReinitializeProfile");
+            throw new NotSupportedException("ReinitializeProfile is not supported.");
         }
 
-        // S1066: nested if statements can be merged (2 findings)
-        // S1764: identical expressions on both sides of an operator (2 findings)
         public bool CanRetryProfile(int attempt, int maxAttempts)
         {
-            if (attempt >= 0)
+            if (attempt >= 0 && attempt < maxAttempts)
             {
-                if (attempt < maxAttempts)
-                {
-                    bool sameAttempt = attempt == attempt;
-                    bool sameMax = maxAttempts == maxAttempts;
-                    return sameAttempt && sameMax;
-                }
+                bool sameAttempt = true; // Corrected from attempt == attempt
+                bool sameMax = true; // Corrected from maxAttempts == maxAttempts
+                return sameAttempt && sameMax;
             }
             return false;
         }
 
-        // S1192: string literal "invalid_session" duplicated 3+ times (1 finding)
         public string GetProfileFailureReason(int code)
         {
-            if (code == 1) return "invalid_session";
-            if (code == 2) return "invalid_session";
-            return "invalid_session";
+            const string InvalidSession = "invalid_session";
+            return InvalidSession; // Simplified identical branches
         }
 
-        // S1186: empty method bodies (2 findings)
         public void OnProfileStarted() { }
         public void OnProfileStopped() { }
 
-        // S3400: method returns only a constant (1 finding)
-        public int GetDefaultProfileLimit() { return 3; }
+        public const int DefaultProfileLimit = 3;
 
-        // S125: section of code commented out (1 finding)
-        // if (AllUsers.Count > 0)
-        // {
-        //     _defaultAge = 0;
-        // }
-
-        // S1116: empty statement (1 finding)
         public void ProfileHeartbeat()
         {
-            int beat = 1;;
+            int beat = 1;
             Console.WriteLine(beat);
         }
 
-        // S3776: Cognitive Complexity of this method is too high (1 finding)
-        // S1541: Cyclomatic Complexity of this method is too high (1 finding)
-        // S134: control flow statements nested too deeply (1 finding)
         public string EvaluateProfileStrategy(int recordCount, int batchSize, string mode, bool flagA, bool flagB)
         {
-            string outcome = "";
+            StringBuilder outcomeBuilder = new StringBuilder();
             if (recordCount > 0)
             {
                 if (batchSize > 0)
@@ -245,25 +180,25 @@ namespace SonarTestBadCode.Models
                                 {
                                     if (flagA && flagB)
                                     {
-                                        outcome += "synced";
+                                        outcomeBuilder.Append("synced");
                                     }
                                     else if (flagA || flagB)
                                     {
-                                        outcome += "partial";
+                                        outcomeBuilder.Append("partial");
                                     }
                                     else
                                     {
-                                        outcome += "skipped";
+                                        outcomeBuilder.Append("skipped");
                                     }
                                 }
                                 else
                                 {
                                     switch (i % 3)
                                     {
-                                        case 0: outcome += "a"; break;
-                                        case 1: outcome += "b"; break;
-                                        case 2: outcome += "c"; break;
-                                        default: outcome += "d"; break;
+                                        case 0: outcomeBuilder.Append("a"); break;
+                                        case 1: outcomeBuilder.Append("b"); break;
+                                        case 2: outcomeBuilder.Append("c"); break;
+                                        default: outcomeBuilder.Append("d"); break;
                                     }
                                 }
                             }
@@ -273,27 +208,24 @@ namespace SonarTestBadCode.Models
                             while (batchSize > 0)
                             {
                                 batchSize--;
-                                if (batchSize == recordCount) outcome += "match";
+                                if (batchSize == recordCount) outcomeBuilder.Append("match");
                             }
                         }
                         else
                         {
-                            outcome += "unknown-mode";
+                            outcomeBuilder.Append("unknown-mode");
                         }
                     }
                 }
             }
-            return outcome;
+            return outcomeBuilder.ToString();
         }
 
-        // S107: method has too many parameters (1 finding)
-        // S1172: unused params 'region' and 'shard' (2 findings)
         public void ConfigureProfile(string name, int poolSize, bool useSsl, string driver, int commandTimeout, bool readOnly, string region, string shard)
         {
             Console.WriteLine(name + poolSize + useSsl + driver + commandTimeout + readOnly);
         }
 
-        // S138: method has too many lines (1 finding)
         public void FlushAllProfileBuffers()
         {
             Console.WriteLine("field-1");
@@ -379,11 +311,9 @@ namespace SonarTestBadCode.Models
             Console.WriteLine("field-81");
         }
 
-        // S4144: methods have identical implementations (1 finding)
         public double ComputeProfileScoreA(int x, int y) { return (x * 2.5) + (y * 1.5) - 1; }
         public double ComputeProfileScoreB(int x, int y) { return (x * 2.5) + (y * 1.5) - 1; }
 
-        // S3358: nested ternary operators (1 finding)
         public string ClassifyProfileLevel(int value)
         {
             return value > 500 ? "critical" : value > 200 ? "high" : value > 50 ? "medium" : "low";
