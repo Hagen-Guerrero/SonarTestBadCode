@@ -20,6 +20,48 @@ on:
         required: false
         default: 'false'
         type: boolean
+      # ── Severity filters ────────────────────────────────────────────────────
+      severity_blocker:
+        description: 'Fix BLOCKER severity issues'
+        required: false
+        default: 'true'
+        type: boolean
+      severity_critical:
+        description: 'Fix CRITICAL severity issues'
+        required: false
+        default: 'true'
+        type: boolean
+      severity_major:
+        description: 'Fix MAJOR severity issues'
+        required: false
+        default: 'true'
+        type: boolean
+      severity_minor:
+        description: 'Fix MINOR severity issues'
+        required: false
+        default: 'false'
+        type: boolean
+      severity_info:
+        description: 'Fix INFO severity issues'
+        required: false
+        default: 'false'
+        type: boolean
+      # ── Issue type filters ──────────────────────────────────────────────────
+      issue_type_bug:
+        description: 'Fix BUG type issues'
+        required: false
+        default: 'true'
+        type: boolean
+      issue_type_vulnerability:
+        description: 'Fix VULNERABILITY type issues'
+        required: false
+        default: 'true'
+        type: boolean
+      issue_type_code_smell:
+        description: 'Fix CODE_SMELL type issues'
+        required: false
+        default: 'true'
+        type: boolean
 
 # Only run from agent-queue — that is the branch with the committed batch files.
 # Dispatching from any other branch will skip the job.
@@ -98,6 +140,31 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
       # -----------------------------------------------------------------------
+      # Build SEVERITY_FILTER and ISSUE_TYPE_FILTER from checkbox inputs
+      # -----------------------------------------------------------------------
+      - name: Configure issue filters
+        run: |
+          SEVS=""
+          [[ "${{ inputs.severity_blocker }}"     == "true" ]] && SEVS="${SEVS},BLOCKER"
+          [[ "${{ inputs.severity_critical }}"    == "true" ]] && SEVS="${SEVS},CRITICAL"
+          [[ "${{ inputs.severity_major }}"       == "true" ]] && SEVS="${SEVS},MAJOR"
+          [[ "${{ inputs.severity_minor }}"       == "true" ]] && SEVS="${SEVS},MINOR"
+          [[ "${{ inputs.severity_info }}"        == "true" ]] && SEVS="${SEVS},INFO"
+          SEVS="${SEVS#,}"  # strip leading comma
+
+          TYPES=""
+          [[ "${{ inputs.issue_type_bug }}"           == "true" ]] && TYPES="${TYPES},BUG"
+          [[ "${{ inputs.issue_type_vulnerability }}"  == "true" ]] && TYPES="${TYPES},VULNERABILITY"
+          [[ "${{ inputs.issue_type_code_smell }}"     == "true" ]] && TYPES="${TYPES},CODE_SMELL"
+          TYPES="${TYPES#,}"
+
+          echo "SEVERITY_FILTER=${SEVS}"        >> "$GITHUB_ENV"
+          echo "ISSUE_TYPE_FILTER=${TYPES}"     >> "$GITHUB_ENV"
+
+          echo "Severity filter  : ${SEVS:-ALL}"
+          echo "Issue type filter: ${TYPES:-ALL}"
+
+      # -----------------------------------------------------------------------
       # AI fix loop
       # -----------------------------------------------------------------------
       - name: AI fix batches
@@ -108,6 +175,8 @@ jobs:
           MAX_ISSUES_PER_CALL: ${{ inputs.max_issues_per_call }}
           GITHUB_RUN_ID: ${{ github.run_id }}
           WORKSPACE_ROOT: ${{ github.workspace }}
+          SEVERITY_FILTER: ${{ env.SEVERITY_FILTER }}
+          ISSUE_TYPE_FILTER: ${{ env.ISSUE_TYPE_FILTER }}
         run: |
           python scripts/ai/fix_batch.py
           EXIT=$?
@@ -166,6 +235,8 @@ jobs:
           | Branch | \`${{ github.ref_name }}\` |
           | Scanned commit | \`${SCAN_COMMIT}\` |
           | Max issues / call | ${{ inputs.max_issues_per_call }} |
+          | Severity filter | \`${SEVERITY_FILTER:-ALL}\` |
+          | Issue type filter | \`${ISSUE_TYPE_FILTER:-ALL}\` |
           | Fix exit code | ${{ steps.fix.outputs.exit_code }} |
           | PR target | \`${{ inputs.base_branch || 'agent-queue' }}\` |
           EOF

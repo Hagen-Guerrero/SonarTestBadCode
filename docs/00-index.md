@@ -18,7 +18,7 @@ This folder documents the end-to-end SonarQube AI auto-remediation system built 
 | [[02-sonarqube-local-setup]] | Running SonarQube locally with Docker, scanning, querying the REST API |
 | [[03-test-fixture]] | The `SonarTestBadCode` project — its purpose, structure, and the 27 rules it violates |
 | [[04-workflow-batch]] | `sonar-batch.yml` — scan + batch workflow, inputs, steps, branch strategy |
-| [[05-workflow-fix]] | `sonar-fix-v3.yml` — AI fix workflow, three-job structure |
+| [[05-workflow-fix]] | `sonar-fix-only.yml` (recommended) and `sonar-fix-v3.yml` — AI fix workflows |
 | [[06-workflow-verify]] | `sonar-verify.yml` — build verification on fix PRs |
 | [[07-scripts]] | All Python scripts: fetch, batch, fix, create_pr, constants |
 | [[08-ai-prompts]] | The AI system prompt and rule-by-rule remediation guide |
@@ -34,11 +34,13 @@ This folder documents the end-to-end SonarQube AI auto-remediation system built 
 
 ```
 push to dev
-   └─► sonar-batch.yml        ← scan + batch, opens PR to agent-queue
+   └─► sonar-batch.yml          ← scan + batch, opens PR to agent-queue
          └─► agent-queue branch (latest code + batches.json)
-               └─► sonar-fix-v3.yml   ← AI loop, opens PR with fixes
+               └─► sonar-fix-only.yml   ← AI loop only (recommended — no re-scan)
                      └─► ai/sonarqube-fixes-{N}  ← fix PR for human review
 ```
+
+> `sonar-fix-v3.yml` is the all-in-one alternative (scan + batch + fix in one dispatch). Use `sonar-fix-only.yml` after a batch PR has been merged to `agent-queue`.
 
 ## Copilot: how to use this knowledge base
 

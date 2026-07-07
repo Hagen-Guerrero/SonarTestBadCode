@@ -1,17 +1,98 @@
 ---
-title: Workflow — sonar-fix-v3.yml (AI Fix)
+title: Workflow — AI Fix (sonar-fix-only.yml & sonar-fix-v3.yml)
 tags: [workflow, github-actions, ai-fix, sonar-fix, automation]
-aliases: [fix-workflow, sonar-fix, ai-workflow]
+aliases: [fix-workflow, sonar-fix, ai-workflow, sonar-fix-only]
 ---
 
-# Workflow — `sonar-fix-v3.yml` (AI Fix)
+# Workflow — AI Fix
+
+Two workflows run the AI fix loop. Use `sonar-fix-only.yml` for day-to-day work; `sonar-fix-v3.yml` is the all-in-one fallback when you need a fresh scan in the same dispatch.
+
+---
+
+## `sonar-fix-only.yml` — AI Fix Only (recommended)
+
+**File:** `.github/workflows/sonar-fix-only.yml`
+**Trigger:** `workflow_dispatch` from the `agent-queue` branch only.
+
+```yaml
+if: github.ref == 'refs/heads/agent-queue'
+```
+
+**Prerequisite:** a `sonar/batch-{N}` PR must have been merged into `agent-queue` first (done automatically by `sonar-batch.yml`). The workflow reads `output/batches.json` already committed on that branch — no SonarQube container, no Java, no MSBuild.
+
+### Permissions
+
+```yaml
+permissions:
+  contents: write
+  pull-requests: write
+  models: read     # enables GITHUB_TOKEN for GitHub Models API
+  issues: write    # required by create_copilot_tasks.py
+```
+
+### Inputs
+
+#### General
+
+| Input | Default | Description |
+|-------|---------|-------------|
+| `max_issues_per_call` | `15` | Issues per AI call — lower reduces hallucination risk |
+| `base_branch` | `agent-queue` | PR target branch for the fix PR |
+| `run_copilot_agent` | `false` | Fire Copilot Agent Tasks for skipped files (requires `COPILOT_PAT`) |
+
+#### Severity filters
+
+Each checkbox controls which severities are included in the fix run. Unchecked severities are skipped per issue (not per file) — a file is still processed if it has at least one issue matching an enabled severity.
+
+| Input | Default | Includes |
+|-------|---------|---------|
+| `severity_blocker` | ✓ | BLOCKER issues |
+| `severity_critical` | ✓ | CRITICAL issues |
+| `severity_major` | ✓ | MAJOR issues |
+| `severity_minor` | ☐ | MINOR issues |
+| `severity_info` | ☐ | INFO issues |
+
+#### Issue type filters
+
+| Input | Default | Includes |
+|-------|---------|---------|
+| `issue_type_bug` | ✓ | BUG type issues |
+| `issue_type_vulnerability` | ✓ | VULNERABILITY type issues |
+| `issue_type_code_smell` | ✓ | CODE_SMELL type issues |
+
+> [!NOTE]
+> Severity and type filters are AND-combined. A file is skipped entirely (`skipped_filtered`) only when every one of its issues is excluded. When some issues pass and others don't, the AI receives only the passing issues and the rest are silently omitted from the prompt.
+
+### Steps
+
+1. **Checkout** (`fetch-depth: 0`)
+2. **Validate batch files** — exits immediately if `output/batches.json` is missing, prints scan commit SHA and issue count
+3. **Set up Python 3.12**, install `requests`
+4. **Configure git identity**
+5. **Configure issue filters** — translates checkbox inputs into `SEVERITY_FILTER` and `ISSUE_TYPE_FILTER` env vars (e.g. `BLOCKER,CRITICAL,MAJOR` and `BUG,CODE_SMELL`)
+6. **AI fix batches** — `fix_batch.py`; exit code 2 (all skipped) is non-fatal
+7. **Upload `output/` as artifact** (`sonar-fix-only-run-{N}`, 7-day retention)
+8. **Create fix PR** — `create_pr.py`
+9. **Create Copilot Agent Tasks** (optional)
+10. **Write step summary** — includes active filter values
+
+### Output
+
+- Branch `ai/sonarqube-fixes-{N}` → PR to `agent-queue`
+- One git commit per fixed file
+- Step summary shows severity filter, type filter, exit code, PR target
+
+---
+
+## `sonar-fix-v3.yml` — Full Pipeline (all-in-one)
 
 **File:** `.github/workflows/sonar-fix-v3.yml`
 **Name:** SonarQube — Scan, Batch & AI Auto-Fix (v3 — three-job)
 
 ---
 
-## Trigger
+### Trigger
 
 `workflow_dispatch` only — manually triggered from the `agent/fix` branch.
 
@@ -19,12 +100,7 @@ aliases: [fix-workflow, sonar-fix, ai-workflow]
 if: github.ref == 'refs/heads/agent/fix'
 ```
 
-> [!NOTE]
-> This workflow is older architecture. The batch workflow (`sonar-batch.yml`) now handles the scan+batch phase and creates a PR to `agent-queue`. `sonar-fix-v3.yml` is the standalone all-in-one alternative that scans, batches, and fixes in a single dispatch.
-
----
-
-## Permissions
+### Permissions
 
 ```yaml
 permissions:
@@ -34,14 +110,12 @@ permissions:
   issues: write
 ```
 
----
-
-## Inputs
+### Inputs
 
 | Input | Default | Description |
 |-------|---------|-------------|
 | `project_keys` | `sonar-test-bad-code` | SonarQube project keys |
-| `severity_blocker/critical/major/minor/info` | `true` | Severity filters |
+| `severity_blocker/critical/major/minor/info` | `true` | Severity filters (scan-time — controls what is fetched from SonarQube) |
 | `language_filter` | `cs` | Language key |
 | `max_files` | `0` | Cap on batches (0 = unlimited) |
 | `max_issues_per_call` | `15` | Issues per AI call — lower = less hallucination risk |
@@ -49,7 +123,7 @@ permissions:
 
 ---
 
-## Three-job structure
+### Three-job structure
 
 The workflow splits into three dependent jobs to isolate the expensive SonarQube infrastructure from the cheaper AI fix step.
 
@@ -95,7 +169,7 @@ Steps:
 
 ---
 
-## AI fix loop (Job 3, step 4)
+### AI fix loop (Job 3, step 4)
 
 ```yaml
 - name: AI fix batches
@@ -120,7 +194,7 @@ Exit code semantics:
 
 ---
 
-## PR creation (Job 3, step 6)
+### PR creation (Job 3, step 6)
 
 ```yaml
 - name: Create fix PR
@@ -135,7 +209,7 @@ Exit code semantics:
 
 ---
 
-## Copilot Agent Tasks (optional, Job 3, step 7)
+### Copilot Agent Tasks (optional, Job 3, step 7)
 
 When `run_copilot_agent: true` and the `COPILOT_PAT` secret is present, `create_copilot_tasks.py` fires Copilot Agent Tasks for every file that `fix_batch.py` could not fix automatically.
 
@@ -144,7 +218,7 @@ When `run_copilot_agent: true` and the `COPILOT_PAT` secret is present, `create_
 
 ---
 
-## Artifacts produced
+### Artifacts produced
 
 | Artifact name | Contents | Retention |
 |---------------|----------|-----------|

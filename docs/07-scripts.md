@@ -186,6 +186,8 @@ The AI remediation loop. Reads `output/batches.json`, calls the AI API for each 
 | `GITHUB_TOKEN` | Yes | — | Built-in Actions token (GitHub Models fallback) |
 | `MAX_ISSUES_PER_CALL` | No | `15` | Issues per AI request; controls sub-batching |
 | `GITHUB_RUN_ID` | No | `local` | Written into commit messages |
+| `SEVERITY_FILTER` | No | `""` | Comma-separated severities to process (e.g. `BLOCKER,CRITICAL`). Empty = all severities |
+| `ISSUE_TYPE_FILTER` | No | `""` | Comma-separated types to process (e.g. `BUG,VULNERABILITY`). Empty = all types |
 
 ### AI API — two-tier fallback
 
@@ -200,6 +202,26 @@ The AI remediation loop. Reads `output/batches.json`, calls the AI API for each 
 - Triggered by: Copilot returning 401/403, unreachable, or any non-200
 
 **Rate limiting:** On 429, respects the `retry-after` header, falls back to exponential backoff (`2^attempt`). Max `AI_RETRY_MAX` (3) retries.
+
+### Issue filtering
+
+Before sub-batching, each file's issue list is passed through `_filter_issues()`:
+
+```python
+# Both filters are AND-combined. Empty set = accept all.
+if _SEVERITY_FILTER:
+    issues = [i for i in issues if i["severity"].upper() in _SEVERITY_FILTER]
+if _ISSUE_TYPE_FILTER:
+    issues = [i for i in issues if i["type"].upper() in _ISSUE_TYPE_FILTER]
+```
+
+| Outcome | What happens |
+|---------|-------------|
+| All issues pass the filter | Normal processing |
+| Some issues pass | Only the passing issues are sent to the AI; the rest are silently omitted from the prompt |
+| Zero issues pass | Batch status set to `skipped_filtered`; file is counted as skipped, no API call made |
+
+The active filters are printed at startup and appear in the workflow step summary.
 
 ### Sub-batching for large files
 
@@ -273,7 +295,7 @@ S125:67: Deleted commented-out code block.
 }
 ```
 
-Status values: `fixed`, `fixed_no_change`, `skipped`, `skipped_not_found`, `read_error`
+Status values: `fixed`, `fixed_no_change`, `skipped`, `skipped_not_found`, `read_error`, `skipped_filtered`
 
 ---
 
@@ -311,8 +333,9 @@ fix(sonar): AI auto-remediation — {fixed}/{total} files fixed [run #{N}]
 ### PR body includes
 
 - Warning banner if all files were skipped (`exit_code = 2`)
-- Summary table: files fixed, files skipped, issues addressed, total issues scanned
-- Fixed files table: file name, issue count, chunks used, rules applied
+- Summary table: files fixed, files skipped, issues addressed, **issues skipped by AI**, total issues scanned
+- Fixed files table: file name, issue count, **per-file skipped count** (bolded when non-zero), chunks used, rules applied
+- "Issues skipped by AI" table: file, rule, line, reason — for issues the AI individually marked unresolvable within otherwise-fixed files
 - Skipped files table: file name, issue count, skip reason
 - Token usage table: prompt tokens, completion tokens, total, API call count
 - Review reminder: "A follow-up SonarQube scan is the authoritative quality gate"
