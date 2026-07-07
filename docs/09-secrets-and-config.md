@@ -50,12 +50,48 @@ All inputs are optional. When triggered by `push` to `dev`, defaults apply autom
 
 ---
 
+## Workflow inputs — `sonar-fix-only.yml`
+
+The recommended fix workflow. Triggered manually from `agent-queue` after a batch PR has been merged.
+
+#### General inputs
+
+| Input | Default | Type | Description |
+|-------|---------|------|-------------|
+| `max_issues_per_call` | `15` | string | Issues per AI request. Lower = less hallucination risk, more API calls |
+| `base_branch` | `agent-queue` | string | PR target for the fix PR |
+| `run_copilot_agent` | `false` | boolean | Fire Copilot Agent Tasks for skipped files. Requires `COPILOT_PAT` |
+
+#### Severity filter inputs
+
+Controls which issue severities are sent to the AI. Unchecked severities are filtered per issue, not per file. If a file has no remaining issues after filtering it is skipped entirely (`skipped_filtered`).
+
+| Input | Default | Severity |
+|-------|---------|---------|
+| `severity_blocker` | `true` | BLOCKER |
+| `severity_critical` | `true` | CRITICAL |
+| `severity_major` | `true` | MAJOR |
+| `severity_minor` | `false` | MINOR |
+| `severity_info` | `false` | INFO |
+
+#### Issue type filter inputs
+
+| Input | Default | Type |
+|-------|---------|------|
+| `issue_type_bug` | `true` | BUG |
+| `issue_type_vulnerability` | `true` | VULNERABILITY |
+| `issue_type_code_smell` | `true` | CODE_SMELL |
+
+> The severity and type filters are passed to `fix_batch.py` as `SEVERITY_FILTER` and `ISSUE_TYPE_FILTER` env vars via the "Configure issue filters" step.
+
+---
+
 ## Workflow inputs — `sonar-fix-v3.yml`
 
 | Input | Default | Description |
 |-------|---------|-------------|
 | `project_keys` | `sonar-test-bad-code` | Same as batch |
-| `severity_*` | `true` | Same as batch |
+| `severity_*` | `true` | Scan-time severity filter — controls what is fetched from SonarQube (not per-issue AI filtering) |
 | `language_filter` | `cs` | Same as batch |
 | `max_files` | `0` | Same as batch |
 | `max_issues_per_call` | `15` | Issues per AI request. Lower = less hallucination risk, more API calls |
@@ -94,6 +130,8 @@ All inputs are optional. When triggered by `push` to `dev`, defaults apply autom
 | `GITHUB_TOKEN` | Yes | — | Built-in Actions token for GitHub Models |
 | `MAX_ISSUES_PER_CALL` | No | `15` | Issues per AI call; controls sub-batching |
 | `GITHUB_RUN_ID` | No | `local` | Written into git commit messages |
+| `SEVERITY_FILTER` | No | `""` | Comma-separated severities to include (e.g. `BLOCKER,CRITICAL`). Empty string = no filter, all severities processed |
+| `ISSUE_TYPE_FILTER` | No | `""` | Comma-separated types to include (e.g. `BUG,VULNERABILITY`). Empty string = no filter, all types processed |
 
 ---
 

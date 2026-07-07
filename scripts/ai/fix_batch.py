@@ -73,6 +73,18 @@ _WORKSPACE = os.environ.get("WORKSPACE_ROOT", os.getcwd())
 _RUN_ID = os.environ.get("GITHUB_RUN_ID", "local")
 _MAX_PER_CALL = int(os.environ.get("MAX_ISSUES_PER_CALL", str(MAX_ISSUES_PER_CALL)))
 
+# Empty set = no filter applied (accept all).
+_SEVERITY_FILTER: set[str] = {
+    s.strip().upper()
+    for s in os.environ.get("SEVERITY_FILTER", "").split(",")
+    if s.strip()
+}
+_ISSUE_TYPE_FILTER: set[str] = {
+    t.strip().upper()
+    for t in os.environ.get("ISSUE_TYPE_FILTER", "").split(",")
+    if t.strip()
+}
+
 # ---------------------------------------------------------------------------
 # Prompt loading
 # ---------------------------------------------------------------------------
@@ -346,6 +358,23 @@ def _git_commit(message: str) -> bool:
 
 
 # ---------------------------------------------------------------------------
+# Issue filtering
+# ---------------------------------------------------------------------------
+
+def _filter_issues(issues: list[dict]) -> list[dict]:
+    """Apply SEVERITY_FILTER and ISSUE_TYPE_FILTER to an issue list.
+
+    Empty filter sets mean "accept all". Both filters are AND-combined.
+    """
+    filtered = issues
+    if _SEVERITY_FILTER:
+        filtered = [i for i in filtered if i.get("severity", "").upper() in _SEVERITY_FILTER]
+    if _ISSUE_TYPE_FILTER:
+        filtered = [i for i in filtered if i.get("type", "").upper() in _ISSUE_TYPE_FILTER]
+    return filtered
+
+
+# ---------------------------------------------------------------------------
 # Fix result writer
 # ---------------------------------------------------------------------------
 
@@ -393,6 +422,10 @@ def main() -> int:
     batches: list[dict] = data.get("batches", [])
     print(f"Loaded {len(batches)} batches | MAX_ISSUES_PER_CALL={_MAX_PER_CALL}")
     print(f"API: {'Copilot Enterprise → ' if _copilot_available else ''}GitHub Models")
+    if _SEVERITY_FILTER:
+        print(f"Severity filter  : {', '.join(sorted(_SEVERITY_FILTER))}")
+    if _ISSUE_TYPE_FILTER:
+        print(f"Issue type filter: {', '.join(sorted(_ISSUE_TYPE_FILTER))}")
 
     os.makedirs(FIX_RESULTS_DIR, exist_ok=True)
 
@@ -420,7 +453,20 @@ def main() -> int:
             files_skipped += 1
             continue
 
-        issues = batch["issues"]
+        issues = _filter_issues(batch["issues"])
+        if not issues:
+            total_in_batch = batch["issue_count"]
+            print(f"  SKIP: all {total_in_batch} issue(s) filtered out by severity/type filter")
+            _write_fix_result(
+                batch, [], "skipped_filtered", 0, 0,
+                f"all {total_in_batch} issues excluded by active severity/type filter",
+            )
+            files_skipped += 1
+            continue
+
+        if len(issues) < batch["issue_count"]:
+            print(f"  Filter: {len(issues)}/{batch['issue_count']} issues kept after severity/type filter")
+
         chunks = [issues[i:i + _MAX_PER_CALL] for i in range(0, len(issues), _MAX_PER_CALL)]
         total_chunks = len(chunks)
         print(f"  {total_chunks} chunk(s) of up to {_MAX_PER_CALL} issues each")
