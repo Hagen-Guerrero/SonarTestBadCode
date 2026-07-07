@@ -1,9 +1,6 @@
-name: SonarQube — Scan & Batch Issues
+name: SonarQube — Scan, Batch & AI Auto-Fix (v3 — three-job)
 
 on:
-  push:
-    branches:
-      - dev
   workflow_dispatch:
     inputs:
       project_keys:
@@ -31,33 +28,35 @@ on:
         type: boolean
         default: true
       language_filter:
-        description: 'SonarQube language key (e.g. cs, java, py)'
+        description: 'SonarQube language key'
         required: false
         default: 'cs'
       max_files:
         description: 'Max files to batch (0 = unlimited)'
         required: false
         default: '0'
-      quality_profile_path:
-        description: 'Repo-relative path to the quality profile XML'
+      max_issues_per_call:
+        description: 'Max issues per AI call — lower value reduces hallucination risk'
         required: false
-        default: 'sonar/quality-profile-cs.xml'
-      solution_path:
-        description: 'Repo-relative path to the .sln or .csproj to build'
+        default: '15'
+      run_copilot_agent:
+        description: 'Fire Copilot Agent Tasks for skipped files (requires COPILOT_PAT)'
         required: false
-        default: 'SonarTestBadCode.sln'
+        default: 'false'
+        type: boolean
 
-# Cancel any in-flight run for the same branch so only the latest push wins.
-concurrency:
-  group: sonar-batch-${{ github.ref }}
-  cancel-in-progress: true
-
-# Read-only: no commits, no PRs — artifacts are the only output.
 permissions:
-  contents: read
+  contents: write
+  pull-requests: write
+  models: read
+  issues: write
 
 jobs:
-  sonar-batch:
+  # ---------------------------------------------------------------------------
+  # Job 1: Scan — build + SonarQube analysis + fetch raw issues
+  # ---------------------------------------------------------------------------
+  scan:
+    if: github.ref == 'refs/heads/agent/fix'
     runs-on: ubuntu-latest
 
     services:
@@ -65,8 +64,6 @@ jobs:
         image: sonarqube:lts-community
         ports:
           - 9000:9000
-        # No health-cmd — the JRE base image has no curl/wget.
-        # Readiness is polled from the runner in the wait step below.
 
     steps:
       # -----------------------------------------------------------------------
@@ -107,9 +104,6 @@ jobs:
 
       # -----------------------------------------------------------------------
       # Bootstrap — wait for SonarQube, generate token, create project
-      # SonarQube 9.9.x LTS: admin:admin works on a fresh ephemeral instance.
-      # Use sonar.login (not sonar.token) — sonar.token is 10.x syntax.
-      # Use projectKeys (not componentKeys) in REST API — returns full result set.
       # -----------------------------------------------------------------------
       - name: Wait for SonarQube to be fully UP
         run: |
@@ -132,66 +126,49 @@ jobs:
 
       - name: Bootstrap — generate token and create project
         run: |
-          # Create a SonarQube project for each key in the comma-separated list
-          PROJECT_KEYS="${{ inputs.project_keys || 'sonar-test-bad-code' }}"
-          for KEY in $(echo "$PROJECT_KEYS" | tr ',' '\n'); do
-            KEY=$(echo "$KEY" | xargs)  # trim whitespace
-            curl -s -X POST -u "admin:admin" \
-              "http://localhost:9000/api/projects/create" \
-              -d "project=${KEY}&name=${KEY}" > /dev/null || true
-            echo "Project created (or already exists): ${KEY}"
-          done
-
           TOKEN_JSON=$(curl -sf -X POST -u "admin:admin" \
             "http://localhost:9000/api/user_tokens/generate" \
             -d "name=ci-token-${{ github.run_number }}")
           TOKEN=$(echo "$TOKEN_JSON" | python3 -c "import json,sys; print(json.load(sys.stdin)['token'])")
+
+          curl -s -X POST -u "admin:admin" \
+            "http://localhost:9000/api/projects/create" \
+            -d "project=sonar-test-bad-code&name=SonarTestBadCode" > /dev/null || true
 
           echo "SONARQUBE_TOKEN=$TOKEN" >> "$GITHUB_ENV"
           echo "Bootstrap complete — token and project ready"
 
       - name: Import quality profile
         run: |
-          PROFILE_PATH="${{ inputs.quality_profile_path || 'sonar/quality-profile-cs.xml' }}"
-          LANGUAGE="${{ inputs.language_filter || 'cs' }}"
-          PROFILE_NAME="CI-Profile-${LANGUAGE}"
-
-          # "Sonar way" is a built-in read-only profile — rename before uploading.
-          sed "s|<name>Sonar way</name>|<name>${PROFILE_NAME}</name>|" \
-            "${PROFILE_PATH}" > /tmp/ci-profile.xml
+          sed 's|<name>Sonar way</name>|<name>CI-Profile-cs</name>|' \
+            sonar/quality-profile-cs.xml > /tmp/ci-profile-cs.xml
 
           curl -sf -X POST -u "admin:admin" \
             "http://localhost:9000/api/qualityprofiles/restore" \
-            -F "backup=@/tmp/ci-profile.xml"
+            -F "backup=@/tmp/ci-profile-cs.xml"
 
           curl -sf -X POST -u "admin:admin" \
             "http://localhost:9000/api/qualityprofiles/set_default" \
-            --data-urlencode "language=${LANGUAGE}" \
-            --data-urlencode "qualityProfile=${PROFILE_NAME}"
+            --data-urlencode "language=cs" \
+            --data-urlencode "qualityProfile=CI-Profile-cs"
 
-          echo "Quality profile '${PROFILE_NAME}' imported and set as default for ${LANGUAGE}"
+          echo "Quality profile 'CI-Profile-cs' imported and set as default for C#"
 
       # -----------------------------------------------------------------------
-      # SonarQube scan
-      # The scanner registers a single project key; use the first in the list.
-      # Multi-project fetching is handled downstream by fetch_issues.py.
+      # Build + SonarQube scan
       # -----------------------------------------------------------------------
       - name: SonarScanner begin
         run: |
-          FIRST_KEY=$(echo "${{ inputs.project_keys || 'sonar-test-bad-code' }}" \
-            | cut -d',' -f1 | xargs)
           dotnet sonarscanner begin \
-            /k:"${FIRST_KEY}" \
+            /k:"sonar-test-bad-code" \
             /d:sonar.host.url="http://localhost:9000" \
             /d:sonar.login="$SONARQUBE_TOKEN" \
             /d:sonar.exclusions="scripts/**,output/**"
 
-      - name: Build
+      - name: Build (.NET Framework 4.8 via Mono MSBuild)
         env:
           FrameworkPathOverride: /usr/lib/mono/4.8-api/
-        run: |
-          dotnet msbuild "${{ inputs.solution_path || 'SonarTestBadCode.sln' }}" \
-            /p:Configuration=Release
+        run: dotnet msbuild SonarTestBadCode.sln /p:Configuration=Release
 
       - name: SonarScanner end
         run: dotnet sonarscanner end /d:sonar.login="$SONARQUBE_TOKEN"
@@ -226,25 +203,17 @@ jobs:
           fi
 
       # -----------------------------------------------------------------------
-      # Fetch and batch issues
+      # Fetch raw issues — SonarQube is still alive at this point
       # -----------------------------------------------------------------------
       - name: Build severity filter
         id: severities
         run: |
-          # When triggered by push, boolean inputs are empty strings.
-          # ${VAR:-true} defaults each flag to true so all severities are included.
-          BLOCKER="${{ inputs.severity_blocker }}"
-          CRITICAL="${{ inputs.severity_critical }}"
-          MAJOR="${{ inputs.severity_major }}"
-          MINOR="${{ inputs.severity_minor }}"
-          INFO="${{ inputs.severity_info }}"
-
           SEVS=""
-          [ "${BLOCKER:-true}"  = "true" ] && SEVS="${SEVS}BLOCKER,"
-          [ "${CRITICAL:-true}" = "true" ] && SEVS="${SEVS}CRITICAL,"
-          [ "${MAJOR:-true}"    = "true" ] && SEVS="${SEVS}MAJOR,"
-          [ "${MINOR:-true}"    = "true" ] && SEVS="${SEVS}MINOR,"
-          [ "${INFO:-true}"     = "true" ] && SEVS="${SEVS}INFO,"
+          [ "${{ inputs.severity_blocker }}"  = "true" ] && SEVS="${SEVS}BLOCKER,"
+          [ "${{ inputs.severity_critical }}" = "true" ] && SEVS="${SEVS}CRITICAL,"
+          [ "${{ inputs.severity_major }}"    = "true" ] && SEVS="${SEVS}MAJOR,"
+          [ "${{ inputs.severity_minor }}"    = "true" ] && SEVS="${SEVS}MINOR,"
+          [ "${{ inputs.severity_info }}"     = "true" ] && SEVS="${SEVS}INFO,"
           SEVS="${SEVS%,}"
           [ -z "$SEVS" ] && SEVS="BLOCKER,CRITICAL,MAJOR,MINOR,INFO"
           echo "value=$SEVS" >> "$GITHUB_OUTPUT"
@@ -253,53 +222,136 @@ jobs:
       - name: Fetch issues from SonarQube
         env:
           SONARQUBE_URL: http://localhost:9000
-          SONAR_PROJECT_KEYS: ${{ inputs.project_keys || 'sonar-test-bad-code' }}
+          SONAR_PROJECT_KEYS: ${{ inputs.project_keys }}
           SONAR_SEVERITIES: ${{ steps.severities.outputs.value }}
-          SONAR_LANGUAGE: ${{ inputs.language_filter || 'cs' }}
+          SONAR_LANGUAGE: ${{ inputs.language_filter }}
         run: python scripts/sonar/fetch_issues.py
+
+      - name: Upload issues artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: sonar-issues-${{ github.run_number }}
+          path: output/issues.json
+          retention-days: 7
+
+  # ---------------------------------------------------------------------------
+  # Job 2: Batch — group issues by file (no SonarQube, no Java, no Mono)
+  # ---------------------------------------------------------------------------
+  batch:
+    needs: scan
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Python dependencies
+        run: pip install requests
+
+      - name: Download issues artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: sonar-issues-${{ github.run_number }}
+          path: output/
 
       - name: Batch issues by file
         env:
           WORKSPACE_ROOT: ${{ github.workspace }}
-          MAX_FILES: ${{ inputs.max_files || '0' }}
-          SCAN_COMMIT_SHA: ${{ github.sha }}
+          MAX_FILES: ${{ inputs.max_files }}
         run: python scripts/sonar/batch_issues.py
 
-      # -----------------------------------------------------------------------
-      # Publish artifacts — no git commits, no PRs.
-      # Downstream fix workflows download these by artifact name or run_id,
-      # both of which are printed in the step summary below.
-      # -----------------------------------------------------------------------
-      - name: Upload batch artifacts
+      - name: Upload batches artifact
         uses: actions/upload-artifact@v4
         with:
-          name: sonar-batch-${{ github.sha }}-run-${{ github.run_number }}
+          name: sonar-batches-${{ github.run_number }}
+          path: output/batches.json
+          retention-days: 7
+
+  # ---------------------------------------------------------------------------
+  # Job 3: Fix — AI remediation loop + PR creation (no SonarQube, no Java, no Mono)
+  # ---------------------------------------------------------------------------
+  fix:
+    needs: batch
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Python dependencies
+        run: pip install requests
+
+      - name: Configure git identity
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Download batches artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: sonar-batches-${{ github.run_number }}
+          path: output/
+
+      # -----------------------------------------------------------------------
+      # AI fix loop + PR creation
+      # -----------------------------------------------------------------------
+      - name: AI fix batches
+        id: fix
+        env:
+          COPILOT_TOKEN: ${{ secrets.COPILOT_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MAX_ISSUES_PER_CALL: ${{ inputs.max_issues_per_call }}
+          GITHUB_RUN_ID: ${{ github.run_id }}
+          WORKSPACE_ROOT: ${{ github.workspace }}
+        run: |
+          python scripts/ai/fix_batch.py
+          EXIT=$?
+          echo "exit_code=$EXIT" >> "$GITHUB_OUTPUT"
+          # exit 2 = all skipped (non-fatal) — treat as success for the step
+          # exit 3 = fatal — fail the step
+          [ $EXIT -eq 3 ] && exit 1 || exit 0
+
+      - name: Upload fix results as workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: sonar-fix-run-${{ github.run_number }}
           path: output/
           retention-days: 7
 
-      - name: Write step summary
-        if: always()
-        run: |
-          ISSUES_COUNT=$(python3 -c \
-            "import json; d=json.load(open('output/issues.json')); print(d['total_fetched'])" \
-            2>/dev/null || echo "N/A")
-          BATCHES_COUNT=$(python3 -c \
-            "import json; d=json.load(open('output/batches.json')); print(d['total_batches'])" \
-            2>/dev/null || echo "N/A")
+      - name: Create fix PR
+        if: steps.fix.outputs.exit_code != '3'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_RUN_ID: ${{ github.run_id }}
+          GITHUB_RUN_NUMBER: ${{ github.run_number }}
+          GITHUB_BASE_BRANCH: agent/fix
+          FIX_EXIT_CODE: ${{ steps.fix.outputs.exit_code }}
+          WORKFLOW_NAME: ${{ github.workflow }}
+        run: python scripts/git/create_pr.py
 
-          cat >> "$GITHUB_STEP_SUMMARY" << EOF
-          ## SonarQube Batch — Run #${{ github.run_number }}
-
-          | Metric | Value |
-          |--------|-------|
-          | Commit | \`${{ github.sha }}\` |
-          | Branch | \`${{ github.ref_name }}\` |
-          | Issues fetched | ${ISSUES_COUNT} |
-          | Batches created | ${BATCHES_COUNT} |
-          | Severities | ${{ steps.severities.outputs.value }} |
-          | Language | ${{ inputs.language_filter || 'cs' }} |
-          | Artifact | \`sonar-batch-${{ github.sha }}-run-${{ github.run_number }}\` |
-          | Run ID | \`${{ github.run_id }}\` |
-
-          > Pass the **Run ID** to a downstream fix workflow via \`workflow_dispatch\` to consume these artifacts without re-scanning.
-          EOF
+      # Create Copilot Agent Tasks for any batches that fix_batch.py could not fix.
+      # Requires COPILOT_PAT secret: fine-grained PAT with actions:write,
+      # contents:write, issues:write, pull-requests:write.
+      # GITHUB_TOKEN is explicitly rejected by the Agent Tasks API (billing is
+      # user-level). Skips gracefully when the secret is absent.
+      - name: Create Copilot Agent Tasks for skipped files
+        if: steps.fix.outputs.exit_code != '3' && inputs.run_copilot_agent == 'true'
+        env:
+          COPILOT_PAT: ${{ secrets.COPILOT_PAT }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_RUN_NUMBER: ${{ github.run_number }}
+          GITHUB_BASE_BRANCH: agent/fix
+        run: python scripts/ai/create_copilot_tasks.py
