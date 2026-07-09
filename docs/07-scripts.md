@@ -148,7 +148,7 @@ local_path = component[component.index(":") + 1:]
 
 Files not found in the workspace are logged and excluded from output.
 
-### Output — `output/batches.json`
+### Output schema — `output/batches.json`
 
 ```json
 {
@@ -157,7 +157,12 @@ Files not found in the workspace are logged and excluded from output.
   "total_batches": 7,
   "total_issues": 481,
   "skipped_not_found": 0,
-  "severity_distribution": { "MAJOR": 5, "MINOR": 2 },
+  "severity_distribution": { "BLOCKER": 1, "CRITICAL": 6 },
+  "batching_strategy": {
+    "tier1": "per-class (one file per batch)",
+    "tier2": "per-type (issues sorted by rule within each batch)",
+    "tier3": "numeric (batch_id 0..N ordered by descending severity)"
+  },
   "batches": [
     {
       "batch_id": 0,
@@ -178,6 +183,47 @@ Files not found in the workspace are logged and excluded from output.
   ]
 }
 ```
+
+#### Top-level fields
+
+| Field | Type | Meaning |
+|-------|------|---------|
+| `scan_commit` | string | The commit SHA that was scanned. Embedded so the fix workflow can confirm it's remediating the same code that produced these findings. Empty string when no SHA was supplied. |
+| `total_files_with_issues` | number | Count of files that survived grouping, the on-disk existence check, and the `MAX_FILES` cap. |
+| `total_batches` | number | Count of entries in `batches`. Always equal to `total_files_with_issues` — every surviving file becomes exactly one batch. |
+| `total_issues` | number | Sum of `issue_count` across all batches, i.e. the number of issues actually carried forward into batching (after dropping issues that belonged to not-found files). |
+| `skipped_not_found` | number | Count of distinct files that SonarQube reported issues against but that don't exist on disk at `WORKSPACE_ROOT`. These files (and all their issues) are entirely excluded from `batches` and from `total_issues`. |
+| `severity_distribution` | object | Maps each severity label to a count of **batches** (files) whose `max_severity` equals that label — a per-file rollup, not a per-issue count. A file with one BLOCKER and fifty MINOR issues counts once, under `BLOCKER`. |
+| `batching_strategy` | object | Static, human-readable restatement of the three tiers below (`tier1`, `tier2`, `tier3` keys) — included in the file itself so a reader of the JSON doesn't need this doc to understand the ordering. |
+| `batches` | array | The per-file batch records — see next table. |
+
+#### Per-batch fields (`batches[]`)
+
+| Field | Type | Meaning |
+|-------|------|---------|
+| `batch_id` | number | Sequential ID starting at 0, assigned last (Tier 3): ordered by descending `max_severity`, then descending `issue_count`, then alphabetically by `local_path`. Batch 0 is the first one the fix workflow processes. |
+| `component` | string | Raw SonarQube component key: `{projectKey}:{path-from-repo-root}`. |
+| `local_path` | string | `component` with the `{projectKey}:` prefix removed — a path relative to the repo root. |
+| `abs_path` | string | `local_path` resolved against `WORKSPACE_ROOT` — the absolute path the script reads the file from. |
+| `file_exists` | boolean | Whether the file was found on disk at batching time. Always `true` in this array — files where this would be `false` are diverted out to the `skipped_not_found` count instead of appearing here. |
+| `file_size_bytes` | number | Size of the file on disk, in bytes, at batching time. |
+| `large_file` | boolean | `true` when the file's estimated token count (`file_size_bytes` divided by ~4 chars/token) exceeds the 3,000-token threshold. Informational only — see "Large-file flagging" above; nothing in the pipeline currently changes behavior based on this flag. |
+| `max_severity` | string | The highest-ranked severity (`BLOCKER` > `CRITICAL` > `MAJOR` > `MINOR` > `INFO`) among this file's issues. Drives both the Tier 3 ordering and the top-level `severity_distribution` rollup. |
+| `issue_count` | number | Number of issues in this batch, i.e. `len(issues)`. |
+| `rules_present` | array of strings | The deduplicated, alphabetically sorted list of full rule IDs (e.g. `csharpsquid:S1481`) found anywhere among this file's issues — not a per-rule occurrence count, just which rules appear at least once. Informational only: it's used for the console summary printed when the script runs, and is not read back by the AI fix loop, which looks at each issue's own `rule` field instead. |
+| `issues` | array of objects | The trimmed issue list for this file, already sorted by Tier 2 (rule ID, then line number) — see next table. |
+
+#### Per-issue fields (`batches[].issues[]`)
+
+Each entry is a reduced version of the raw SonarQube issue — only the fields the AI prompt needs are kept.
+
+| Field | Type | Meaning |
+|-------|------|---------|
+| `line` | number or `null` | Line number of the violation. Can be `null` for issues SonarQube reports without a specific line (e.g. some file-level or type-level rules). |
+| `rule` | string | Full SonarQube rule ID, e.g. `csharpsquid:S1481`. |
+| `severity` | string | One of `BLOCKER`, `CRITICAL`, `MAJOR`, `MINOR`, `INFO`. |
+| `message` | string | SonarQube's human-readable description of the specific violation, frequently naming the offending symbol. |
+| `type` | string | One of `CODE_SMELL`, `BUG`, `VULNERABILITY`. |
 
 ---
 
